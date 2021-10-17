@@ -14,8 +14,8 @@ const Morning = ({ user }) => {
           {Auth.loggedIn() ? (
             <>
                 <h2>Good Morning, {user.name}</h2>
-                <Sleep userId={user._id} />
-                <Intention userId={user._id} />
+                <Sleep userId={user._id} sleep={user.sleep.hoursSlept} />
+                <Intention userId={user._id} intention={user.intention.intentionText } />
                 <p>Don't forget to take a picture of something that makes you smile today!</p>
             </>
           ) : (

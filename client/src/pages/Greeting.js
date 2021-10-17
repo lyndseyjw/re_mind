@@ -7,8 +7,6 @@ import Morning from '../components/Morning';
 import Day from '../components/Day';
 import Evening from '../components/Evening';
 
-import Auth from '../../utils/auth';
-
 import { QUERY_USER } from '../utils/queries';
 
 const Greeting = () => {

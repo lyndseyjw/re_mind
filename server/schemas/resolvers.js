@@ -4,7 +4,7 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    users : async () => {
+    user : async () => {
       return User.find().populate("water");
     }
 

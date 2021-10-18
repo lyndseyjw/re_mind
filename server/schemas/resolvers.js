@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { Gratitude, Intention, Mood, Outside, Picture, Sleep, User, Water } = require('../models');
+const { Gratitude, Intention, Mood, Outside, Picture, Sleep, User, Water, Social } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -71,6 +71,22 @@ const resolvers = {
         await User.findOneAndUpdate(
           { _id: context.user._id },
           { $addToSet: { sleep: sleep._id } }
+        );
+
+        return sleep;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+
+    addSocial: async (parent, { minutesEngaged }, context) => {
+      if (context.user) {
+        const social = await Social.create({
+          minutesEngaged,
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { social: social._id } }
         );
 
         return sleep;

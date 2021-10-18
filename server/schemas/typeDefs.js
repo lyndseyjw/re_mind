@@ -81,8 +81,8 @@ type User {
     addIntention(intentionText: String!): Intention
     addGratitude(gratitudeText: String!): Gratitude
     addPicture(pictureUploaded: String!): Photo
-    addMood(moodRanking): String!): Mood
-    addSocial(minutesEngaged): String!): Social
+    addMood(moodRanking: String!): Mood
+    addSocial(minutesEngaged: String!): Social
   }
 `;
 

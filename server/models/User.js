@@ -62,6 +62,12 @@ const userSchema = new Schema({
       ref: 'Mood',
     },
   ],
+  social: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Social',
+    },
+  ],
 });
 
 userSchema.pre('save', async function (next) {

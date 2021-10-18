@@ -17,19 +17,19 @@ type User {
 
   type Water {
     _id: ID
-    cups: Number
+    cups: Int
     createdAt: String
   }
 
   type Outside {
     _id: ID
-    minutesOutside: Number
+    minutesOutside: Int
     createdAt: String
   }
 
   type Sleep {
     _id: ID
-    hoursSlept: Number
+    hoursSlept: Int
     createdAt: String
   }
 
@@ -59,7 +59,7 @@ type User {
 
   type Social {
     _id: ID
-    minutesEngaged: Number
+    minutesEngaged: Int
     createdAt: String
   }
 

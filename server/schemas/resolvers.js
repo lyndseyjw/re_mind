@@ -5,8 +5,9 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
   Query: {
     user : async () => {
-      return User.find().populate("water");
+      return User.find().populate("water").populate("mood").populate("outside").populate("sleep").populate("intention").populate("social").populate("gratitude");
     }
+
 
   },
 
@@ -92,7 +93,7 @@ const resolvers = {
           { $addToSet: { social: social._id } }
         );
 
-        return sleep;
+        return social;
       }
       throw new AuthenticationError('You need to be logged in!');
     },

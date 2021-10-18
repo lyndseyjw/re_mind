@@ -81,15 +81,9 @@ type User {
     addSleep(hoursSlept: Int!): Sleep
     addIntention(intentionText: String!): Intention
     addGratitude(gratitudeText: String!): Gratitude
-<<<<<<< HEAD
-    addPicture(pictureUploaded: String!): Photo
-    addMood(moodRanking: String!): Mood
-    addSocial(minutesEngaged: String!): Social
-=======
     addPicture(pictureUploaded: String!): Picture
     addMood(moodRanking: String!): Mood
     addSocial(minutesEngaged): String!): Social
->>>>>>> 4e5d8cb771a7b4ca1983f1735ad1e54db013cea9
   }
 `;
 

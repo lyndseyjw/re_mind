@@ -57,6 +57,12 @@ type User {
     createdAt: String
   }
 
+  type Social {
+    _id: ID
+    minutesEngaged: Int
+    createdAt: String
+  }
+
   type Auth {
     token: ID!
     user: User
@@ -77,6 +83,7 @@ type User {
     addGratitude(gratitudeText: String!): Gratitude
     addPicture(pictureUploaded: String!): Picture
     addMood(moodRanking: String!): Mood
+    addSocial(minutesEngaged): String!): Social
   }
 `;
 

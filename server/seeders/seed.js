@@ -32,12 +32,13 @@ db.once('open', async () => {
         // seed data that corresponds to each user data
         for (let i = 0; i < userSeeds.length; i++) {
             // Add water
-            const { _id, cups } = await Water.create({ "cups" : Math.floor(Math.random() * 10) });
+            const { _id } = await Water.create({ "cups" : Math.floor(Math.random() * 10) });
+
             const user = await User.findOneAndUpdate(
                 { email: userSeeds[i].email },
                 {
                     $addToSet: {
-                        waters: _id,
+                        water: _id,
                     },
                 }
             );

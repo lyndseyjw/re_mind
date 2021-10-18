@@ -1,5 +1,5 @@
-{
+[{
     "name" : "John",
     "email": "j@j.com",
     "password": "password1"
-}
+}]

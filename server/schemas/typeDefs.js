@@ -17,19 +17,19 @@ type User {
 
   type Water {
     _id: ID
-    cups: Number
+    cups: Int
     createdAt: String
   }
 
   type Outside {
     _id: ID
-    minutesOutside: Number
+    minutesOutside: Int
     createdAt: String
   }
 
   type Sleep {
     _id: ID
-    hoursSlept: Number
+    hoursSlept: Int
     createdAt: String
   }
 
@@ -57,6 +57,12 @@ type User {
     createdAt: String
   }
 
+  type Social {
+    _id: ID
+    minutesEngaged: Int
+    createdAt: String
+  }
+
   type Auth {
     token: ID!
     user: User
@@ -76,6 +82,7 @@ type User {
     addGratitude(gratitudeText: String!): Gratitude
     addPicture(pictureUploaded: String!): Photo
     addMood(moodRanking): String!): Mood
+    addSocial(minutesEngaged): String!): Social
   }
 `;
 

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Sleep from './Sleep';
 import Intention from './Intention';
 
-import Auth from '../../utils/auth';
+import Auth from '../utils/auth';
 
 const Morning = ({ user }) => {
 
@@ -14,8 +14,8 @@ const Morning = ({ user }) => {
           {Auth.loggedIn() ? (
             <>
                 <h2>Good Morning, {user.name}</h2>
-                <Sleep userId={user._id} sleep={user.sleep.hoursSlept} />
-                <Intention userId={user._id} intention={user.intention.intentionText } />
+                <Sleep sleep={user.sleep.hoursSlept} />
+                <Intention intention={user.intention.intentionText } />
                 <p>Don't forget to take a picture of something that makes you smile today!</p>
             </>
           ) : (

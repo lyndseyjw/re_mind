@@ -1,7 +1,7 @@
 import React from 'react';
 import { useMutation } from '@apollo/client';
 
-import { ADD_MOOD } from '../../utils/mutations';
+import { ADD_MOOD } from '../utils/mutation';
 
 const Mood = ({ userId, mood }) => {
 

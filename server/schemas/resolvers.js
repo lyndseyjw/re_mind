@@ -4,9 +4,10 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    users : async () => {
-      return User.find().populate("water");
+    user : async () => {
+      return User.find().populate("water").populate("mood").populate("outside").populate("sleep").populate("intention").populate("social").populate("gratitude");
     }
+
 
   },
 
@@ -41,7 +42,10 @@ const resolvers = {
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { water: water._id } }
+          { $addToSet: { water: water._id } },
+          {
+            new: true,
+          }
         );
 
         return water;
@@ -57,7 +61,10 @@ const resolvers = {
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { outside: outside._id } }
+          { $addToSet: { outside: outside._id } },
+          {
+            new: true,
+          }
         );
 
         return outside;
@@ -73,7 +80,10 @@ const resolvers = {
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { sleep: sleep._id } }
+          { $addToSet: { sleep: sleep._id } },
+          {
+            new: true,
+          }
         );
 
         return sleep;
@@ -89,10 +99,13 @@ const resolvers = {
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { social: social._id } }
+          { $addToSet: { social: social._id } },
+          {
+            new: true,
+          }
         );
 
-        return sleep;
+        return social;
       }
       throw new AuthenticationError('You need to be logged in!');
     },
@@ -105,7 +118,10 @@ const resolvers = {
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { intention: intention._id } }
+          { $addToSet: { intention: intention._id } },
+          {
+            new: true,
+          }
         );
 
         return intention;
@@ -121,7 +137,10 @@ const resolvers = {
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { gratitude: gratitude._id } }
+          { $addToSet: { gratitude: gratitude._id } },
+          {
+            new: true,
+          }
         );
 
         return gratitude;
@@ -137,7 +156,10 @@ const resolvers = {
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { picture: picture._id } }
+          { $addToSet: { picture: picture._id } },
+          {
+            new: true,
+          }
         );
 
         return picture;
@@ -153,7 +175,10 @@ const resolvers = {
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { mood: mood._id } }
+          { $addToSet: { mood: mood._id } },
+          {
+            new: true,
+          }
         );
 
         return mood;

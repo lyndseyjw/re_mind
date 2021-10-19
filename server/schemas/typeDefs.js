@@ -13,6 +13,7 @@ type User {
     gratitude: [Gratitude]!
     picture: [Picture]!
     mood: [Mood]!
+    social: [Social]!
   }
 
   type Water {
@@ -53,7 +54,7 @@ type User {
 
   type Mood {
     _id: ID
-    moodRanking: String
+    moodRanking: Int
     createdAt: String
   }
 
@@ -69,7 +70,7 @@ type User {
   }
 
   type Query {
-    users: [User]
+    user: [User]
   
   }
 
@@ -82,8 +83,8 @@ type User {
     addIntention(intentionText: String!): Intention
     addGratitude(gratitudeText: String!): Gratitude
     addPicture(pictureUploaded: String!): Picture
-    addMood(moodRanking: String!): Mood
-    addSocial(minutesEngaged): String!): Social
+    addMood(moodRanking: Int!): Mood
+    addSocial(minutesEngaged: Int!): Social
   }
 `;
 

@@ -1,5 +1,61 @@
-{
+[{
     "name" : "John",
     "email": "j@j.com",
     "password": "password1"
+},
+{
+    "name" : "Sarah",
+    "email": "s@gmail.com",
+    "password": "pass2345"
+},
+{
+    "name" : "Jean",
+    "email": "jeany@email.com",
+    "password": "passwordphrase"
+},
+{
+    "name" : "Diane",
+    "email": "jackanddiane@email.com",
+    "password": "password123"
+},
+{
+    "name" : "Tyson",
+    "email": "tyty@email.com",
+    "password": "tysonpass"
+},
+{
+    "name" : "Riley",
+    "email": "rileydances@email.com",
+    "password": "rileypass"
+},
+{
+    "name" : "Steven",
+    "email": "steveo@email.com",
+    "password": "steve"
+},
+{
+    "name" : "Jason",
+    "email": "jason@email.com",
+    "password": "jjpassword"
+},
+{
+    "name" : "candice",
+    "email": "candicew@email.com",
+    "password": "yogibear"
+},
+{
+    "name" : "lyndsey",
+    "email": "lyndsey@email.com",
+    "password": "liloandstitch"
+},
+{
+    "name" : "kimberly",
+    "email": "kim@email.com",
+    "password": "oneforrestone"
+},
+{
+    "name" : "charlotte",
+    "email": "char@email.com",
+    "password": "twoforresttwo"
 }
+]

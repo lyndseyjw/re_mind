@@ -72,19 +72,20 @@ type User {
   type Query {
     user: [User]!
     userone(userId: ID!): User
+    me: User
   }
 
   type Mutation {
     addUser(name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addWater(email: String!, cups: Int!): Water
-    addOutside(email: String!, minutesOutside: Int!): Outside
-    addSleep(email: String!, hoursSlept: Int!): Sleep
-    addIntention(email: String!, intentionText: String!): Intention
-    addGratitude(email: String!, gratitudeText: String!): Gratitude
-    addPicture(email: String!, pictureUploaded: String!): Picture
-    addMood(email: String!, moodRanking: Int!): Mood
-    addSocial(email: String!, minutesEngaged: Int!): Social
+    addWater(cups: Int!): Water
+    addOutside(minutesOutside: Int!): Outside
+    addSleep(hoursSlept: Int!): Sleep
+    addIntention(intentionText: String!): Intention
+    addGratitude(gratitudeText: String!): Gratitude
+    addPicture(pictureUploaded: String!): Picture
+    addMood(moodRanking: Int!): Mood
+    addSocial(minutesEngaged: Int!): Social
   }
 `;
 

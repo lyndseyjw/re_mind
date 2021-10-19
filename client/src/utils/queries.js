@@ -11,19 +11,19 @@ export const QUERY_USER = gql`
         createdAt
       }
       outside {
-        minutes
+        minutesOutside
         createdAt
       }
       sleep {
-        hours
+        hoursSlept
         createdAt
       }
       intention {
-        intention
+        intentionText
         createdAt
       }
       gratitude {
-        gratitude
+        gratitudeText
         createdAt
       }
       picture {
@@ -31,7 +31,11 @@ export const QUERY_USER = gql`
         createdAt
       }
       mood {
-        mood
+        moodRanking
+        createdAt
+      }
+      social {
+        minutesEngaged
         createdAt
       }
     }

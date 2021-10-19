@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { Form, Button } from 'react-bootstrap'
 
-import { ADD_WATER } from '../../utils/mutations';
+import { ADD_WATER } from '../../utils/mutation';
 
 const Water = ({ water }) => {
 

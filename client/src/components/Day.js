@@ -5,7 +5,7 @@ import Water from './Water';
 import Social from './Social';
 import Outside from './Outside';
 
-import Auth from '../../utils/auth';
+import Auth from '../utils/auth';
 
 const Day = ({ user }) => {
 
@@ -16,9 +16,9 @@ const Day = ({ user }) => {
             <>
                 <h2>Lovely day, {user.name}</h2>
                 <p>{user.intention.intentionText ? (`Your intention for the day : ${intentionText}`) : ('')}</p>
-                <Water userId={user._id} water={user.water.cups} />
-                <Social userId={user._id} social={user.social.minutesEngaged } />
-                <Outside userId={user._id} outside={user.outside.minutesOutside } />
+                <Water water={user.water.cups} />
+                <Social social={user.social.minutesEngaged } />
+                <Outside outside={user.outside.minutesOutside } />
                 <p>Have you taken your picture yet today?</p>
             </>
           ) : (

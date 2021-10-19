@@ -10,12 +10,9 @@ const { Sleep } = require('../models');
 const { Social } = require('../models');
 
 const userSeeds = require('./userSeeds.json');
-// const moodSeeds = require('./moodSeeds.json');
-// const pictureSeeds = require('./pictureSeeds.json');
 const gratitudeSeeds = require('./gratitudeSeeds.json');
 const intentionSeeds = require('./intentionSeeds.json');
-// const outsideSeeds = require('./outsideSeeds.json');
-// const sleepSeeds = require('./sleepSeeds.json');
+
 
 
 

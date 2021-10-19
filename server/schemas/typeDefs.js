@@ -70,8 +70,8 @@ type User {
   }
 
   type Query {
-    user: [User]
-  
+    user: [User]!
+    userone(userId: ID!): User
   }
 
   type Mutation {

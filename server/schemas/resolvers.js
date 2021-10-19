@@ -6,8 +6,10 @@ const resolvers = {
   Query: {
     user : async () => {
       return User.find().populate("water").populate("mood").populate("outside").populate("sleep").populate("intention").populate("social").populate("gratitude");
-    }
-
+    },
+    userone : async (parent, {userId}) => {
+      return User.findOne({_id: userId});
+    },
 
   },
 

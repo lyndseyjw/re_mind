@@ -69,41 +69,34 @@ export const ADD_INTENTION = gql`
 `;
 
 export const ADD_WATER = gql`
-  mutation addWater(
-    $userId: ID!
-    $cups: Int!
+mutation addWater(
+  $userId: ID!
+  $cups: Int!
+) {
+addWater(
+    userId: $userId
+    cups: $cups
   ) {
-    addWater(
-      userId: $userId
-      cups: $cups
-    ) {
       _id
-      name
-      water {
-        _id
-        cups
-        createdAt
-      }
-    }
+      cups
+      createdAt
   }
+}
+
 `;
 
 export const ADD_SOCIAL = gql`
-  mutation addSocial(
-    $userId: ID!
-    $minutesEngaged: Int!
+mutation addSocial(
+  $userId: ID!
+  $minutesEngaged: Int!
+) {
+  addSocial(
+    userId: $userId
+    minutesEngaged: $minutesEngaged
   ) {
-    addSocial(
-      userId: $userId
-      minutesEngaged: $minutesEngaged
-    ) {
       _id
-      name
-      social {
-        _id
-        minutesEngaged
-        createdAt
-      }
+      minutesEngaged
+      createdAt
     }
   }
 `;

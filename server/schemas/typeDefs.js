@@ -71,7 +71,7 @@ type User {
 
   type Query {
     user: [User]!
-    userone(userId: ID!): User
+    userone(name: String!): User
     me: User
   }
 

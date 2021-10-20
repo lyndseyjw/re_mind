@@ -129,23 +129,19 @@ export const ADD_OUTSIDE = gql`
 `;
 
 export const ADD_GRATITUDE = gql`
-  mutation addGratitude(
-    $userId: ID!
-    $gratitudeText: Int!
-  ) {
-    addGratitude(
-      userId: $userId
-      gratitudeText: $gratitudeText
-    ) {
+mutation addGratitude(
+  $userId: ID!,
+  $gratitudeText: String!
+) {
+  addGratitude(
+    userId: $userId,
+    gratitudeText: $gratitudeText
+) {
       _id
-      name
-      gratitude {
-        _id
-        gratitudeText
-        createdAt
-      }
-    }
+      gratitudeText
+      createdAt
   }
+}
 `;
 
 export const ADD_PICTURE = gql`
@@ -169,21 +165,17 @@ export const ADD_PICTURE = gql`
 `;
 
 export const ADD_MOOD = gql`
-  mutation addMood(
-    $userId: ID!
-    $moodRanking: Int!
-  ) {
-    addMood(
-      userId: $userId
-      moodRanking: $moodRanking
-    ) {
+mutation addMood(
+  $userId: String!,
+  $moodRanking: Int!
+) {
+  addMood(
+    userId: $userId,
+    moodRanking: $moodRanking
+) {
       _id
-      name
-      mood {
-        _id
-        moodRanking
-        createdAt
-      }
-    }
+      moodRanking
+      createdAt
   }
+}
 `;

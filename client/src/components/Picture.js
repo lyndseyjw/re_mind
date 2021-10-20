@@ -16,7 +16,7 @@ const Picture = ({ userId, picture }) => {
             const { data } = await addPicture({
                 variables: {
                     userId,
-                    pictureUploaded,
+                    // pictureUploaded,
                 },
             });
 

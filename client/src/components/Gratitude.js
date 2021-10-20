@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useState} from 'react';
 import { useMutation } from '@apollo/client';
 
 import { ADD_GRATITUDE } from '../utils/mutations';

@@ -1,39 +1,41 @@
 import React, { PureComponent } from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-
+import {QUERY_WATER} from './../utils/queries';
 //function to create data, map through data
+//this is the chart on the right of dashboard that would render the water, social, etc. intake 
 
-const data = [
-  {
-    day: 'Day 1',
-    cups: 4,
+const data = [{QUERY_WATER}]
+// [
+//   {
+//     day: 'Day 1',
+//     cups: 4,
 
-  },
-  {
-    day: 'Day 2',
-    cups: 6,
-  },
-  {
-    day: 'Day 3',
-    cups: 4,
-  },
-  {
-    day: 'Day 4',
-    cups: 8,
-  },
-  {
-    day: 'Day 5',
-    cups: 6,
-  },
-  {
-    day: 'Day 6',
-    cups: 5,
-  },
-  {
-    day: 'Day 7',
-    cups: 8,
-  },
-];
+//   },
+//   {
+//     day: 'Day 2',
+//     cups: 6,
+//   },
+//   {
+//     day: 'Day 3',
+//     cups: 4,
+//   },
+//   {
+//     day: 'Day 4',
+//     cups: 8,
+//   },
+//   {
+//     day: 'Day 5',
+//     cups: 6,
+//   },
+//   {
+//     day: 'Day 6',
+//     cups: 5,
+//   },
+//   {
+//     day: 'Day 7',
+//     cups: 8,
+//   },
+// ];
 
 export default class Example extends PureComponent {
   static demoUrl = 'https://codesandbox.io/s/simple-area-chart-4ujxw';

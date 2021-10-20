@@ -1,7 +1,7 @@
 import React from 'react';
 import { useMutation } from '@apollo/client';
 
-import { ADD_SLEEP } from '../utils/mutation';
+import { ADD_SLEEP } from '../utils/mutations';
 
 const Sleep = ({ userId, sleep }) => {
 

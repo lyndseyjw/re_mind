@@ -1,7 +1,7 @@
 import React from 'react';
 import { useMutation } from '@apollo/client';
 
-import { ADD_INTENTION } from '../utils/mutation';
+import { ADD_INTENTION } from '../utils/mutations';
 
 const Intention = ({ userId, intention }) => {
 

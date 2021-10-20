@@ -1,7 +1,7 @@
 import React from 'react';
 import { useMutation } from '@apollo/client';
 
-import { ADD_GRATITUDE } from '../utils/mutation';
+import { ADD_GRATITUDE } from '../utils/mutations';
 
 const Gratitude = ({ userId, gratitude }) => {
 

@@ -1,10 +1,19 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { Form, Button } from 'react-bootstrap'
 
 import { ADD_WATER } from '../../utils/mutations';
+import { QUERY_WATER } from '../utils/queries';
 
 const Water = ({ water }) => {
+
+    const current = new Date();
+    const createdAt = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()}`;
+
+    const { water } = useQuery(QUERY_WATER, {
+        variables: { createdAt },
+    });
 
     const [cups, setCups] = useState('');
 
@@ -35,7 +44,7 @@ const Water = ({ water }) => {
         <div>
             {water ? (
                 <>
-                    <h3>You have drinken {water} cups of water so far today</h3>
+                    <h3>You have drinken {water.cups} cups of water so far today</h3>
                     <p>Would you like to add more?</p>
                     <Form.Select onChange={handleChange} aria-label="Default select example">
                         <option>Choose number of cups</option>

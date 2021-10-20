@@ -6,8 +6,17 @@ const resolvers = {
   Query: {
     user : async () => {
       return User.find().populate("water").populate("mood").populate("outside").populate("sleep").populate("intention").populate("social").populate("gratitude");
-    }
+    },
+    userone : async (parent, {email}) => {
+      return User.findOne({ email }).populate("water").populate("mood").populate("outside").populate("sleep").populate("intention").populate("social").populate("gratitude");
+    },
 
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id }).populate("water").populate("mood").populate("outside").populate("sleep").populate("intention").populate("social").populate("gratitude");
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
 
   },
 

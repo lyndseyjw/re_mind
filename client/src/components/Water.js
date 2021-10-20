@@ -3,8 +3,12 @@ import { useMutation } from '@apollo/client';
 import { useQuery } from '@apollo/client';
 import { Form, Button } from 'react-bootstrap'
 
+<<<<<<< HEAD
 import { ADD_WATER } from '../../utils/mutations';
 import { QUERY_WATER } from '../utils/queries';
+=======
+import { ADD_WATER } from '../../utils/mutation';
+>>>>>>> origin
 
 const Water = ({ water }) => {
 

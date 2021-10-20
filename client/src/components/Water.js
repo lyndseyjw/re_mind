@@ -3,12 +3,10 @@ import { useMutation } from '@apollo/client';
 import { useQuery } from '@apollo/client';
 import { Form, Button } from 'react-bootstrap'
 
-<<<<<<< HEAD
 import { ADD_WATER } from '../../utils/mutations';
 import { QUERY_WATER } from '../utils/queries';
-=======
-import { ADD_WATER } from '../../utils/mutation';
->>>>>>> origin
+
+// ahh water, our favorite example .. so below, is that tentative logic that perhaps maybe miiiight query water FOR THE SPECIFIC USER (b/c we already queried the user in Home / we are going to be using context so we will only access data specific to the user logged in) ONLY ON THE CURRENT DAY .. was trying to format it to match Date.now format .. not sure, what does Bryan think?
 
 const Water = ({ water }) => {
 
@@ -26,7 +24,7 @@ const Water = ({ water }) => {
         setCups(value);
     };
 
-    // not sure how to use cache in this instance because we would want to query the specific user .. may need to ask Bryan Monday
+    // not sure how to use cache in this instance because we would want to query the specific user .. may need to ask Bryan
     const [addWater, { error }] = useMutation(ADD_WATER);
 
     const waterSubmit = async (event) => {
@@ -43,6 +41,12 @@ const Water = ({ water }) => {
             console.error(err);
         }
     };
+
+    // here's our handy dropdown menu where user can choose the number of cups & when they submit, it will add this amount into the database
+    // the idea right now is that if we query water FOR THIS DAY & there is data, we will show the first part of the conditional statement below, which tells user how many cups they have drinken so far & ask them if they would like to add more
+    // need to find out if it's possible to concat data onto already existing data in the database / how to go about that .. is this a hook? idk, not sure how it works everytime data is added into the database i.e. each time they submit, would there just be multiple entries that all have the same date & then we total all of the cups that have matching dates? Bryyyaaaannn!!
+    // if there is not data relevant to the current date, then the user will simply be asked how much water they have drinken & they have the option of choosing & submitting
+    // let's go to Social from here...
 
     return (
         <div>

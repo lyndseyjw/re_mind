@@ -30,6 +30,9 @@ const Outside = ({ outside }) => {
         }
     };
 
+    // exact same logic as in Water & Social 
+    // Kimberly wants to do Evening but lets go here now so we can see where Dashboard / Journal could possibly come into play...
+
     return (
         <div>
             {outside ? (

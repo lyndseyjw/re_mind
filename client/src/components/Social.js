@@ -30,6 +30,9 @@ const Social = ({ social }) => {
         }
     };
 
+    // here we have the same exact idea as Water .. if there is social data for the current day, then we show them how long they have been social so far & ask if they would like to add more time .. if not, then they can just add time
+    // lets go to Outside from here ...
+
     return (
         <div>
             {social ? (

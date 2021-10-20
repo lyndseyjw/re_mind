@@ -58,6 +58,9 @@ function App() {
   // changes the value of the state
   const handlePageChange = (page) => setCurrentPage(page);
 
+  // the thought is that Home, Login, Signup & Greeting will have their own links i.e. a unique URL .. thinking Dashboard might too? that way user can bookmark, etc. & also we wont have to worry about page reloading & leaving these specific pages
+  // right now these 'Links' are set up as pages .. the 'Dashboard' is called 'Journal' at the moment but we can change that depending on how we want it presented to the user
+  // lets go to Home page from here...
   return (
     <ApolloProvider client={client}>
       <Router>

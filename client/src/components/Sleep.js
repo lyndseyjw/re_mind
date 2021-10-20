@@ -1,21 +1,26 @@
 import React from 'react';
 import { useMutation } from '@apollo/client';
+import { Form, Button } from 'react-bootstrap'
 
 import { ADD_SLEEP } from '../utils/mutations';
 
-const Sleep = ({ userId, sleep }) => {
+const Sleep = ({ sleep }) => {
 
-    // I think we will include this error down below if the user does not choose a number before clicking Submit (similar to how used in Intention component)
-    // not sure how to use cache in this instance because we would want to query the specific user .. may need to ask Bryan Monday
+const [sleep, setSleep] = useState('');
+
+    const handleChange = (e) => {
+        const { value } = e.target;
+        setSleep(value);
+    };
+
     const [addSleep, { error }] = useMutation(ADD_SLEEP);
 
-    const sleepSubmit = async (event) => {
-        event.preventDefault();
+    const sleepTotal= async (e) => {
+        e.preventDefault();
 
         try {
             const { data } = await addSleep({
                 variables: {
-                    userId,
                     hoursSlept,
                 },
             });
@@ -43,3 +48,5 @@ const Sleep = ({ userId, sleep }) => {
 }
 
 export default Sleep;
+
+

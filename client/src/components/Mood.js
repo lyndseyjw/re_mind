@@ -10,8 +10,8 @@ const Mood = ({ userId, mood }) => {
     const [addMood, { error }] = useMutation(ADD_MOOD);
 
     // maybe after user submits their mood, it will then take them to the Journal page where they can see their daily stats?
-    const moodSubmit = async (event) => {
-        event.preventDefault();
+    const moodSubmit = async (e) => {
+        e.preventDefault();
 
         try {
             const { data } = await addMood({

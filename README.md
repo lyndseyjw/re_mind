@@ -41,4 +41,4 @@ NA.
 ## License and copyright
 (c) Charlotte Clark, Kimberly Rodriguez, Lyndsey Watson and Candice Wu 
 
-Licensed under the MIT License [click here](license).
+Licensed under the MIT License: [click here](license).

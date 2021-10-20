@@ -1,4 +1,5 @@
-import React, { PureComponent , useEffect } from 'react';
+import React, { PureComponent, useEffect } from 'react';
+import Moment from 'react-moment';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_WATER } from '../utils/queries';
@@ -38,41 +39,47 @@ import { QUERY_WATER } from '../utils/queries';
 // ];
 
 export default function Chart() {
-  
-useEffect(()=>{
-  console.log(waterData)
-})
 
-  const { loading, data} = useQuery(QUERY_WATER, {
-    variables: {name : "John"}
+  useEffect(() => {
+    console.log(waterData)
+  })
+
+  const { loading, data } = useQuery(QUERY_WATER, {
+    variables: { name: "John" }
   });
 
+  
   const waterData = data?.userone.water || ['hello']
+  console.log(waterData, "hi there");
+  // waterData = waterData.map((date) => {
+  //   date.createdAt = (Moment.format = "MMMM Do YYYY");
+  // });
+
 
   return (
     <div>
       {loading ? (
         <div>Loading...</div>
       ) : (
-    <AreaChart
-      width={500}
-      height={400}
-      data={waterData}
-      margin={{
-        top: 10,
-        right: 30,
-        left: 0,
-        bottom: 0
-      }}
-    >
-      {console.log({waterData})}
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
-      <YAxis />
-      <Tooltip />
-      <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
-    </AreaChart>
-    )}
+        <AreaChart
+          width={500}
+          height={400}
+          data={waterData}
+          margin={{
+            top: 10,
+            right: 30,
+            left: 0,
+            bottom: 0
+          }}
+        >
+          {console.log({ waterData })}
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="createdAt" />
+          <YAxis />
+          <Tooltip />
+          <Area type="monotone" dataKey="cups" stroke="#8884d8" fill="#8884d8" />
+        </AreaChart>
+      )}
     </div>
   );
 }

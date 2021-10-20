@@ -1,7 +1,7 @@
 import React from 'react';
 import { useMutation } from '@apollo/client';
 
-import { ADD_PICTURE } from '../utils/mutation';
+import { ADD_PICTURE } from '../utils/mutations';
 
 const Picture = ({ userId, picture }) => {
 

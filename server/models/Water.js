@@ -10,6 +10,10 @@ const waterSchema = new Schema ({
     }
 })
 
+// waterSchema.pre('aggregate', function() {
+//     this.group({ cups, count: { $sum: 1}})
+// })
+
 const Water = model('Water', waterSchema);
 
 module.exports = Water;

@@ -2,7 +2,7 @@ import React from 'react';
 import { useMutation } from '@apollo/client';
 import { Form, Button } from 'react-bootstrap'
 
-import { ADD_OUTSIDE } from '../utils/mutation';
+import { ADD_OUTSIDE } from '../utils/mutations';
 
 const Outside = ({ outside }) => {
 

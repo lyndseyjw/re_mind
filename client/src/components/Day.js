@@ -19,7 +19,7 @@ const Day = ({ user }) => {
           {Auth.loggedIn() ? (
             <>
                 <h2>Lovely day, {user.name}</h2>
-                <p>{user.intention.intentionText ? (`Your intention for the day : ${intentionText}`) : ('')}</p>
+                <p>{user.intention.intentionText ? (`Your intention for the day : ${user.intention.intentionText}`) : ('')}</p>
                 <Water water={user.water} />
                 <Social social={user.social } />
                 <Outside outside={user.outside } />

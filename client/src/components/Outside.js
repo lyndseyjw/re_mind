@@ -1,10 +1,11 @@
-import React from 'react';
+import React , {useState} from 'react';
 import { useMutation } from '@apollo/client';
 import { Form, Button } from 'react-bootstrap'
 
 import { ADD_OUTSIDE } from '../utils/mutations';
 
-const Outside = ({ outside }) => {
+
+const Outside = (props) => {
 
     const [outside, setOutside] = useState('');
 
@@ -22,7 +23,7 @@ const Outside = ({ outside }) => {
         try {
             const { data } = await addOutside({
                 variables: {
-                    minutesOutside,
+                    // minutesOutside,
                 },
             });
         } catch (err) {

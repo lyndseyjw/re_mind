@@ -1,10 +1,10 @@
-import React from 'react';
+import React , {useState} from 'react';
 import { useMutation } from '@apollo/client';
 import { Form, Button } from 'react-bootstrap'
 
 import { ADD_SOCIAL } from '../utils/mutations';
 
-const Social = ({ social }) => {
+const Social = (props) => {
 
     const [social, setSocial] = useState('');
 
@@ -22,7 +22,7 @@ const Social = ({ social }) => {
         try {
             const { data } = await addSocial({
                 variables: {
-                    minutesEngaged,
+                    // minutesEngaged,
                 },
             });
         } catch (err) {

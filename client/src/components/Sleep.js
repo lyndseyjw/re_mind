@@ -1,10 +1,10 @@
-import React from 'react';
+import React , {useState} from 'react';
 import { useMutation } from '@apollo/client';
 import { Form, Button } from 'react-bootstrap'
 
 import { ADD_SLEEP } from '../utils/mutations';
 
-const Sleep = ({ sleep }) => {
+const Sleep = (props) => {
 
 const [sleep, setSleep] = useState('');
 
@@ -21,7 +21,7 @@ const [sleep, setSleep] = useState('');
         try {
             const { data } = await addSleep({
                 variables: {
-                    hoursSlept,
+                    // hoursSlept,
                 },
             });
 
@@ -40,7 +40,7 @@ const [sleep, setSleep] = useState('');
             <div>
               <h3>How many hours of sleep did you get last night?</h3>
                 {/* here we will need a drop down menu perhaps where users can choose the number of hours? Bootstrap React probably has something like this */}
-                <button type="submit" onSubmit={sleepSubmit}>Rested</button>
+                <button type="submit" onSubmit={sleepTotal}>Rested</button>
             </div>
           )}
         </div>

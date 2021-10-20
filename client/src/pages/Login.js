@@ -40,6 +40,11 @@ const Login = () => {
         });
     };
 
+    // im not sure if the conditional logic is correct with the 'checking for data' statement .. perhaps this can be accomplished in the aforementioned suggestion on Home page where we just check auth.logged in & this will bypass the user going to this page at all
+    // the <Link/> below to the greeting page has the user_.id as a parameter at the moment .. this was created before I fully understood context .. perhaps we can just use context instead to input user data into each page .. the idea below was that we pass in the user_.id as a parameter & then we useParams in the Greeting page to pull that out & QUERY_USER with it .. context might be the way to go however, need to play around with that
+    // if user does not have an account, there is a <Link/> below that will direct them to the Signup page
+    // lets go to the Signup page from here ...
+
     return (
         <main className="flex-row justify-center mb-4">
             <div className="col-12 col-lg-10">

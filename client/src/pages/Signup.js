@@ -38,6 +38,10 @@ const Signup = () => {
         }
     };
 
+    // here we also have this data conditional, which can be removed if we decide to go the auth.loggedIn ? route in Home instead
+    // here is also the user._id parameter within the Greeting <Link/>, which can be removed once we go the context route
+    // let's go to the Greeting page from here ...
+
     return (
         <main className="flex-row justify-center mb-4">
             <div className="col-12 col-lg-10">

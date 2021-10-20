@@ -109,23 +109,19 @@ export const ADD_SOCIAL = gql`
 `;
 
 export const ADD_OUTSIDE = gql`
-  mutation addOutside(
-    $userId: ID!
-    $minutesOutside: Int!
+mutation addOutside(
+  $userId: ID!
+  $minutesOutside: Int!
+) {
+addOutside(
+    userId: $userId
+    minutesOutside: $minutesOutside
   ) {
-    addOutside(
-      userId: $userId
-      minutesOutside: $minutesOutside
-    ) {
       _id
-      name
-      outside {
-        _id
-        minutesOutside
-        createdAt
-      }
-    }
+      minutesOutside
+      createdAt
   }
+}
 `;
 
 export const ADD_GRATITUDE = gql`

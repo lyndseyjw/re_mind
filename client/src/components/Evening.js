@@ -22,7 +22,7 @@ const Evening = ({ user }) => {
             <>
                 <h2>Good Evening, {user.name}</h2>
                 {/* wondering if in the evening we want to ask user if they 'met' their intention & then have this as a row (forget the mongoose term) within the intention document so the row would be "intentionMet" & would be a boolean */}
-                <p>{user.intention.intentionText ? (`Your intention for the day : ${intentionText}`) : ('')}</p>
+                <p>{user.intention.intentionText ? (`Your intention for the day : ${user.intention.intentionText}`) : ('')}</p>
                 {/* asking water again .. perhaps we could ask outside & social again? so they can update their time if they want OR add if they haven't yet? not sure if that will make the page too crowded though ... */}
                 <Water water={user.water} />
                 <Gratitude gratitude={user.gratitude} />

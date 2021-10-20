@@ -17,7 +17,6 @@ const Mood = ({ userId, mood }) => {
             const { data } = await addMood({
                 variables: {
                     userId,
-                    moodRanking,
                 },
             });
 

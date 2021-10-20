@@ -51,7 +51,7 @@ const Signup = () => {
                         {data ? (
                             <p>
                                 Welcome, {data.user.name}! You may now start{' '}
-                                <Link to={`/greeting/${user._id}`}>your day</Link>
+                                <Link to={`/greeting/${data.user._id}`}>your day</Link>
                             </p>
                         ) : (
                             <form onSubmit={handleFormSubmit}>

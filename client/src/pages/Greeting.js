@@ -27,18 +27,18 @@ const Greeting = () => {
 
     const user = data?.user || {};
 
-    if (moment().format('H') < 9) {
+    // if (moment().format('H') < 9) {
 
-        return <Morning user={user} />
+    //     return <Morning user={user} />
 
-    } else if (moment().format('H') < 18) {
+    // } else if (moment().format('H') < 18) {
 
-        return <Day user={user} />
+    //     return <Day user={user} />
 
-    } else {
+    // } else {
 
-        return <Evening user={user} />
-    }
+    //     return <Evening user={user} />
+    // }
 
 }
 

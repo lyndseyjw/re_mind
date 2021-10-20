@@ -14,9 +14,9 @@ import Login from "./pages/Login";
 import Greeting from "./pages/Greeting";
 import NavTabs from "./components/NavTabs";
 import Dashboard from "./components/Dashboard";
-import Upload from "./components/Upload";
-import Logout from "./components/Logout";
-import Footer from "./components/Footer";
+// import Upload from "./components/Upload";
+// import Logout from "./components/Logout";
+// import Footer from "./components/Footer";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -43,20 +43,7 @@ const client = new ApolloClient({
 });
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("Dashboard");
-
-  const renderPage = () => {
-    if (currentPage === "Dashboard") {
-      return <Dashboard />;
-    }
-    if (currentPage === "Upload") {
-      return <Upload />;
-    }
-      return <Logout />;
-  };
-
-  // changes the value of the state
-  const handlePageChange = (page) => setCurrentPage(page);
+  
 
   // the thought is that Home, Login, Signup & Greeting will have their own links i.e. a unique URL .. thinking Dashboard might too? that way user can bookmark, etc. & also we wont have to worry about page reloading & leaving these specific pages
   // right now these 'Links' are set up as pages .. the 'Dashboard' is called 'Journal' at the moment but we can change that depending on how we want it presented to the user
@@ -67,15 +54,6 @@ function App() {
         <div className="flex-column justify-flex-start min-100-vh">
           <NavTabs />
           <div className="container">
-            <div>
-              {/* We are passing the currentPage from state and the function to update it */}
-              <NavTabs
-                currentPage={currentPage}
-                handlePageChange={handlePageChange}
-              />
-              {/* Here we are calling the renderPage method which will return a component  */}
-              {renderPage()}
-            </div>
             <Route exact path="/">
               <Home />
             </Route>
@@ -89,7 +67,7 @@ function App() {
               <Greeting />
             </Route>
           </div>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </Router>
     </ApolloProvider>

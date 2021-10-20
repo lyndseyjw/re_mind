@@ -69,83 +69,68 @@ export const ADD_INTENTION = gql`
 `;
 
 export const ADD_WATER = gql`
-  mutation addWater(
-    $userId: ID!
-    $cups: Int!
+mutation addWater(
+  $userId: ID!
+  $cups: Int!
+) {
+addWater(
+    userId: $userId
+    cups: $cups
   ) {
-    addWater(
-      userId: $userId
-      cups: $cups
-    ) {
       _id
-      name
-      water {
-        _id
-        cups
-        createdAt
-      }
-    }
+      cups
+      createdAt
   }
+}
+
 `;
 
 export const ADD_SOCIAL = gql`
-  mutation addSocial(
-    $userId: ID!
-    $minutesEngaged: Int!
+mutation addSocial(
+  $userId: ID!
+  $minutesEngaged: Int!
+) {
+  addSocial(
+    userId: $userId
+    minutesEngaged: $minutesEngaged
   ) {
-    addSocial(
-      userId: $userId
-      minutesEngaged: $minutesEngaged
-    ) {
       _id
-      name
-      social {
-        _id
-        minutesEngaged
-        createdAt
-      }
+      minutesEngaged
+      createdAt
     }
   }
 `;
 
 export const ADD_OUTSIDE = gql`
-  mutation addOutside(
-    $userId: ID!
-    $minutesOutside: Int!
+mutation addOutside(
+  $userId: ID!
+  $minutesOutside: Int!
+) {
+addOutside(
+    userId: $userId
+    minutesOutside: $minutesOutside
   ) {
-    addOutside(
-      userId: $userId
-      minutesOutside: $minutesOutside
-    ) {
       _id
-      name
-      outside {
-        _id
-        minutesOutside
-        createdAt
-      }
-    }
+      minutesOutside
+      createdAt
   }
+}
 `;
 
 export const ADD_GRATITUDE = gql`
-  mutation addGratitude(
-    $userId: ID!
-    $gratitudeText: Int!
-  ) {
-    addGratitude(
-      userId: $userId
-      gratitudeText: $gratitudeText
-    ) {
+mutation addGratitude(
+  $userId: ID!,
+  $gratitudeText: String!
+) {
+  addGratitude(
+    userId: $userId,
+    gratitudeText: $gratitudeText
+) {
       _id
-      name
-      gratitude {
-        _id
-        gratitudeText
-        createdAt
-      }
-    }
+      gratitudeText
+      createdAt
   }
+}
 `;
 
 export const ADD_PICTURE = gql`
@@ -169,21 +154,17 @@ export const ADD_PICTURE = gql`
 `;
 
 export const ADD_MOOD = gql`
-  mutation addMood(
-    $userId: ID!
-    $moodRanking: Int!
-  ) {
-    addMood(
-      userId: $userId
-      moodRanking: $moodRanking
-    ) {
+mutation addMood(
+  $userId: String!,
+  $moodRanking: Int!
+) {
+  addMood(
+    userId: $userId,
+    moodRanking: $moodRanking
+) {
       _id
-      name
-      mood {
-        _id
-        moodRanking
-        createdAt
-      }
-    }
+      moodRanking
+      createdAt
   }
+}
 `;

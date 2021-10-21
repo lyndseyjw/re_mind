@@ -30,20 +30,14 @@ export const ADD_USER = gql`
 
 export const ADD_SLEEP = gql`
   mutation addSleep(
-    $userId: ID!
     $hoursSlept: Int!
   ) {
     addSleep(
-      userId: $userId
       hoursSlept: $hoursSlept
     ) {
       _id
-      name
-      sleep {
-        _id
-        hoursSlept
-        createdAt
-      }
+      hoursSlept
+      createdAt
     }
   }
 `;

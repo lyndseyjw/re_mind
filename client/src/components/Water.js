@@ -40,7 +40,7 @@ const Water = ({ cupsDrinken }) => {
             window.location.replace('/greeting')
 
         } catch (err) {
-            console.error('hello');
+            console.error(err);
         }
     };
 
@@ -109,7 +109,7 @@ const Water = ({ cupsDrinken }) => {
                         <option value="23">Twenty-Three</option>
                         <option value="24">Twenty-Four</option>
                     </Form.Select>
-                    <Button variant="light" type="submit" onSubmit={waterSubmit}>Hydrated</Button>
+                    <Button variant="light" type="submit" onClick={waterSubmit}>Hydrated</Button>
                 </div>
             )}
         </div>

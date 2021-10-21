@@ -17,7 +17,7 @@ const Greeting = () => {
 
     console.log(user)
 
-    if (window.moment().format('H') < 9) {
+    if (window.moment().format('H') < 16) {
 
         return <Morning user={user} />
 

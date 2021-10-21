@@ -10,8 +10,10 @@ const waterSchema = new Schema ({
     }
 })
 
+// hook to convert createdAt into simplified date (otherwise will be unix)?
+
 // waterSchema.pre('aggregate', function() {
-//     this.group({ cups, count: { $sum: 1}})
+
 // })
 
 const Water = model('Water', waterSchema);

@@ -21,12 +21,16 @@ const Morning = ({ user }) => {
     // const hoursSlept = sleep.hoursSlept
   })
 
+  function calcSleep() {
+    user.sleep.forEach()
+  }
+
   return (
     <div>
       {Auth.loggedIn() ? (
         <>
             <h2>Good Morning, {user.name}</h2>
-            {/* <Sleep hoursSlept={hoursSlept} /> */}
+            {/* <Sleep hoursSlept={user.sleep} /> */}
             {/* <Intention intention={user.intention } /> */}
             <p>Don't forget to take a picture of something that makes you smile today!</p>
         </>

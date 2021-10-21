@@ -89,10 +89,6 @@ export const QUERY_ME = gql`
         gratitudeText
         createdAt
       }
-      picture {
-        picture
-        createdAt
-      }
       mood {
         moodRanking
         createdAt

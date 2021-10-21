@@ -7,8 +7,8 @@ const resolvers = {
     user : async () => {
       return User.find().populate("water").populate("mood").populate("outside").populate("sleep").populate("intention").populate("social").populate("gratitude");
     },
-    userone : async (parent, {email}) => {
-      return User.findOne({ email }).populate("water").populate("mood").populate("outside").populate("sleep").populate("intention").populate("social").populate("gratitude");
+    userone : async ( parent, { name }) => {
+      return User.findOne({ name }).populate("water").populate("mood").populate("outside").populate("sleep").populate("intention").populate("social").populate("gratitude");
     },
 
     me: async (parent, args, context) => {

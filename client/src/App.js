@@ -13,7 +13,8 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Greeting from "./pages/Greeting";
 import NavTabs from "./components/NavTabs";
-import Dashboard from "./components/Dashboard";
+import Chart from './components/Chart';
+// import Dashboard from "./components/Dashboard";
 // import Upload from "./components/Upload";
 // import Logout from "./components/Logout";
 // import Footer from "./components/Footer";
@@ -67,6 +68,7 @@ function App() {
               <Greeting />
             </Route>
           </div>
+          <Chart />
           {/* <Footer /> */}
         </div>
       </Router>

@@ -1,13 +1,23 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_WATER = gql`
-  query getWater($createdAt: Date!) {
-    water(createdAt: $createdAt) {
-      _id
-      cups
+query userone ($name:String!){
+  userone (name:$name){
+    water {
+     createdAt
+     cups
     }
   }
+ }
 `;
+
+// query getWater($createdAt: Date!) {
+//   water(createdAt: $createdAt) {
+//     _id
+//     cups
+//   }
+// }
+
 
 export const QUERY_ME = gql`
   query me {

@@ -1,45 +1,14 @@
-import React, { PureComponent } from 'react';
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Water from './Water';
+import Social from './Social';
+import Outside from './Outside';
+import Chart from '../utils/auth';
+import Auth from '../utils/auth';
 
-//function to create data, map through data
-
-const data = [
-  {
-    day: 'Day 1',
-    cups: 4,
-
-  },
-  {
-    day: 'Day 2',
-    cups: 6,
-  },
-  {
-    day: 'Day 3',
-    cups: 4,
-  },
-  {
-    day: 'Day 4',
-    cups: 8,
-  },
-  {
-    day: 'Day 5',
-    cups: 6,
-  },
-  {
-    day: 'Day 6',
-    cups: 5,
-  },
-  {
-    day: 'Day 7',
-    cups: 8,
-  },
-];
-
-export default class Example extends PureComponent {
-  static demoUrl = 'https://codesandbox.io/s/simple-area-chart-4ujxw';
-
-  render() {
+export default function Dashboard() {
     return (
+
 
 <div>
 <Datepicker
@@ -95,3 +64,11 @@ export default class Example extends PureComponent {
   }
   </div>
 }
+
+//         <div>
+//             <Chart />
+
+//         </div>
+//     );
+//   }
+

@@ -7,6 +7,7 @@ const resolvers = {
     user : async () => {
       return User.find().populate("water").populate("mood").populate("outside").populate("sleep").populate("intention").populate("social").populate("gratitude");
     },
+    
     userone : async ( parent, { name }) => {
       return User.findOne({ name }).populate("water").populate("mood").populate("outside").populate("sleep").populate("intention").populate("social").populate("gratitude");
     },
@@ -26,6 +27,7 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
@@ -43,6 +45,7 @@ const resolvers = {
 
       return { token, user };
     },
+
     addWater: async (parent, { userId, cups }, context) => {
       if (true) {
         const water= await Water.create({

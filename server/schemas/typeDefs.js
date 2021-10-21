@@ -70,7 +70,7 @@ type User {
   }
 
   type Query {
-    user: [User]!
+    user: [User]
     userone(name: String!): User
     me: User
   }

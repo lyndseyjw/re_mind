@@ -51,12 +51,12 @@ const Login = () => {
                 <div className="card">
                     <h4 className="card-header bg-dark text-light p-2">Login</h4>
                     <div className="card-body">
-                        {data ? (
+                        {/* {data ? (
                             <p>
                                 Welcome back, {data.user.name}! You may now start{' '}
                                 <Link to={`/greeting/me`}>your day</Link>
                             </p>
-                        ) : (
+                        ) : ( */}
                         <card>
 
                             <form onSubmit={handleFormSubmit}>
@@ -89,7 +89,7 @@ const Login = () => {
                             </form>
 
                         </card>
-                        )}
+                        {/* )} */}
 
                         {error && (
                             <div className="my-3 p-3 bg-danger text-white">

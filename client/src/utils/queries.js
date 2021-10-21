@@ -105,8 +105,7 @@ export const QUERY_ME = gql`
   }
 `;
 
-// perhaps we only need QUERY_ME but we can keep?
-export const QUERY_USER = gql`
+export const QUERY_USERONE = gql`
   query user($userId: ID!) {
     user(userId: $userId) {
       _id

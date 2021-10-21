@@ -8,8 +8,8 @@ const gratitudeSchema = new Schema ({
         trim: true,
     },
     createdAt: {
-        type: Date,
-        default: Date.now,
+        type: String,
+        default: Date, 
     }
 })
 

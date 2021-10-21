@@ -70,19 +70,16 @@ export const ADD_INTENTION = gql`
 
 export const ADD_WATER = gql`
 mutation addWater(
-  $userId: ID!
   $cups: Int!
 ) {
 addWater(
-    userId: $userId
     cups: $cups
   ) {
       _id
       cups
       createdAt
+    }
   }
-}
-
 `;
 
 export const ADD_SOCIAL = gql`

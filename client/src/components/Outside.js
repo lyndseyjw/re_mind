@@ -5,7 +5,7 @@ import { Form, Button } from 'react-bootstrap'
 import { ADD_OUTSIDE } from '../utils/mutations';
 
 
-const Outside = (props) => {
+const Outside = ({ timeOutside }) => {
 
     const [outside, setOutside] = useState('');
 
@@ -36,9 +36,9 @@ const Outside = (props) => {
 
     return (
         <div>
-            {outside ? (
+            {timeOutside ? (
                 <>
-                    <h3>You've been outside for {outside} minutes so far today</h3>
+                    <h3>You've been outside for {timeOutside} minutes so far today</h3>
                     <p>Any more outside time you want to add?</p>
                     <Form.Select onChange={handleChange} aria-label="Default select example">
                         <option>Choose how long</option>

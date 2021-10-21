@@ -78,7 +78,7 @@ type User {
   type Mutation {
     addUser(name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addWater(userId: ID!, cups: Int!): Water
+    addWater(cups: Int!): Water
     addOutside(userId: ID!, minutesOutside: Int!): Outside
     addSleep(userId: ID!, hoursSlept: Int!): Sleep
     addIntention(userId: ID!, intentionText: String!): Intention

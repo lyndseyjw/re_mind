@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { useQuery } from '@apollo/client';
+// import { useQuery } from '@apollo/client';
 import { Form, Button } from 'react-bootstrap'
 
 import { ADD_WATER } from '../utils/mutations';
-import { QUERY_WATER } from '../utils/queries';
+// import { QUERY_WATER } from '../utils/queries';
 
 // ahh water, our favorite example .. so below, is that tentative logic that perhaps maybe miiiight query water FOR THE SPECIFIC USER (b/c we already queried the user in Home / we are going to be using context so we will only access data specific to the user logged in) ONLY ON THE CURRENT DAY .. was trying to format it to match Date.now format .. not sure, what does Bryan think?
 
-const Water = (props) => {
+const Water = ({ cupsDrinken }) => {
 
-    const current = new Date();
-    const createdAt = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()}`;
+    // const current = new Date();
+    // const createdAt = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()}`;
 
-    const { water } = useQuery(QUERY_WATER, {
-        variables: { createdAt },
-    });
+    // const { water } = useQuery(QUERY_WATER, {
+    //     variables: { createdAt },
+    // });
 
     const [cups, setCups] = useState('');
 
@@ -29,30 +29,26 @@ const Water = (props) => {
 
     const waterSubmit = async (event) => {
         event.preventDefault();
+        const cupsInt = parseInt(cups)
 
         try {
             const { data } = await addWater({
                 variables: {
-                    cups,
+                    cups: cupsInt,
                 },
             });
+            window.location.replace('/greeting')
 
         } catch (err) {
-            console.error(err);
+            console.error('hello');
         }
     };
 
-    // here's our handy dropdown menu where user can choose the number of cups & when they submit, it will add this amount into the database
-    // the idea right now is that if we query water FOR THIS DAY & there is data, we will show the first part of the conditional statement below, which tells user how many cups they have drinken so far & ask them if they would like to add more
-    // need to find out if it's possible to concat data onto already existing data in the database / how to go about that .. is this a hook? idk, not sure how it works everytime data is added into the database i.e. each time they submit, would there just be multiple entries that all have the same date & then we total all of the cups that have matching dates? Bryyyaaaannn!!
-    // if there is not data relevant to the current date, then the user will simply be asked how much water they have drinken & they have the option of choosing & submitting
-    // let's go to Social from here...
-
     return (
         <div>
-            {water ? (
+            {cupsDrinken ? (
                 <>
-                    <h3>You have drinken {water.cups} cups of water so far today</h3>
+                    <h3>You've drinken {cupsDrinken} cups of water so far today</h3>
                     <p>Would you like to add more?</p>
                     <Form.Select onChange={handleChange} aria-label="Default select example">
                         <option>Choose number of cups</option>
@@ -60,7 +56,7 @@ const Water = (props) => {
                         <option value="2">Two</option>
                         <option value="3">Three</option>
                         <option value="4">Four</option>
-                        <option value="5">Fiv</option>
+                        <option value="5">Five</option>
                         <option value="6">Six</option>
                         <option value="7">Seven</option>
                         <option value="8">Eight</option>
@@ -81,7 +77,7 @@ const Water = (props) => {
                         <option value="23">Twenty-Three</option>
                         <option value="24">Twenty-Four</option>
                     </Form.Select>
-                    <Button variant="light" type="submit" onSubmit={waterSubmit}>Hydrated</Button>
+                    <Button variant="light" type="submit" onClick={waterSubmit}>Hydrated</Button>
                 </>
             ) : (
                 <div>

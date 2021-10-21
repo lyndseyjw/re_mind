@@ -12,9 +12,9 @@ import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Greeting from "./pages/Greeting";
-import NavTabs from "./components/NavTabs";
-import Chart from './components/Chart';
-import CalendarPage from './components/Calendar';
+// import NavTabs from "./components/NavTabs";
+// import Chart from './components/Chart';
+// import CalendarPage from './components/Calendar';
 // import Dashboard from "./components/Dashboard";
 // import Upload from "./components/Upload";
 // import Logout from "./components/Logout";
@@ -51,7 +51,7 @@ function App() {
     <ApolloProvider client={client} >
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
-          <NavTabs />
+          {/* <NavTabs /> */}
           <div className="container">
             <Route exact path="/">
               <Home />
@@ -66,8 +66,8 @@ function App() {
               <Greeting />
             </Route>
           </div>
-          <Chart />
-          <CalendarPage />
+          {/* <Chart />
+          <CalendarPage /> */}
           {/* <Footer /> */}
         </div>
       </Router>

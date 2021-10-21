@@ -30,20 +30,14 @@ export const ADD_USER = gql`
 
 export const ADD_SLEEP = gql`
   mutation addSleep(
-    $userId: ID!
     $hoursSlept: Int!
   ) {
     addSleep(
-      userId: $userId
       hoursSlept: $hoursSlept
     ) {
       _id
-      name
-      sleep {
-        _id
-        hoursSlept
-        createdAt
-      }
+      hoursSlept
+      createdAt
     }
   }
 `;
@@ -84,11 +78,9 @@ addWater(
 
 export const ADD_SOCIAL = gql`
 mutation addSocial(
-  $userId: ID!
   $minutesEngaged: Int!
 ) {
   addSocial(
-    userId: $userId
     minutesEngaged: $minutesEngaged
   ) {
       _id
@@ -100,11 +92,9 @@ mutation addSocial(
 
 export const ADD_OUTSIDE = gql`
 mutation addOutside(
-  $userId: ID!
   $minutesOutside: Int!
 ) {
 addOutside(
-    userId: $userId
     minutesOutside: $minutesOutside
   ) {
       _id

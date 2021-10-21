@@ -10,7 +10,7 @@ const Outside = ({ timeOutside }) => {
     const [outside, setOutside] = useState('');
 
     const handleChange = (event) => {
-        const { name, value } = event.target;
+        const { value } = event.target;
         setOutside(value);
     };
 
@@ -19,20 +19,19 @@ const Outside = ({ timeOutside }) => {
 
     const outsideSubmit = async (event) => {
         event.preventDefault();
+        const outsideInt = parseInt(outside)
 
         try {
             const { data } = await addOutside({
                 variables: {
-                    // minutesOutside,
+                    minutesOutside: outsideInt,
                 },
             });
+            window.location.replace('/greeting')
         } catch (err) {
             console.error(err);
         }
     };
-
-    // exact same logic as in Water & Social 
-    // Kimberly wants to do Evening but lets go here now so we can see where Dashboard / Journal could possibly come into play...
 
     return (
         <div>
@@ -63,7 +62,7 @@ const Outside = ({ timeOutside }) => {
                         <option value="175">2 Hours 45 Mins</option>
                         <option value="190">3 Hours</option>
                     </Form.Select>
-                    <Button variant="light" type="submit" onSubmit={outsideSubmit}>Into the Wild</Button>
+                    <Button variant="light" type="submit" onClick={outsideSubmit}>Into the Wild</Button>
                 </>
             ) : (
                 <div>
@@ -92,7 +91,7 @@ const Outside = ({ timeOutside }) => {
                         <option value="175">2 Hours 45 Mins</option>
                         <option value="190">3 Hours</option>
                     </Form.Select>
-                    <Button variant="light" type="submit" onSubmit={outsideSubmit}>Into the Wild</Button>
+                    <Button variant="light" type="submit" onClick={outsideSubmit}>Into the Wild</Button>
                 </div>
             )}
         </div>

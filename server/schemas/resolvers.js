@@ -7,14 +7,13 @@ const resolvers = {
     user : async () => {
       return User.find().populate("water").populate("mood").populate("outside").populate("sleep").populate("intention").populate("social").populate("gratitude");
     },
-    
+
     userone : async ( parent, { _id }) => {
       return User.findOne({ id }).populate("water").populate("mood").populate("outside").populate("sleep").populate("intention").populate("social").populate("gratitude");
     },
-
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate("water").populate("mood").populate("outside").populate("sleep").populate("intention").populate("social").populate("gratitude");
+        return User.findOne({ _id: context.user._id }).populate("water").populate("mood").populate("outside").populate("picture").populate("sleep").populate("intention").populate("social").populate("gratitude");
       }
       throw new AuthenticationError('You need to be logged in!');
     },
@@ -47,13 +46,13 @@ const resolvers = {
     },
 
     addWater: async (parent, { userId, cups }, context) => {
-      if (true) {
+      if (context.user) {
         const water= await Water.create({
           cups,
         });
 
         await User.findOneAndUpdate(
-          { _id: userId },
+          { _id: context.user._id },
           { $addToSet: { water: water._id } },
           {
             new: true,
@@ -66,13 +65,13 @@ const resolvers = {
     },
 
     addOutside: async (parent, { userId, minutesOutside }, context) => {
-      if (true) {
+      if (context.user) {
         const outside = await Outside.create({
           minutesOutside,
         });
 
         await User.findOneAndUpdate(
-          { _id: userId },
+          { _id: context.user._id },
           { $addToSet: { outside: outside._id } },
           {
             new: true,
@@ -85,13 +84,13 @@ const resolvers = {
     },
 
     addSleep: async (parent, { userId, hoursSlept }, context) => {
-      if (true) {
+      if (context.user) {
         const sleep = await Sleep.create({
           hoursSlept,
         });
 
         await User.findOneAndUpdate(
-          { _id: userId },
+          { _id: context.user._id },
           { $addToSet: { sleep: sleep._id } },
           {
             new: true,
@@ -104,13 +103,13 @@ const resolvers = {
     },
 
     addSocial: async (parent, { userId, minutesEngaged }, context) => {
-      if (true) {
+      if (context.user) {
         const social = await Social.create({
           minutesEngaged,
         });
 
         await User.findOneAndUpdate(
-          { _id: userId },
+          { _id: context.user._id },
           { $addToSet: { social: social._id } },
           {
             new: true,
@@ -123,13 +122,13 @@ const resolvers = {
     },
 
     addIntention: async (parent, { userId, intentionText }, context) => {
-      if (true) {
+      if (context.user) {
         const intention = await Intention.create({
           intentionText,
         });
 
         await User.findOneAndUpdate(
-          { _id: userId },
+          { _id: context.user._id },
           { $addToSet: { intention: intention._id } },
           {
             new: true,
@@ -142,13 +141,13 @@ const resolvers = {
     },
 
     addGratitude: async (parent, { userId, gratitudeText }, context) => {
-      if (true) {
+      if (context.user) {
         const gratitude = await Gratitude.create({
           gratitudeText,
         });
 
         await User.findOneAndUpdate(
-          { _id: userId },
+          { _id: context.user._id },
           { $addToSet: { gratitude: gratitude._id } },
           {
             new: true,
@@ -161,13 +160,13 @@ const resolvers = {
     },
 
     addPicture: async (parent, { userId, pictureUploaded }, context) => {
-      if (true) {
+      if (context.user) {
         const picture = await Picture.create({
           pictureUploaded,
         });
 
         await User.findOneAndUpdate(
-          { _id: userId, },
+          { _id: context.user._id },
           { $addToSet: { picture: picture._id } },
           {
             new: true,
@@ -180,13 +179,13 @@ const resolvers = {
     },
 //removed context for testing
     addMood: async (parent, { userId, moodRanking }) => {
-      if (true) {
+      if (context.user) {
         const mood = await Mood.create({
           moodRanking,
         });
 
         await User.findOneAndUpdate(
-          { _id: userId },
+          { _id: context.user._id},
           { $addToSet: { mood: mood._id } },
           {
             new: true,

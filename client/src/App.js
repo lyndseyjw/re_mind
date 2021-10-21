@@ -68,7 +68,7 @@ function App() {
             <Route exact path="/signup">
               <Signup />
             </Route>
-            <Route exact path="/greeting/me">
+            <Route exact path="/greeting">
               <Greeting />
             </Route>
           </div>

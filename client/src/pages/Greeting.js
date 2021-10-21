@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 // import moment from 'moment';
 
 import { Redirect, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import Morning from '../components/Morning';
-// import Day from '../components/Day';
-// import Evening from '../components/Evening';
+import Day from '../components/Day';
+import Evening from '../components/Evening';
 
-import { QUERY_USERONE, QUERY_ME } from '../utils/queries';
+import { QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
@@ -19,24 +19,31 @@ import Auth from '../utils/auth';
 // lets go to Morning component from here ...
 
 const Greeting = () => {
+    useEffect(() =>{
+        console.log(data)
+    })
 
-    // Use `useParams()` to retrieve value of the route parameter `:userId`
-    const { name: userParam } = useParams();
+    const { loading, data } = useQuery(QUERY_ME);
 
-    const { data } = useQuery(userParam ? QUERY_USERONE : QUERY_ME, {
-        // pass URL parameter
-        variables: { name: userParam },
-    });
-
-    const user = data?.me || data?.user || {};
-
+    const user = data?.me || {};
+    // return ( 
+    //     <div>
+    //     {loading ? (
+    //         <div> Loading...</div> 
+    //     ) : (
+    //     <div>
+    //         Greeting
+    //     </div>
+    //     )}
+    //     </div>
+    //     )
     return <Morning user={user} />
 
-    // if (moment().format('H') < 9) {
+    // if (window.moment().format('H') < 9) {
 
     //     return <Morning user={user} />
 
-    // } else if (moment().format('H') < 18) {
+    // } else if (window.moment().format('H') < 18) {
 
     //     return <Day user={user} />
 

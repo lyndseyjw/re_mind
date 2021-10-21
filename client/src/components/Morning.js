@@ -14,16 +14,19 @@ import Auth from '../utils/auth';
 // Kimberly wants to do Sleep & Intention so let's go to the Day page from here ...
 
 const Morning = ({ user }) => {
-
-  const sleep = user.filter(sleep => sleep.createdAt === moment())
+  const sleep = user.sleep.filter(night=> night.createdAt === moment())
   const hoursSlept = sleep.hoursSlept
+
+  function calcSleep() {
+    user.sleep.forEach()
+  }
 
   return (
     <div>
       {Auth.loggedIn() ? (
         <>
             <h2>Good Morning, {user.name}</h2>
-            <Sleep hoursSlept={hoursSlept} />
+            {/* <Sleep hoursSlept={user.sleep} /> */}
             {/* <Intention intention={user.intention } /> */}
             <p>Don't forget to take a picture of something that makes you smile today!</p>
         </>

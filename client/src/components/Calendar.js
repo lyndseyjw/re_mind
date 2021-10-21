@@ -4,7 +4,7 @@ import 'react-calendar/dist/Calendar.css';
 
 //this is the calendar on the left side of dashboard that'll show the 30-day calendar, allow for colors
 
-function MyApp() {
+export default function CalendarPage() {
   const [value, onChange] = useState(new Date());
 
   return (
@@ -16,3 +16,4 @@ function MyApp() {
     </div>
   );
 }
+

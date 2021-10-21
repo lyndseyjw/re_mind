@@ -12,6 +12,7 @@ import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Greeting from "./pages/Greeting";
+import Picture from "./components/Picture";
 // import NavTabs from "./components/NavTabs";
 // import Chart from './components/Chart';
 // import CalendarPage from './components/Calendar';
@@ -34,11 +35,11 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
-// const client = new ApolloClient({
-//   // Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API
-//   link: authLink.concat(httpLink),
-//   cache: new InMemoryCache(),
-// });
+const client = new ApolloClient({
+  // Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API
+  link: "/graphql",
+  cache: new InMemoryCache(),
+});
 
 function App() {
   
@@ -52,6 +53,7 @@ function App() {
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
           {/* <NavTabs /> */}
+          <Picture /> 
           <div className="container">
             <Route exact path="/">
               <Home />
@@ -62,7 +64,7 @@ function App() {
             <Route exact path="/signup">
               <Signup />
             </Route>
-            <Route exact path="/greeting/:userId">
+            <Route exact path="/greeting/me">
               <Greeting />
             </Route>
           </div>

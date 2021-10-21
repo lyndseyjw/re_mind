@@ -1,14 +1,14 @@
 import React from "react";
-import React, { useState } from "react";
+import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
-import { useMutation } from "@apollo/client";
-import { ADD_MOOD } from "../utils/mutations";
+// import { useMutation } from "@apollo/client";
+// import { ADD_MOOD } from "../utils/mutations";
 
 //Mood Modal Setup
 function Mood() {
   const [mood, setMood] = useState([1, 2, 3]);
   const [emoji, setEmoji] = useState([
-    <span role="img" aria-label="happy-face" id="happy">
+   <span role="img" aria-label="happy-face" id="happy">
       😃
     </span>,
     <span role="img" aria-label="neutral-face" id="nutral">
@@ -19,7 +19,7 @@ function Mood() {
     </span>,
   ]);
 
-  // MoodRacking Logic 
+  //MoodRacking Logic 
   const moodRanking = () => {
 
   setEmoji === happy ? 3 : 0,
@@ -27,7 +27,7 @@ function Mood() {
   setEmoji === sad ? 1 : 0
   }
   
- // Modal + Racking Display
+ //Modal + Racking Display
   return (
     <Modal.Dialog>
       <Modal.Header closeButton>
@@ -59,8 +59,8 @@ function Mood() {
       </Modal.Body>
 
       <Modal.Footer>
-        <Button variant="secondary">Close</Button>
-        <Button variant="primary">Save</Button>
+        {/* <Button variant="secondary">Close</Button>
+        <Button variant="primary">Save</Button> */}
       </Modal.Footer>
     </Modal.Dialog>
   );

@@ -1,45 +1,45 @@
-import React, { PureComponent } from 'react';
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Water from './Water';
+import Social from './Social';
+import Outside from './Outside';
+import Chart from '../utils/auth';
+import Auth from '../utils/auth';
 
-//function to create data, map through data
-
-const data = [
-  {
-    day: 'Day 1',
-    cups: 4,
-
-  },
-  {
-    day: 'Day 2',
-    cups: 6,
-  },
-  {
-    day: 'Day 3',
-    cups: 4,
-  },
-  {
-    day: 'Day 4',
-    cups: 8,
-  },
-  {
-    day: 'Day 5',
-    cups: 6,
-  },
-  {
-    day: 'Day 6',
-    cups: 5,
-  },
-  {
-    day: 'Day 7',
-    cups: 8,
-  },
-];
-
-export default class Example extends PureComponent {
-  static demoUrl = 'https://codesandbox.io/s/simple-area-chart-4ujxw';
-
-  render() {
+export default function Dashboard() {
     return (
+
+
+
+<div>
+<Datepicker
+    marked={[
+        { 
+            date: new Date(year, month, 2), 
+            color: '#46c4f3'
+        }, { 
+            date: new Date(year, month, 10), 
+            color: '#7e56bd'
+        }, { 
+            date: new Date(year, month, 13), 
+            color: '#f13f77'
+        }, { 
+            date: new Date(year, month, 13), 
+            color: '#89d7c9'
+        }, { 
+            date: new Date(year, month, 21), 
+            color: '#ffc400'
+        }, { 
+            date: new Date(year, month, 21), 
+            color: '#8dec7d'
+        },{ 
+            recurring: { 
+                repeat: 'yearly', month: 4, day: 1
+            },
+            color: 'ffc400'
+        }
+      ]}/>
+
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart width={730} height={250} data={data}
           margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
@@ -63,4 +63,13 @@ export default class Example extends PureComponent {
       </ResponsiveContainer>
     );
   }
+  </div>
 }
+
+//         <div>
+//             <Chart />
+
+//         </div>
+//     );
+//   }
+

@@ -31,7 +31,7 @@ const Signup = () => {
             const { data } = await addUser({
                 variables: { ...formState },
             });
-
+            console.log(data)
             Auth.login(data.addUser.token);
         } catch (e) {
             console.error(e);
@@ -48,12 +48,12 @@ const Signup = () => {
                 <div className="card">
                     <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
                     <div className="card-body">
-                        {data ? (
+                        {/* {data ? (
                             <p>
                                 Welcome, {data.user.name}! You may now start{' '}
-                                <Link to={`/greeting/${user._id}`}>your day</Link>
+                                <Link to={`/greeting/${data.user._id}`}>your day</Link>
                             </p>
-                        ) : (
+                        ) : ( */}
                             <form onSubmit={handleFormSubmit}>
                                 <input
                                     className="form-input"
@@ -87,7 +87,7 @@ const Signup = () => {
                                     Join
                                 </button>
                             </form>
-                        )}
+                        {/* )} */}
 
                         {error && (
                             <div className="my-3 p-3 bg-danger text-white">

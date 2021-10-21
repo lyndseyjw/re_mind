@@ -5,8 +5,8 @@ const waterSchema = new Schema ({
         type: Number,
     },
     createdAt: {
-        type: Date,
-        default: Date.now,
+        type: String,
+        default: Date,
     }
 })
 

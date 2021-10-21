@@ -7,8 +7,9 @@ const resolvers = {
     user : async () => {
       return User.find().populate("water").populate("mood").populate("outside").populate("sleep").populate("intention").populate("social").populate("gratitude");
     },
-    userone : async (parent, {email}) => {
-      return User.findOne({ email }).populate("water").populate("mood").populate("outside").populate("sleep").populate("intention").populate("social").populate("gratitude");
+    
+    userone : async ( parent, { name }) => {
+      return User.findOne({ name }).populate("water").populate("mood").populate("outside").populate("sleep").populate("intention").populate("social").populate("gratitude");
     },
 
     me: async (parent, args, context) => {
@@ -26,6 +27,7 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
@@ -43,14 +45,15 @@ const resolvers = {
 
       return { token, user };
     },
-    addWater: async (parent, { cups }, context) => {
-      if (context.user) {
+
+    addWater: async (parent, { userId, cups }, context) => {
+      if (true) {
         const water= await Water.create({
           cups,
         });
 
         await User.findOneAndUpdate(
-          { _id: context.user._id },
+          { _id: userId },
           { $addToSet: { water: water._id } },
           {
             new: true,
@@ -62,14 +65,14 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
 
-    addOutside: async (parent, { minutesOutside }, context) => {
-      if (context.user) {
+    addOutside: async (parent, { userId, minutesOutside }, context) => {
+      if (true) {
         const outside = await Outside.create({
           minutesOutside,
         });
 
         await User.findOneAndUpdate(
-          { _id: context.user._id },
+          { _id: userId },
           { $addToSet: { outside: outside._id } },
           {
             new: true,
@@ -81,14 +84,14 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
 
-    addSleep: async (parent, { hoursSlept }, context) => {
-      if (context.user) {
+    addSleep: async (parent, { userId, hoursSlept }, context) => {
+      if (true) {
         const sleep = await Sleep.create({
           hoursSlept,
         });
 
         await User.findOneAndUpdate(
-          { _id: context.user._id },
+          { _id: userId },
           { $addToSet: { sleep: sleep._id } },
           {
             new: true,
@@ -100,14 +103,14 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
 
-    addSocial: async (parent, { minutesEngaged }, context) => {
-      if (context.user) {
+    addSocial: async (parent, { userId, minutesEngaged }, context) => {
+      if (true) {
         const social = await Social.create({
           minutesEngaged,
         });
 
         await User.findOneAndUpdate(
-          { _id: context.user._id },
+          { _id: userId },
           { $addToSet: { social: social._id } },
           {
             new: true,
@@ -119,14 +122,14 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
 
-    addIntention: async (parent, { intentionText }, context) => {
-      if (context.user) {
+    addIntention: async (parent, { userId, intentionText }, context) => {
+      if (true) {
         const intention = await Intention.create({
           intentionText,
         });
 
         await User.findOneAndUpdate(
-          { _id: context.user._id },
+          { _id: userId },
           { $addToSet: { intention: intention._id } },
           {
             new: true,
@@ -138,14 +141,14 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
 
-    addGratitude: async (parent, { gratitudeText }, context) => {
-      if (context.user) {
+    addGratitude: async (parent, { userId, gratitudeText }, context) => {
+      if (true) {
         const gratitude = await Gratitude.create({
           gratitudeText,
         });
 
         await User.findOneAndUpdate(
-          { _id: context.user._id },
+          { _id: userId },
           { $addToSet: { gratitude: gratitude._id } },
           {
             new: true,
@@ -157,14 +160,14 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
 
-    addPicture: async (parent, { pictureUploaded }, context) => {
-      if (context.user) {
+    addPicture: async (parent, { userId, pictureUploaded }, context) => {
+      if (true) {
         const picture = await Picture.create({
           pictureUploaded,
         });
 
         await User.findOneAndUpdate(
-          { _id: context.user._id },
+          { _id: userId, },
           { $addToSet: { picture: picture._id } },
           {
             new: true,
@@ -176,14 +179,14 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
 
-    addMood: async (parent, { moodRanking }, context) => {
-      if (context.user) {
+    addMood: async (parent, { userId, moodRanking }, context) => {
+      if (true) {
         const mood = await Mood.create({
           moodRanking,
         });
 
         await User.findOneAndUpdate(
-          { _id: context.user._id },
+          { _id: userId },
           { $addToSet: { mood: mood._id } },
           {
             new: true,

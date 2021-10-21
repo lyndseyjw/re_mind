@@ -70,22 +70,22 @@ type User {
   }
 
   type Query {
-    user: [User]!
-    userone(userId: ID!): User
+    user: [User]
+    userone(name: String!): User
     me: User
   }
 
   type Mutation {
     addUser(name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addWater(cups: Int!): Water
-    addOutside(minutesOutside: Int!): Outside
-    addSleep(hoursSlept: Int!): Sleep
-    addIntention(intentionText: String!): Intention
-    addGratitude(gratitudeText: String!): Gratitude
-    addPicture(pictureUploaded: String!): Picture
-    addMood(moodRanking: Int!): Mood
-    addSocial(minutesEngaged: Int!): Social
+    addWater(userId: ID!, cups: Int!): Water
+    addOutside(userId: ID!, minutesOutside: Int!): Outside
+    addSleep(userId: ID!, hoursSlept: Int!): Sleep
+    addIntention(userId: ID!, intentionText: String!): Intention
+    addGratitude(userId: ID!, gratitudeText: String!): Gratitude
+    addPicture(userId: ID!, pictureUploaded: String!): Picture
+    addMood(userId: ID!, moodRanking: Int!): Mood
+    addSocial(userId: ID!, minutesEngaged: Int!): Social
   }
 `;
 

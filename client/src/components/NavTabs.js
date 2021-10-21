@@ -1,50 +1,42 @@
 import React from "react";
 import "../App.css";
+import { Nav, NavDropdown } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-function NavTabs({ currentPage, handlePageChange }) {
+function NavTabs() {
+
   return (
-    <nav
-      className="navbar navbar-expand-lg navbar-dark bg-primary fixed-top"
-      id="sideNav"
-    >
-      <div className="collapse navbar-collapse" id="navbarResponsive">
-        <ul className="navbar-nav">
-          <li className="nav-item">
-            <a
-              href="#dashboard"
-              onClick={() => handlePageChange("Dashboard")}
-              className={
-                currentPage === "dashboard" ? "nav-link active" : "nav-link"
-              }
-            >
-              Dashboard
-            </a>
-          </li>
-          <li className="nav-item">
-            <a
-              href="#upload"
-              onClick={() => handlePageChange("Upload")}
-              className={
-                currentPage === "upload" ? "nav-link active" : "nav-link"
-              }
-            >
-              Upload
-            </a>
-          </li>
-          <li className="nav-item">
-            <a
-              href="#logout"
-              onClick={() => handlePageChange("Logout")}
-              className={
-                currentPage === "logout" ? "nav-link active" : "nav-link"
-              }
-            >
-              Logout
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <Nav activeKey="1" className="customNav">
+      
+      <Nav.Item>
+        <Nav.Link eventKey="1" disabled className="nav-link">
+          <Link to={"/"} > 
+          Home
+          </Link> 
+        </Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="2" className="nav-link">
+          <Link to={"/dashboard"}>
+          Dashboard
+          </Link>
+        </Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="3" title="Item" className="nav-link">
+          <Link  to={"/mood"} >
+          Mood
+          </Link>
+        </Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="4" disabled className="nav-link">
+          <Link to={"/logout"} > 
+          Logout
+          </Link> 
+        </Nav.Link>
+      </Nav.Item>
+    </Nav>
   );
 }
 

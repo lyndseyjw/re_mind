@@ -117,7 +117,6 @@ db.once('open', async () => {
         }
 
 
-
     } catch (err) {
         throw err;
     }

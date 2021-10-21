@@ -64,7 +64,7 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
 
-    addOutside: async (parent, { userId, minutesOutside }, context) => {
+    addOutside: async (parent, { minutesOutside }, context) => {
       if (context.user) {
         const outside = await Outside.create({
           minutesOutside,
@@ -83,7 +83,7 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
 
-    addSleep: async (parent, { userId, hoursSlept }, context) => {
+    addSleep: async (parent, { hoursSlept }, context) => {
       if (context.user) {
         const sleep = await Sleep.create({
           hoursSlept,
@@ -102,7 +102,7 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
 
-    addSocial: async (parent, { userId, minutesEngaged }, context) => {
+    addSocial: async (parent, { minutesEngaged }, context) => {
       if (context.user) {
         const social = await Social.create({
           minutesEngaged,
@@ -121,7 +121,7 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
 
-    addIntention: async (parent, { userId, intentionText }, context) => {
+    addIntention: async (parent, { intentionText }, context) => {
       if (context.user) {
         const intention = await Intention.create({
           intentionText,
@@ -140,7 +140,7 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
 
-    addGratitude: async (parent, { userId, gratitudeText }, context) => {
+    addGratitude: async (parent, { gratitudeText }, context) => {
       if (context.user) {
         const gratitude = await Gratitude.create({
           gratitudeText,
@@ -159,7 +159,7 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
 
-    addPicture: async (parent, { userId, pictureUploaded }, context) => {
+    addPicture: async (parent, { pictureUploaded }, context) => {
       if (context.user) {
         const picture = await Picture.create({
           pictureUploaded,
@@ -178,7 +178,7 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
 //removed context for testing
-    addMood: async (parent, { userId, moodRanking }) => {
+    addMood: async (parent, { moodRanking }) => {
       if (context.user) {
         const mood = await Mood.create({
           moodRanking,

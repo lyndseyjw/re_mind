@@ -12,11 +12,22 @@ query me {
 `;
 
 export const QUERY_SLEEP = gql`
-query userone ($name:String!){
-  userone (name:$name){
+query me {
+  me {
     sleep {
      createdAt
      hoursSlept
+    }
+  }
+ }
+`;
+
+export const QUERY_INTENTION = gql`
+query me {
+  me {
+    sleep {
+     createdAt
+     intentionText
     }
   }
  }

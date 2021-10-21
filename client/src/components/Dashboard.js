@@ -10,6 +10,7 @@ export default function Dashboard() {
     return (
         <div>
             <Chart />
+            <Calendar />
 
         </div>
     );

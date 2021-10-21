@@ -58,10 +58,11 @@ const Login = () => {
                             </p>
                         ) : (
                             <card>
+
                                 <form onSubmit={handleFormSubmit}>
                                     <input
                                         className="form-input"
-                                        placeholder="Your email"
+                                        placeholder="email"
                                         name="email"
                                         type="email"
                                         value={formState.email}
@@ -69,7 +70,7 @@ const Login = () => {
                                     />
                                     <input
                                         className="form-input"
-                                        placeholder="Your password"
+                                        placeholder="password"
                                         name="password"
                                         type="password"
                                         value={formState.password}
@@ -79,14 +80,21 @@ const Login = () => {
                                         className="btn btn-block btn-primary"
                                         style={{ cursor: 'pointer' }}
                                         type="submit"
+                                    > <Link to="/signup">
+                                        Submit
+                                     </Link>
+                                    </button>
+                                    <button
+                                        className="btn btn-block btn-primary"
+                                        style={{ cursor: 'pointer' }}
+                                        type="submit"
                                     >
-                                        Start My Day
+                                        <Link to="/signup">
+                                        Signup
+                                        </Link>
                                     </button>
                                 </form>
-                                <p>
-                                    Don't have an account yet?
-                                    <Link to="/signup">Sign Up!</Link>
-                                </p>
+                                
                             </card>
                         )}
 

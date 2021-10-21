@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 // import moment from 'moment';
 
-import { Redirect, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import Morning from '../components/Morning';
@@ -10,7 +10,7 @@ import Evening from '../components/Evening';
 
 import { QUERY_ME } from '../utils/queries';
 
-import Auth from '../utils/auth';
+// import Auth from '../utils/auth';
 
 // so here is where we useParams to pull that userId out of the URL & we use this info to QUERY_USER .. from here we can query the user & pass all of the user's info in as props to the following components so this info (i.e. water, outside, etc) can be used throughout the app
 // again, if we use context, I don't think we need to do this here

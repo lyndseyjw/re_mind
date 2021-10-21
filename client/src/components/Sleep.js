@@ -9,8 +9,8 @@ const Sleep = ({ hoursSlept }) => {
     const [sleep, setSleep] = useState('');
 
     const handleChange = (e) => {
-        const { value } = e.target;
-        setSleep(value);
+        const { sleep } = e.target;
+        setSleep(sleep);
     };
 
     const [addSleep, { error }] = useMutation(ADD_SLEEP);
@@ -34,7 +34,26 @@ const Sleep = ({ hoursSlept }) => {
         <div>
             {hoursSlept ? (
                 <>
-                    <h3>You slept {hoursSlept} last night</h3>
+                    <h3>You slept {hoursSlept} hours last night</h3>
+                    <p>Would you like to add more?</p>
+                    <Form.Select onChange={handleChange} aria-label="Default select example">
+                        <option>Choose number of hours</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                        <option value="4">Four</option>
+                        <option value="5">Fiv</option>
+                        <option value="6">Six</option>
+                        <option value="7">Seven</option>
+                        <option value="8">Eight</option>
+                        <option value="9">Nine</option>
+                        <option value="10">Ten</option>
+                        <option value="11">Eleven</option>
+                        <option value="12">Twelve</option>
+                        <option value="13">Thirteen</option>
+                        <option value="14">Fourteen</option>
+                    </Form.Select>
+                    <Button variant="light" type="submit" onSubmit={sleepTotal}>Rest</Button>
                 </>
             ) : (
                 <div>
@@ -56,7 +75,7 @@ const Sleep = ({ hoursSlept }) => {
                         <option value="13">Thirteen</option>
                         <option value="14">Fourteen</option>
                     </Form.Select>
-                    <Button variant="light" type="submit" onSubmit={sleepTotal}>Rested</Button>
+                    <Button variant="light" type="submit" onSubmit={sleepTotal}>Rest</Button>
                 </div>
             )}
         </div>

@@ -1,43 +1,14 @@
 import React, { PureComponent, useEffect } from 'react';
-import Moment from 'react-moment';
+// import Moment from 'react-moment';
+import moment from 'moment';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_WATER } from '../utils/queries';
 //function to create data, map through data
 //this is the chart on the right of dashboard that would render the water, social, etc. intake 
 
-// const data = [useQuery(QUERY_WATER)];
-// [
-//   {
-//     createdAt: 'Day 1',
-//     cups: 4,
-//   },
-//   {
-//     name: 'Day 2',
-//     uv: 6,
-//   },
-//   {
-//     name: 'Day 3',
-//     uv: 4,
-//   },
-//   {
-//     name: 'Day 4',
-//     uv: 8,
-//   },
-//   {
-//     name: 'Day 5',
-//     uv: 6,
-//   },
-//   {
-//     name: 'Day 6',
-//     uv: 5,
-//   },
-//   {
-//     name: 'Day 7',
-//     uv: 8,
-//   },
-// ];
 
+//CAN WE EXPORT ONE FUNCTION AND ENCOMPASS WATER, SOCIAL, ETC. UNDER THIS OR DO WE NEED TO CREATE NEW COMPONENTS FOR EACH CHART
 export default function Chart() {
 
   useEffect(() => {
@@ -50,11 +21,10 @@ export default function Chart() {
 
   
   const waterData = data?.userone.water || ['hello']
-  console.log(waterData, "hi there");
-  // waterData = waterData.map((date) => {
-  //   date.createdAt = (Moment.format = "MMMM Do YYYY");
-  // });
+  console.log(waterData[0].createdAt);
 
+  // const day = waterData[0].createdAt;
+  // const formattedDate = moment(day).format("MMM D");
 
   return (
     <div>

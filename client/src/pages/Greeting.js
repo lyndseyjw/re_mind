@@ -21,7 +21,7 @@ const Greeting = () => {
 
         return <Morning user={user} />
 
-    } else if (window.moment().format('H') < 12) {
+    } else if (window.moment().format('H') < 17) {
 
         return <Day user={user} />
 

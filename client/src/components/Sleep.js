@@ -9,21 +9,23 @@ const Sleep = ({ hoursSlept }) => {
     const [sleep, setSleep] = useState('');
 
     const handleChange = (e) => {
-        const { sleep } = e.target;
-        setSleep(sleep);
+        const { value } = e.target;
+        setSleep(value);
     };
 
     const [addSleep, { error }] = useMutation(ADD_SLEEP);
 
     const sleepTotal = async (e) => {
         e.preventDefault();
+        const sleepInt = parseInt(sleep)
 
         try {
             const { data } = await addSleep({
                 variables: {
-                    hoursSlept,
+                    hoursSlept: sleepInt,
                 },
             });
+            window.location.replace('/greeting')
 
         } catch (err) {
             console.error(err);
@@ -53,7 +55,7 @@ const Sleep = ({ hoursSlept }) => {
                         <option value="13">Thirteen</option>
                         <option value="14">Fourteen</option>
                     </Form.Select>
-                    <Button variant="light" type="submit" onSubmit={sleepTotal}>Rest</Button>
+                    <Button variant="light" type="submit" onClick={sleepTotal}>Rest</Button>
                 </>
             ) : (
                 <div>
@@ -75,7 +77,7 @@ const Sleep = ({ hoursSlept }) => {
                         <option value="13">Thirteen</option>
                         <option value="14">Fourteen</option>
                     </Form.Select>
-                    <Button variant="light" type="submit" onSubmit={sleepTotal}>Rest</Button>
+                    <Button variant="light" type="submit" onClick={sleepTotal}>Rest</Button>
                 </div>
             )}
         </div>

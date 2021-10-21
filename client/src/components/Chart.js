@@ -1,5 +1,6 @@
 import React, { PureComponent, useEffect } from 'react';
-import Moment from 'react-moment';
+// import Moment from 'react-moment';
+import moment from 'moment';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_WATER } from '../utils/queries';
@@ -50,11 +51,10 @@ export default function Chart() {
 
   
   const waterData = data?.userone.water || ['hello']
-  console.log(waterData, "hi there");
-  // waterData = waterData.map((date) => {
-  //   date.createdAt = (Moment.format = "MMMM Do YYYY");
-  // });
+  console.log(waterData[0].createdAt);
 
+  // const day = waterData[0].createdAt;
+  // const formattedDate = moment(day).format("MMM D");
 
   return (
     <div>

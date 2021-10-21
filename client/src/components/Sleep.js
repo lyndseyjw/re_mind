@@ -9,8 +9,8 @@ const Sleep = ({ hoursSlept }) => {
     const [sleep, setSleep] = useState('');
 
     const handleChange = (e) => {
-        const { value } = e.target;
-        setSleep(value);
+        const { sleep } = e.target;
+        setSleep(sleep);
     };
 
     const [addSleep, { error }] = useMutation(ADD_SLEEP);

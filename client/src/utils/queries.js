@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_WATER = gql`
-query userone ($name:String!){
-  userone (name:$name){
+query me {
+  me {
     water {
      createdAt
      cups
@@ -12,11 +12,22 @@ query userone ($name:String!){
 `;
 
 export const QUERY_SLEEP = gql`
-query userone ($name:String!){
-  userone (name:$name){
+query me {
+  me {
     sleep {
      createdAt
      hoursSlept
+    }
+  }
+ }
+`;
+
+export const QUERY_INTENTION = gql`
+query me {
+  me {
+    sleep {
+     createdAt
+     intentionText
     }
   }
  }
@@ -87,10 +98,6 @@ export const QUERY_ME = gql`
       }
       gratitude {
         gratitudeText
-        createdAt
-      }
-      picture {
-        picture
         createdAt
       }
       mood {

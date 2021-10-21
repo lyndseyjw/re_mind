@@ -6,7 +6,6 @@ const sleepSchema = new Schema({
     },
     createdAt: {
         type: String,
-        default: Date,
     }
 })
 

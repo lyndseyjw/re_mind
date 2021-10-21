@@ -15,7 +15,8 @@ import Greeting from "./pages/Greeting";
 import Picture from "./components/Picture";
 import NavTabs from "./components/NavTabs";
 import Mood from "./components/Mood"
-// import NavTabs from "./components/NavTabs";
+import Dashboard from "./pages/Dashboard";
+
 // import Chart from './components/Chart';
 // import CalendarPage from './components/Calendar';
 // import Dashboard from "./components/Dashboard";
@@ -71,8 +72,11 @@ function App() {
             <Route exact path="/signup">
               <Signup />
             </Route>
-            <Route exact path="/greeting/me">
-              {/* <Greeting /> */}
+            <Route exact path="/greeting">
+              <Greeting />
+            </Route>
+            <Route exact path="/dashboard">
+              <Dashboard />
             </Route>
           </div>
           {/* <Chart />

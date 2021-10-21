@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
-import moment from 'moment';
+// import moment from 'moment';
 
 import Sleep from './Sleep';
-// import Intention from './Intention';
+import Intention from './Intention';
 
 import Auth from '../utils/auth';
 
@@ -15,16 +15,50 @@ import Auth from '../utils/auth';
 
 const Morning = ({ user }) => {
 
-  const sleep = user.filter(sleep => sleep.createdAt === moment())
-  const hoursSlept = sleep.hoursSlept
+  const [sleepTotal, setSleepTotal] = useState(0)
+  const [intentionText, setIntentionText] = useState('')
+  // useEffect (() => {
+  //   const sleep = user.sleep.filter(night => {
+  //     console.log(moment.unix(night.createdAt).toDate())
+  //     return moment.unix(night.createdAt).format('MM/DD/YYYY') === moment().format('MM/DD/YYYY')
+  //   })
+  //   console.log (sleep)
+  //   console.log(user)
+  //   console.log(user.sleep)
+    // const hoursSlept = sleep.hoursSlept
+  // })
+
+  useEffect (() => {
+    if (user.sleep) {
+      let total = 0;
+      const sleep = user.sleep.forEach(night => {
+        total += night.hoursSlept
+        console.log(night.hoursSlept)
+      })
+      console.log(user.sleep)
+      console.log (total)
+      setSleepTotal(total)
+    }
+
+    if (user.intention) {
+      let today = '';
+      const intention = user.intention.forEach(day => {
+        today = day.intentionText
+        console.log(day.intentionText)
+      })
+      console.log(user.intention)
+      console.log (today)
+      setIntentionText(today)
+    }
+  })
 
   return (
     <div>
       {Auth.loggedIn() ? (
         <>
             <h2>Good Morning, {user.name}</h2>
-            <Sleep hoursSlept={hoursSlept} />
-            {/* <Intention intention={user.intention } /> */}
+            <Sleep hoursSlept={sleepTotal} />
+            <Intention intentionToday={intentionText} />
             <p>Don't forget to take a picture of something that makes you smile today!</p>
         </>
       ) : (

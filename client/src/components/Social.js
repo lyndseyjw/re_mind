@@ -4,12 +4,12 @@ import { Form, Button } from 'react-bootstrap'
 
 import { ADD_SOCIAL } from '../utils/mutations';
 
-const Social = (props) => {
+const Social = ({ timeEngaged }) => {
 
     const [social, setSocial] = useState('');
 
     const handleChange = (event) => {
-        const { name, value } = event.target;
+        const { value } = event.target;
         setSocial(value);
     };
 
@@ -18,26 +18,25 @@ const Social = (props) => {
 
     const socialSubmit = async (event) => {
         event.preventDefault();
+        const socialInt = parseInt(social)
 
         try {
             const { data } = await addSocial({
                 variables: {
-                    // minutesEngaged,
+                    minutesEngaged: socialInt,
                 },
             });
+            window.location.replace('/greeting')
         } catch (err) {
             console.error(err);
         }
     };
 
-    // here we have the same exact idea as Water .. if there is social data for the current day, then we show them how long they have been social so far & ask if they would like to add more time .. if not, then they can just add time
-    // lets go to Outside from here ...
-
     return (
         <div>
-            {social ? (
+            {timeEngaged ? (
                 <>
-                    <h3>You've engaged with another human for {social} minutes so far today</h3>
+                    <h3>You've engaged with another human for {timeEngaged} minutes so far today</h3>
                     <p>Any more social time you want to add?</p>
                     <Form.Select onChange={handleChange} aria-label="Default select example">
                         <option>Choose how long</option>
@@ -62,7 +61,7 @@ const Social = (props) => {
                         <option value="175">2 Hours 45 Mins</option>
                         <option value="190">3 Hours</option>
                     </Form.Select>
-                    <Button variant="light" type="submit" onSubmit={socialSubmit}>Engaged</Button>
+                    <Button variant="light" type="submit" onClick={socialSubmit}>Engaged</Button>
                 </>
             ) : (
                 <div>
@@ -91,7 +90,7 @@ const Social = (props) => {
                         <option value="175">2 Hours 45 Mins</option>
                         <option value="190">3 Hours</option>
                     </Form.Select>
-                    <Button variant="light" type="submit" onSubmit={socialSubmit}>Engaged</Button>
+                    <Button variant="light" type="submit" onClick={socialSubmit}>Engaged</Button>
                 </div>
             )}
         </div>

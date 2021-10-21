@@ -9,7 +9,7 @@ const Sleep = ({ hoursSlept }) => {
     const [sleep, setSleep] = useState('');
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        const { value } = e.target;
         setSleep(value);
     };
 

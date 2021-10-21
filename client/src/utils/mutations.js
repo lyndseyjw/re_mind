@@ -78,11 +78,9 @@ addWater(
 
 export const ADD_SOCIAL = gql`
 mutation addSocial(
-  $userId: ID!
   $minutesEngaged: Int!
 ) {
   addSocial(
-    userId: $userId
     minutesEngaged: $minutesEngaged
   ) {
       _id
@@ -94,11 +92,9 @@ mutation addSocial(
 
 export const ADD_OUTSIDE = gql`
 mutation addOutside(
-  $userId: ID!
   $minutesOutside: Int!
 ) {
 addOutside(
-    userId: $userId
     minutesOutside: $minutesOutside
   ) {
       _id

@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-// import { useQuery } from '@apollo/client';
 import { Form, Button } from 'react-bootstrap'
 
 import { ADD_WATER } from '../utils/mutations';
-// import { QUERY_WATER } from '../utils/queries';
-
-// ahh water, our favorite example .. so below, is that tentative logic that perhaps maybe miiiight query water FOR THE SPECIFIC USER (b/c we already queried the user in Home / we are going to be using context so we will only access data specific to the user logged in) ONLY ON THE CURRENT DAY .. was trying to format it to match Date.now format .. not sure, what does Bryan think?
 
 const Water = ({ cupsDrinken }) => {
 
@@ -20,7 +16,7 @@ const Water = ({ cupsDrinken }) => {
     const [cups, setCups] = useState('');
 
     const handleChange = (event) => {
-        const { name, value } = event.target;
+        const { value } = event.target;
         setCups(value);
     };
 

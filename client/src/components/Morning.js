@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
@@ -15,15 +15,18 @@ import Auth from '../utils/auth';
 
 const Morning = ({ user }) => {
 
-  const sleep = user.filter(sleep => sleep.createdAt === moment())
-  const hoursSlept = sleep.hoursSlept
+  useEffect (() => {
+    const sleep = user.sleep.filter(night => night.createdAt === new Date().toISOString())
+    console.log (sleep)
+    // const hoursSlept = sleep.hoursSlept
+  })
 
   return (
     <div>
       {Auth.loggedIn() ? (
         <>
             <h2>Good Morning, {user.name}</h2>
-            <Sleep hoursSlept={hoursSlept} />
+            {/* <Sleep hoursSlept={hoursSlept} /> */}
             {/* <Intention intention={user.intention } /> */}
             <p>Don't forget to take a picture of something that makes you smile today!</p>
         </>

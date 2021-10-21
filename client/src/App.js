@@ -12,6 +12,7 @@ import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Greeting from "./pages/Greeting";
+import Picture from "./components/Picture";
 // import NavTabs from "./components/NavTabs";
 // import Chart from './components/Chart';
 // import CalendarPage from './components/Calendar';
@@ -20,9 +21,9 @@ import Greeting from "./pages/Greeting";
 // import Logout from "./components/Logout";
 // import Footer from "./components/Footer";
 
-// Construct our main GraphQL API endpoint
+
 const httpLink = createHttpLink({
-  uri: "/graphql",
+  uri:"/graphql",
 });
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
@@ -51,10 +52,12 @@ function App() {
   // right now these 'Links' are set up as pages .. the 'Dashboard' is called 'Journal' at the moment but we can change that depending on how we want it presented to the user
   // lets go to Home page from here...
   return (
-    <ApolloProvider client={client}>
+    
+    <ApolloProvider client={client} >
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
           {/* <NavTabs /> */}
+          <Picture /> 
           <div className="container">
             <Route exact path="/">
               <Home />

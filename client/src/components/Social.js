@@ -4,7 +4,7 @@ import { Form, Button } from 'react-bootstrap'
 
 import { ADD_SOCIAL } from '../utils/mutations';
 
-const Social = (props) => {
+const Social = ({ timeEngaged }) => {
 
     const [social, setSocial] = useState('');
 
@@ -22,7 +22,7 @@ const Social = (props) => {
         try {
             const { data } = await addSocial({
                 variables: {
-                    // minutesEngaged,
+                    social,
                 },
             });
         } catch (err) {
@@ -35,9 +35,9 @@ const Social = (props) => {
 
     return (
         <div>
-            {social ? (
+            {timeEngaged ? (
                 <>
-                    <h3>You've engaged with another human for {social} minutes so far today</h3>
+                    <h3>You've engaged with another human for {timeEngaged} minutes so far today</h3>
                     <p>Any more social time you want to add?</p>
                     <Form.Select onChange={handleChange} aria-label="Default select example">
                         <option>Choose how long</option>

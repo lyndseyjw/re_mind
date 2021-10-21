@@ -45,7 +45,7 @@ const resolvers = {
       return { token, user };
     },
 
-    addWater: async (parent, { userId, cups }, context) => {
+    addWater: async (parent, { cups }, context) => {
       if (context.user) {
         const water= await Water.create({
           cups,

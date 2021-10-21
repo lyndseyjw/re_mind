@@ -13,19 +13,17 @@ export default function Chart() {
 
 
   useEffect(() => {
-    console.log(waterData)
+    console.log(data)
   })
 
-  const { loading, data } = useQuery(QUERY_WATER, {
-    variables: { name: "John" }
-  });
+  const { loading, data } = useQuery(QUERY_WATER);
 
-  
-  const waterData = data?.userone.water || ['hello']
+
+  const waterData = data?.me.water || ['hello']
   console.log(waterData[0].createdAt);
-  
-//moment code - need to check if it'll render once frontend displays
-  const day = waterData[0].createdAt.format('MMM Do YY');
+
+  // //moment code - need to check if it'll render once frontend displays
+    // const day = waterData[0].createdAt.format('MMM Do YY');
 
 
   return (
@@ -33,24 +31,25 @@ export default function Chart() {
       {loading ? (
         <div>Loading...</div>
       ) : (
-        <AreaChart
-          width={500}
-          height={400}
-          data={waterData}
-          margin={{
-            top: 10,
-            right: 30,
-            left: 0,
-            bottom: 0
-          }}
-        >
-          {console.log({ waterData })}
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="createdAt" />
-          <YAxis />
-          <Tooltip />
-          <Area type="monotone" dataKey="cups" stroke="#8884d8" fill="#8884d8" />
-        </AreaChart>
+        // <ResponsiveContainer width="100%" height="100%">
+          <AreaChart
+            width={500}
+            height={400}
+            data={waterData}
+            margin={{
+              top: 10,
+              right: 30,
+              left: 0,
+              bottom: 0
+            }}>
+            {console.log({ waterData })}
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="createdAt" />
+            <YAxis />
+            <Tooltip />
+            <Area type="monotone" dataKey="cups" stroke="#8884d8" fill="#8884d8" />
+          </AreaChart>
+        // </ResponsiveContainer>
       )}
     </div>
   );

@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_WATER = gql`
-query userone ($name:String!){
-  userone (name:$name){
+query me {
+  me {
     water {
      createdAt
      cups

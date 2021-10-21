@@ -51,12 +51,12 @@ const Login = () => {
                 <div className="card">
                     <h4 className="card-header bg-dark text-light p-2">Login</h4>
                     <div className="card-body">
-                        {/* {data ? (
+                        {data ? (
                             <p>
                                 Welcome back, {data.user.name}! You may now start{' '}
-                                <Link to={`/greeting/${data.user._id}`}>your day</Link>
+                                <Link to={`/greeting/me`}>your day</Link>
                             </p>
-                        ) : ( */}
+                        ) : (
                         <card>
 
                             <form onSubmit={handleFormSubmit}>
@@ -80,10 +80,7 @@ const Login = () => {
                                     className="btn btn-block btn-primary"
                                     style={{ cursor: 'pointer' }}
                                     type="submit"
-                                > <Link to="/signup">
-                                        Submit
-                                    </Link>
-                                </button>
+                                ></button>
                                 <p>
                                     Don't have an account yet? {' '}
                                     <Link to="/signup">Sign Up Instead</Link>
@@ -91,7 +88,7 @@ const Login = () => {
                             </form>
 
                         </card>
-                        {/* )} */}
+                        )}
 
                         {error && (
                             <div className="my-3 p-3 bg-danger text-white">

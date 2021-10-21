@@ -62,7 +62,7 @@ function App() {
             <Route exact path="/signup">
               <Signup />
             </Route>
-            <Route exact path="/greeting/:userId">
+            <Route exact path="/greeting/me">
               <Greeting />
             </Route>
           </div>

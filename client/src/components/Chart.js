@@ -17,7 +17,7 @@ import { QUERY_WATER } from '../utils/queries';
 
 //NOTE: how do we map through social, water, mood, sleep? may need to do if / switches, onclicks for tabs that'll trigger which data to render : https://medium.com/forepaas/react-making-recharts-easy-to-use-e3d99d0641ba
 
-export default function Chart() {
+// export default function Chart() {
 
 
 //   useEffect(() => {

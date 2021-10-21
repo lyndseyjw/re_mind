@@ -80,9 +80,7 @@ const Login = () => {
                                     className="btn btn-block btn-primary"
                                     style={{ cursor: 'pointer' }}
                                     type="submit"
-                                > <Link to="/signup">
-                                        Submit
-                                    </Link>
+                                > Login
                                 </button>
                                 <p>
                                     Don't have an account yet? {' '}

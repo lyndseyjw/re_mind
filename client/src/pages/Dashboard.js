@@ -3,6 +3,8 @@
 import React from 'react';
 import SleepChart from '../components/SleepChart';
 import WaterChart from '../components/WaterChart';
+import SocialChart from '../components/SocialChart';
+import OutsideChart from '../components/OutsideChart';
 import CalendarPage from '../components/Calendar';
 import Journal from '../components/Journal';
 
@@ -11,44 +13,52 @@ import Tabs from 'react-bootstrap/Tabs';
 
 const styles = {
     card: {
-        background: '#97B8C2',
-        border: '#011E3D solid 2px',
         display: 'block',
-        margin: '20px auto',
+        margin: 'auto',
     },
     calendar: {
-        background: '#97B8C2',
-        border: '#011E3D solid 2px',
         padding: '2%',
         margin: '2%'
     },
+    body: {
+        background: '#e6d192ff',
+        color: "#ac3b12",
+        alignItems: "center"
+    },
+    coloring: {
+        color: "#ac3b12",
+    }
 }
 
 
 const Dashboard = () => {
-
 
     // im not sure if the conditional logic is correct with the 'checking for data' statement .. perhaps this can be accomplished in the aforementioned suggestion on Home page where we just check auth.logged in & this will bypass the user going to this page at all
     // the <Link/> below to the greeting page has the user_.id as a parameter at the moment .. this was created before I fully understood context .. perhaps we can just use context instead to input user data into each page .. the idea below was that we pass in the user_.id as a parameter & then we useParams in the Greeting page to pull that out & QUERY_USER with it .. context might be the way to go however, need to play around with that
     // if user does not have an account, there is a <Link/> below that will direct them to the Signup page
     // lets go to the Signup page from here ...
     return (
-        <main className="container">
+        <main className="container-fluid" style={styles.body}>
             <div className="row">
                 <div className="col-lg-6 col-md-7 col-sm-12" style={styles.card}>
-                    <Tabs defaultActiveKey="water" id="uncontrolled-tab-example" className="mb-3">
-                        <Tab eventKey="water" title="Water">
+                    <Tabs defaultActiveKey="water" id="uncontrolled-tab-example" className="mb-3" >
+                        <Tab eventKey="water" title="Water Intake">
+                            <div> 
                             <WaterChart />
+                            </div>
                         </Tab>
-                        <Tab eventKey="journal" title="Journal">
-                            <Journal />
+                        <Tab eventKey="social" title="Social Time">
+                            <SocialChart />
                         </Tab>
-                        <Tab eventKey="sleep" title="Sleep">
+                        <Tab eventKey="sleep" title="Hours of Sleep">
                             <SleepChart />
+                        </Tab>
+                        <Tab eventKey="outside" title="Time Outside">
+                            <OutsideChart />
                         </Tab>
                     </Tabs>
                 </div>
-                <div className="col-lg-4 col-md-3 col-sm-12" style={styles.calendar}>
+                <div className="col-lg-5 col-md-3 col-sm-12" style={styles.calendar}>
                     <CalendarPage />
                 </div>
             </div>

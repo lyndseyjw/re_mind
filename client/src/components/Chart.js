@@ -1,15 +1,24 @@
 // import React, { PureComponent, useEffect } from 'react';
 // import Moment from 'react-moment';
-// import moment from 'moment';
-// import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-// import { useQuery } from '@apollo/react-hooks';
-// import { QUERY_WATER } from '../utils/queries';
 //function to create data, map through data
 //this is the chart on the right of dashboard that would render the water, social, etc. intake 
 
 
+import moment from 'moment';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { useQuery } from '@apollo/react-hooks';
+import { QUERY_WATER } from '../utils/queries';
+
 //CAN WE EXPORT ONE FUNCTION AND ENCOMPASS WATER, SOCIAL, ETC. UNDER THIS OR DO WE NEED TO CREATE NEW COMPONENTS FOR EACH CHART
 // export default function Chart() {
+
+
+
+
+//NOTE: how do we map through social, water, mood, sleep? may need to do if / switches, onclicks for tabs that'll trigger which data to render : https://medium.com/forepaas/react-making-recharts-easy-to-use-e3d99d0641ba
+
+export default function Chart() {
+
 
 //   useEffect(() => {
 //     console.log(waterData)

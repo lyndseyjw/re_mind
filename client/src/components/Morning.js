@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
-import moment from 'moment';
+// import moment from 'moment';
 
 import Sleep from './Sleep';
-// import Intention from './Intention';
+import Intention from './Intention';
 
 import Auth from '../utils/auth';
 
@@ -16,6 +16,7 @@ import Auth from '../utils/auth';
 const Morning = ({ user }) => {
 
   const [sleepTotal, setSleepTotal] = useState(0)
+  const [intentionText, setIntentionText] = useState('')
   // useEffect (() => {
   //   const sleep = user.sleep.filter(night => {
   //     console.log(moment.unix(night.createdAt).toDate())
@@ -38,11 +39,18 @@ const Morning = ({ user }) => {
       console.log (total)
       setSleepTotal(total)
     }
-  })
 
-  // function calcSleep() {
-  //   user.sleep.forEach()
-  // }
+    if (user.intention) {
+      let today = '';
+      const intention = user.intention.forEach(day => {
+        today = day.intentionText
+        console.log(day.intentionText)
+      })
+      console.log(user.intention)
+      console.log (today)
+      setIntentionText(today)
+    }
+  })
 
   return (
     <div>
@@ -50,7 +58,7 @@ const Morning = ({ user }) => {
         <>
             <h2>Good Morning, {user.name}</h2>
             <Sleep hoursSlept={sleepTotal} />
-            {/* <Intention intention={user.intention } /> */}
+            <Intention intentionToday={intentionText} />
             <p>Don't forget to take a picture of something that makes you smile today!</p>
         </>
       ) : (

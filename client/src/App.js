@@ -13,8 +13,10 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Greeting from "./pages/Greeting";
 import Picture from "./components/Picture";
-import Dashboard from "./pages/Dashboard";
 import NavTabs from "./components/NavTabs";
+import Mood from "./components/Mood"
+import Dashboard from "./pages/Dashboard";
+
 // import Chart from './components/Chart';
 // import CalendarPage from './components/Calendar';
 // import Dashboard from "./components/Dashboard";
@@ -59,6 +61,7 @@ function App() {
         <div className="flex-column justify-flex-start min-100-vh">
           <NavTabs />
           <Picture /> 
+          <Mood />
           <div className="container">
             <Route exact path="/">
               <Home />

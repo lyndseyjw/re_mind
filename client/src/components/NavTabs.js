@@ -9,29 +9,29 @@ function NavTabs() {
     <Nav activeKey="1" className="customNav">
       
       <Nav.Item>
-        <Nav.Link eventKey="1" disabled className="nav-link">
-          <Link to={"/"} > 
+        <Nav.Link eventKey="1" className="nav-link">
+          <Link to="/" > 
           Home
           </Link> 
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
         <Nav.Link eventKey="2" className="nav-link">
-          <Link to={"/dashboard"}>
+          <Link to="/dashboard">
           Dashboard
           </Link>
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
         <Nav.Link eventKey="3" title="Item" className="nav-link">
-          <Link  to={"/login"} >
+          <Link  to="/login" >
           Login
           </Link>
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link eventKey="4" disabled className="nav-link">
-          <Link to={"/logout"} > 
+        <Nav.Link eventKey="4" className="nav-link">
+          <Link to="/logout" > 
           Logout
           </Link> 
         </Nav.Link>

@@ -11,6 +11,50 @@ query userone ($name:String!){
  }
 `;
 
+export const QUERY_SLEEP = gql`
+query userone ($name:String!){
+  userone (name:$name){
+    sleep {
+     createdAt
+     hoursSlept
+    }
+  }
+ }
+`;
+
+export const QUERY_OUTSIDE = gql`
+query userone ($name:String!){
+  userone (name:$name){
+    outside {
+     createdAt
+     minutesOutside
+    }
+  }
+ }
+`;
+
+export const QUERY_MOOD = gql`
+query userone ($name:String!){
+  userone (name:$name){
+    mood {
+     createdAt
+     moodRanking
+    }
+  }
+ }
+`;
+
+export const QUERY_SOCIAL = gql`
+query userone ($name:String!){
+  userone (name:$name){
+    social {
+     createdAt
+     minutesEngaged
+    }
+  }
+ }
+`;
+
 // query getWater($createdAt: Date!) {
 //   water(createdAt: $createdAt) {
 //     _id

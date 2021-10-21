@@ -24,8 +24,8 @@ function NavTabs() {
       </Nav.Item>
       <Nav.Item>
         <Nav.Link eventKey="3" title="Item" className="nav-link">
-          <Link  to={"/mood"} >
-          Mood
+          <Link  to={"/login"} >
+          Login
           </Link>
         </Nav.Link>
       </Nav.Item>

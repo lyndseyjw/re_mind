@@ -178,8 +178,8 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-
-    addMood: async (parent, { userId, moodRanking }, context) => {
+//removed context for testing
+    addMood: async (parent, { userId, moodRanking }) => {
       if (true) {
         const mood = await Mood.create({
           moodRanking,

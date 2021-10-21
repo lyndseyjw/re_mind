@@ -17,3 +17,45 @@
 //   );
 // }
 
+// export default function CalendarPage() {
+  // return (
+  //   <div>
+  //     <Datepicker
+  //       marked={[
+  //         {
+  //           date: new Date(year, month, 2),
+  //           color: "#46c4f3",
+  //         },
+  //         {
+  //           date: new Date(year, month, 10),
+  //           color: "#7e56bd",
+  //         },
+  //         {
+  //           date: new Date(year, month, 13),
+  //           color: "#f13f77",
+  //         },
+  //         {
+  //           date: new Date(year, month, 13),
+  //           color: "#89d7c9",
+  //         },
+  //         {
+  //           date: new Date(year, month, 21),
+  //           color: "#ffc400",
+  //         },
+  //         {
+  //           date: new Date(year, month, 21),
+  //           color: "#8dec7d",
+  //         },
+  //         {
+  //           recurring: {
+  //             repeat: "yearly",
+  //             month: 4,
+  //             day: 1,
+  //           },
+  //           color: "ffc400",
+  //         },
+  //       ]}
+  //     />
+  //   </div>
+  // );
+// }

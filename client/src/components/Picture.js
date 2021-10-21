@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css'
-import { useMutation } from '@apollo/client';
+// import { useMutation } from '@apollo/client';
 
 // import { ADD_PICTURE } from '../utils/mutations';
 

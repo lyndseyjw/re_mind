@@ -27,7 +27,7 @@ const Evening = ({ user }) => {
                 <Water water={user.water} />
                 <Gratitude gratitude={user.gratitude} />
                 <Picture picture={user.picture} />
-                <Mood mood={user.mood} />
+                {/* <Mood mood={user.mood} /> */}
             </>
           ) : (
             <p>

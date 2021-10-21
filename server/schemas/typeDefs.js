@@ -85,6 +85,7 @@ type User {
     addGratitude(userId: ID!, gratitudeText: String!): Gratitude
     addPicture(userId: ID!, pictureUploaded: String!): Picture
     addMood(userId: ID!, moodRanking: Int!): Mood
+    #updateMood(userId: ID!, moodRanking: Int!): Mood
     addSocial(userId: ID!, minutesEngaged: Int!): Social
   }
 `;

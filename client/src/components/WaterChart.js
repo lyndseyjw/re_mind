@@ -18,7 +18,7 @@ export default function WaterChart() {
   const { loading, data } = useQuery(QUERY_WATER);
 
   const waterData = data?.me.water || ['hello']
-  console.log(waterData[0].createdAt);
+
 
   // //moment code - need to check if it'll render once frontend displays
     // const day = waterData[0].createdAt.format('MMM Do YY');

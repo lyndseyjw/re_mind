@@ -18,13 +18,10 @@ const styles = {
   },
   bar: {
     alignItems: "center",
-<<<<<<< HEAD
     borderBottom: "2px solid #ac3b12",
     top: 0,
-=======
     paddingBottom: "2%",
-    borderBottom: '2px solid #ac3b12'
->>>>>>> 5528258e17121e1c19f7317e137f6c2d2200ac41
+
   }
 }
 

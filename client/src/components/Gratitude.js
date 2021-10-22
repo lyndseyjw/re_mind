@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client';
 
 import { ADD_GRATITUDE } from '../utils/mutations';
 
-const Gratitude = ({ userId, gratitude }) => {
+const Gratitude = ({ gratitudeToday }) => {
 
     const [gratitudeText, setGratitudeText] = useState('');
 
@@ -18,12 +18,12 @@ const Gratitude = ({ userId, gratitude }) => {
         try {
             const { data } = await addGratitude({
                 variables: {
-                    userId,
                     gratitudeText,
                 },
             });
 
             setGratitudeText('');
+            window.location.replace('/greeting')
         } catch (err) {
             console.error(err);
         }
@@ -40,9 +40,9 @@ const Gratitude = ({ userId, gratitude }) => {
 
     return (
         <div>
-            {gratitude ? (
+            {gratitudeToday ? (
                 <>
-                    <h3>You're grateful for {gratitude}</h3>
+                    <h3>You're grateful for : {gratitudeToday}</h3>
                 </>
             ) : (
                 <div>

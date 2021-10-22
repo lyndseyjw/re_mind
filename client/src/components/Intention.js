@@ -23,6 +23,7 @@ const Intention = ({ intentionToday }) => {
             });
 
             setIntentionText('');
+            window.location.replace('/greeting')
         } catch (err) {
             console.error(err);
         }

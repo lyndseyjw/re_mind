@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// import Gratitude from '../components/Gratitude';
+// import Picture from '../components/Picture'
 
 // so here this could just be a super simple page with a nice relaxing photo in the background, blurred a bit so that our logo in front stands out
 // Kimberly, I think you mentioned an idea you had about some plants or something like that? that could be the user's intro into the app & then our logo would be a button that when clicked will take them to the login page

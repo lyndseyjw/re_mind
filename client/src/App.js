@@ -16,6 +16,7 @@ import Picture from "./components/Picture";
 import NavTabs from "./components/NavTabs";
 import Mood from "./components/Mood"
 import Dashboard from "./pages/Dashboard";
+import GratitudeList from "./components/GratitudeList";
 
 // import Chart from './components/Chart';
 // import CalendarPage from './components/Calendar';
@@ -62,6 +63,7 @@ function App() {
           <NavTabs />
           <Picture /> 
           <Mood />
+          <GratitudeList />
           <div className="container">
             <Route exact path="/">
               <Home />

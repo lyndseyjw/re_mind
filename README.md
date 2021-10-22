@@ -30,7 +30,7 @@ This application utilized HTML, CSS, Javascript, Node.js, Express.js, MongoDB, M
 ## Contributing
 - Charlotte Clark: < add email >
 - Kimberly Rodriguez: <krodriguez.ucla@gmail.com>
-- Lyndsey Watson: < add email >
+- Lyndsey Watson: < lyndseyjwatson@gmail.com >
 - Candice Wu: <candice.ying.wu@gmail.com>
 
 

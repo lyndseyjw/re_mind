@@ -9,15 +9,11 @@ import Evening from '../components/Evening';
 
 import { QUERY_ME } from '../utils/queries';
 
-const Greeting = ({ onSetMorning, onSetDay, onSetEvening, style }) => {
-
-    console.log(style)
+const Greeting = ({ onSetMorning, onSetDay, onSetEvening }) => {
 
     const { data } = useQuery(QUERY_ME);
 
     const user = data?.me || {};
-
-    console.log(user)
 
     if (window.moment().format('H') < 9) {
 

@@ -24,7 +24,7 @@ function NavTabs() {
     <div>
       {Auth.loggedIn() ? (
         <>
-          <Nav activeKey="1" style={styles.bar} >
+          <Nav activeKey="1" style={styles.bar} className='color'>
             <Nav.Item>
               <Nav.Link eventKey="1" className="nav-link">
                 <Link to={"/"} style={styles.links}>

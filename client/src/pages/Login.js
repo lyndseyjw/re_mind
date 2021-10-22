@@ -47,12 +47,6 @@ const Login = () => {
                 <div className="card login">
                     <h4 className="card-header p-2 heading">Login</h4>
                     <div className="card-body">
-                        {Auth.loggedIn() ? (
-                            <p>
-                                Welcome back, {data.user.name}! You may now start{' '}
-                                <Link to={`/greeting`}>your day</Link>
-                            </p>
-                        ) : (
                         <card>
 
                             <form onSubmit={handleFormSubmit}>
@@ -85,7 +79,6 @@ const Login = () => {
                             </form>
 
                         </card>
-                        )}
 
                         {error && (
                             <div className="my-3 p-3 bg-danger text-white">

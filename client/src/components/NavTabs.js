@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import Picture from "./Picture";
 import Auth from '../utils/auth';
 
+import { useQuery } from '@apollo/client';
+import { QUERY_ME } from '../utils/queries';
+
 const styles = {
   links: {
       color: "#ac3b12",
@@ -14,11 +17,16 @@ const styles = {
   },
   bar: {
     alignItems: "center",
-    paddingBottom: "2%"
+    paddingBottom: "2%",
+    borderBottom: '2px solid #ac3b12'
   }
 }
 
 function NavTabs() {
+
+  const { data } = useQuery(QUERY_ME);
+
+  const user = data?.me || {};
 
   return (
     <div>

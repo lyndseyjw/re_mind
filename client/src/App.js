@@ -92,7 +92,6 @@ function App() {
   }
 
   const handleSetDay = () => {
-    console.log('hey')
     setDay(true)
   }
 

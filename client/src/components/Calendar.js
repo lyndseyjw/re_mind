@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+// import Mood from '../components/Mood'
 
 // this is the calendar on the left side of dashboard that'll show the 30-day calendar, allow for colors
 

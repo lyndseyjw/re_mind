@@ -10,7 +10,7 @@ type User {
     outside: [Outside]!
     sleep: [Sleep]!
     intention: [Intention]!
-    gratitude: [Gratitude]!
+    thought: [Thought]!
     picture: [Picture]!
     mood: [Mood]!
     social: [Social]!
@@ -40,9 +40,10 @@ type User {
     createdAt: String
   }
 
-  type Gratitude {
+  type Thought {
     _id: ID
-    gratitudeText: String
+    thoughtText: String
+    thoughtAuthor: String
     createdAt: String
   }
 
@@ -73,6 +74,8 @@ type User {
     user: [User]
     userone(name: String!): User
     me: User
+    thoughts: [Thought]!
+    thought(thoughtId: ID!): Thought
   }
 
   type Mutation {
@@ -82,11 +85,14 @@ type User {
     addOutside( minutesOutside: Int!): Outside
     addSleep(hoursSlept: Int!): Sleep
     addIntention( intentionText: String!): Intention
-    addGratitude( gratitudeText: String!): Gratitude
     addPicture( pictureUploaded: String!): Picture
     addMood( moodRanking: Int!): Mood
     #updateMood( moodRanking: Int!): Mood
     addSocial( minutesEngaged: Int!): Social
+
+    addThought(thoughtText: String!, thoughtAuthor: String!): Thought
+    removeThought(thoughtId: ID!): Thought
+ 
   }
 `;
 

@@ -1,8 +1,3 @@
-const jwt = require('jsonwebtoken');
-
-const secret = 'mysecretssshhhhhhh';
-const expiration = '2h';
-
 const addDateSuffix = (date) => {
   let dateStr = date.toString();
 
@@ -22,6 +17,7 @@ const addDateSuffix = (date) => {
   return dateStr;
 };
 
+// function to format a timestamp, accepts the timestamp and an `options` object as parameters
 module.exports = (
   timestamp,
   { monthLength = 'short', dateSuffix = true } = {}
@@ -68,29 +64,4 @@ module.exports = (
   const formattedTimeStamp = `${formattedMonth} ${dayOfMonth}, ${year} at ${hour}:${minutes} ${periodOfDay}`;
 
   return formattedTimeStamp;
-
-  // authMiddleware: function ({ req }) {
-  //   let token = req.body.token || req.query.token || req.headers.authorization;
-
-  //   if (req.headers.authorization) {
-  //     token = token.split(' ').pop().trim();
-  //   }
-
-  //   if (!token) {
-  //     return req;
-  //   }
-
-  //   try {
-  //     const { data } = jwt.verify(token, secret, { maxAge: expiration });
-  //     req.user = data;
-  //   } catch {
-  //     console.log('Invalid token');
-  //   }
-
-  //   return req;
-  // },
-  // signToken: function ({ _id, name, email }) {
-  //   const payload = { _id, name, email };
-  //   return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
-  // },
 };

@@ -3,14 +3,16 @@ const { Water } = require('../models');
 const { User } = require('../models');
 const { Mood } = require('../models');
 const { Picture } = require('../models');
-const { Gratitude } = require('../models');
+// const { Gratitude } = require('../models');
 const { Intention } = require('../models');
 const { Outside } = require('../models');
 const { Sleep } = require('../models');
 const { Social } = require('../models');
 
+const { Thought } = require('../models');
+const thoughtSeeds = require('./thoughtSeeds.json');
+
 const userSeeds = require('./userSeeds.json');
-const gratitudeSeeds = require('./gratitudeSeeds.json');
 const intentionSeeds = require('./intentionSeeds.json');
 
 
@@ -21,11 +23,14 @@ db.once('open', async () => {
         await Water.deleteMany({});
         await Mood.deleteMany({});
         await Picture.deleteMany({});
-        await Gratitude.deleteMany({});
+        // await Gratitude.deleteMany({});
         await Intention.deleteMany({});
         await Outside.deleteMany({});
         await Sleep.deleteMany({});
         await Social.deleteMany({});
+
+        await Thought.deleteMany({});
+        await Thought.create(thoughtSeeds);
 
         await User.deleteMany({});
         await User.create(userSeeds);
@@ -104,13 +109,13 @@ db.once('open', async () => {
             );
         }
         for (let i = 0; i < userSeeds.length; i++) {
-            // Add Gratitude
-            let { _id } = await Gratitude.create(gratitudeSeeds[(Math.floor(Math.random()*4))]);
+            // Add Thought
+            let { _id } = await Thought.create(thoughtSeeds[(Math.floor(Math.random()*4))]);
             let user = await User.findOneAndUpdate(
                 { email: userSeeds[i].email },
                 {
                     $addToSet: {
-                        gratitude: _id,
+                        thought: _id,
                     },
                 }
             );

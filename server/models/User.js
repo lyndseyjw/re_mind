@@ -44,10 +44,10 @@ const userSchema = new Schema({
       ref: 'Intention',
     },
   ],
-  gratitude: [
+  thought: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Gratitude',
+      ref: 'Thought',
     },
   ],
   picture: [

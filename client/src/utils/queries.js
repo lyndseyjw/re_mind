@@ -1,5 +1,16 @@
 import { gql } from '@apollo/client';
 
+export const QUERY_THOUGHTS = gql`
+  query getThoughts {
+    thoughts {
+      _id
+      thoughtText
+      thoughtAuthor
+      createdAt
+    }
+  }
+`;
+
 export const QUERY_WATER = gql`
 query me {
   me {
@@ -96,8 +107,8 @@ export const QUERY_ME = gql`
         intentionText
         createdAt
       }
-      gratitude {
-        gratitudeText
+      thoughts {
+        thoughtText
         createdAt
       }
       mood {
@@ -134,8 +145,8 @@ export const QUERY_USERONE = gql`
         intentionText
         createdAt
       }
-      gratitude {
-        gratitudeText
+      thoughts {
+        thoughtText
         createdAt
       }
       picture {

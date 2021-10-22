@@ -104,20 +104,15 @@ addOutside(
 }
 `;
 
-export const ADD_GRATITUDE = gql`
-mutation addGratitude(
-  $userId: ID!,
-  $gratitudeText: String!
-) {
-  addGratitude(
-    userId: $userId,
-    gratitudeText: $gratitudeText
-) {
+export const ADD_THOUGHT = gql`
+  mutation addThought($thoughtText: String!, $thoughtAuthor: String!) {
+    addThought(thoughtText: $thoughtText, thoughtAuthor: $thoughtAuthor) {
       _id
-      gratitudeText
+      thoughtText
+      thoughtAuthor
       createdAt
+    }
   }
-}
 `;
 
 export const ADD_PICTURE = gql`

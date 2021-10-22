@@ -1,21 +1,28 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { Gratitude, Intention, Mood, Outside, Picture, Sleep, User, Water, Social } = require('../models');
+const { Thought, Intention, Mood, Outside, Picture, Sleep, User, Water, Social } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
     user : async () => {
-      return User.find().populate("water").populate("mood").populate("outside").populate("sleep").populate("intention").populate("social").populate("gratitude");
+      return User.find().populate("water").populate("mood").populate("outside").populate("sleep").populate("intention").populate("social").populate("thought");
     },
 
     userone : async ( parent, { _id }) => {
-      return User.findOne({ id }).populate("water").populate("mood").populate("outside").populate("sleep").populate("intention").populate("social").populate("gratitude");
+      return User.findOne({ id }).populate("water").populate("mood").populate("outside").populate("sleep").populate("intention").populate("social").populate("thought");
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate("water").populate("mood").populate("outside").populate("picture").populate("sleep").populate("intention").populate("social").populate("gratitude");
+        return User.findOne({ _id: context.user._id }).populate("water").populate("mood").populate("outside").populate("picture").populate("sleep").populate("intention").populate("social").populate("thought");
       }
       throw new AuthenticationError('You need to be logged in!');
+    },
+    thoughts: async () => {
+      return Thought.find().sort({ createdAt: -1 });
+    },
+
+    thought: async (parent, { thoughtId }) => {
+      return Thought.findOne({ _id: thoughtId });
     },
 
   },
@@ -140,23 +147,18 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
 
-    addGratitude: async (parent, { gratitudeText }, context) => {
+    addThought: async (parent, { thoughtText, thoughtAuthor }, context) => {
+
+      // make sure you're logged in otherwise remove 153 & 155
       if (context.user) {
-        const gratitude = await Gratitude.create({
-          gratitudeText,
-        });
-
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { gratitude: gratitude._id } },
-          {
-            new: true,
-          }
-        );
-
-        return gratitude;
+      return Thought.create({ thoughtText, thoughtAuthor });
       }
-      throw new AuthenticationError('You need to be logged in!');
+    },
+
+    removeThought: async (parent, { thoughtId }, context) => {
+      if (context.user) {
+      return Thought.findOneAndDelete({ _id: thoughtId });
+      }
     },
 
     addPicture: async (parent, { pictureUploaded }, context) => {

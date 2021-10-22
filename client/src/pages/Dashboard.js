@@ -21,7 +21,6 @@ const styles = {
         margin: '2%'
     },
     body: {
-        background: '#e6d192ff',
         color: "#ac3b12",
         alignItems: "center"
     },

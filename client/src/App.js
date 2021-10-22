@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import {
   ApolloClient,
   InMemoryCache,
@@ -14,7 +14,9 @@ import Login from "./pages/Login";
 import Greeting from "./pages/Greeting";
 import Dashboard from "./pages/Dashboard";
 import NavTabs from "./components/NavTabs";
-import Mood from "./components/Mood"
+// import Mood from "./components/Mood"
+
+import moment from 'moment';
 
 
 // import Chart from './components/Chart';
@@ -24,7 +26,7 @@ import Mood from "./components/Mood"
 
 
 const httpLink = createHttpLink({
-  uri:"/graphql",
+  uri: "/graphql",
 });
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
@@ -61,7 +63,7 @@ function App() {
     },
     day: {
       backgroundColor: '#b3d993ff',
-      color: '#579620ff',
+      color: 'white',
     },
     evening: {
       backgroundColor: 'lightblue',
@@ -69,18 +71,21 @@ function App() {
     }
   };
 
-  console.log(day)
-  console.log(styles.day)
+  useEffect (() => {
+    if (window.moment().format('H') < 9) {
 
-  // const handleChangeColor = () => {
-  //   if (color === 'morning') {
-  //     setColor(styles.morning)
-  //   } else if (color === 'day') {
-  //     setColor(styles.day)
-  //   } else {
-  //     setColor(styles.evening)
-  //   }
-  // }
+      handleSetMorning()
+  
+    } else if (window.moment().format('H') < 20) {
+  
+      handleSetDay()
+  
+    } else {
+  
+      handleSetEvening()
+  
+    }
+  })
 
   const handleSetMorning = () => {
     setMorning(true)
@@ -94,13 +99,13 @@ function App() {
   const handleSetEvening = () => {
     setEvening(true)
   }
-  
+
   return (
-    
+
     <ApolloProvider client={client} >
       <Router>
         <div className="flex-column justify-flex-start min-100-vh" style={morning ? styles.morning : day ? styles.day : styles.evening}>
-          <NavTabs/>
+          <NavTabs />
           {/* <Picture />  */}
           <div className="container-fluid">
             <Route exact path="/">
@@ -113,13 +118,14 @@ function App() {
               <Signup />
             </Route>
             <Route exact path="/greeting">
-              <Greeting onSetMorning={handleSetMorning} onSetDay={handleSetDay} onSetEvening={handleSetEvening}/>
+              <Greeting onSetMorning={handleSetMorning} onSetDay={handleSetDay} onSetEvening={handleSetEvening} />
             </Route>
             <Route exact path="/dashboard">
               <Dashboard />
             </Route>
           </div>
           {/* <Footer /> */}
+        </div>
       </Router>
     </ApolloProvider>
   );

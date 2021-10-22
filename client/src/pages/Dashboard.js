@@ -6,9 +6,7 @@ import WaterChart from '../components/WaterChart';
 import SocialChart from '../components/SocialChart';
 import OutsideChart from '../components/OutsideChart';
 import CalendarPage from '../components/Calendar';
-import Journal from '../components/Journal';
-import ThoughtList from "../components/ThoughtList";
-import ThoughtForm from "../components/ThoughtForm.js";
+import { Link } from "react-router-dom";
 
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
@@ -37,12 +35,12 @@ const styles = {
         alignItems: "center",
         textAlign: "center"
     },
-    list: {
-        padding: '2%',
-        margin: '2%',
-        textAlign: "center"
-        // border: '2px #ac3b12 solid',
-        // borderRadius: '9px',
+    text: {
+        textDecoration: 'none',
+        fontWeight: '2%',
+        color: "#ac3b12",
+        textAlign: "center",
+        fontWeight: '700'
     }
 }
 
@@ -82,6 +80,9 @@ const Dashboard = () => {
                 <div className="col-lg-5 col-sm-12" style={styles.calendar}>
                     <CalendarPage />
                 </div>
+                <Link to={"/journal"} className='center' style={styles.text}>
+                  journal
+                </Link>
             </div>
 
         </main>

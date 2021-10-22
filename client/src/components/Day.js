@@ -7,6 +7,40 @@ import Outside from './Outside';
 
 import Auth from '../utils/auth';
 
+const styles = {
+  card: {
+      margin: 'auto',
+      border: "solid 2px white",
+      background: '#579620',
+      color: "white",
+      borderRadius: "9px",
+      alignItems: "center",
+      padding: '2%',
+      margin: '1%',
+  },
+  box: {
+    justifyContent: "space-around"
+  },
+  margin: {
+    marginTop: '2%'
+  },
+  buttons: {
+    button: {
+      color: "#579620ff",
+      textDecoration: "none",
+      fontWeight: "700",
+      background: 'white',
+      border: "#b3d993ff solid 2px",
+      marginTop: "2%",
+    },
+    text: {
+      color: "#579620ff",
+    }
+  }
+}
+
+
+
 const Day = ({ user }) => {
 
   const [waterTotal, setWaterTotal] = useState(0)
@@ -60,15 +94,21 @@ const Day = ({ user }) => {
   })
 
   return (
-    <div>
-
+    <div className="container-fluid">
+      <div className="row" style={styles.box}>
       {Auth.loggedIn() ? (
         <>
-            <h2>Lovely day, {user.name}</h2>
+            <h2 style={styles.margin}>Lovely day, {user.name}</h2>
             <h3>{intentionText ? (`Your intention for the day : ${intentionText}`) : ('')}</h3>
-            <Water cupsDrinken={waterTotal} />
-            <Social timeEngaged={socialTotal} />
-            <Outside timeOutside={outsideTotal} />
+            <div style={styles.card} className='col-lg-5 col-md-11'>
+            <Water cupsDrinken={waterTotal} style={styles.buttons}/>
+            </div>
+            <div style={styles.card} className='col-lg-5 col-md-11'>
+            <Social timeEngaged={socialTotal} style={styles.buttons}/>
+            </div>
+            <div style={styles.card} className='col-11'>
+            <Outside timeOutside={outsideTotal} style={styles.buttons} />
+            </div>
             <p>Have you taken your picture yet today?</p>
         </>
       ) : (
@@ -77,6 +117,7 @@ const Day = ({ user }) => {
           <Link to="/login">login</Link> to view your day
         </p>
       )}
+      </div>
     </div>
   );
 }

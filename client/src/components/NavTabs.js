@@ -18,8 +18,10 @@ const styles = {
   },
   bar: {
     alignItems: "center",
+    borderBottom: "2px solid #ac3b12",
+    top: 0,
     paddingBottom: "2%",
-    borderBottom: '2px solid #ac3b12'
+
   }
 }
 
@@ -33,7 +35,7 @@ function NavTabs() {
   const { data } = useQuery(QUERY_ME);
 
   return (
-    <div>
+    <div className="container-fluid">
       {Auth.loggedIn() ? (
         <>
           <Nav activeKey="1" style={styles.bar} className='color'>

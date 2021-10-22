@@ -4,7 +4,9 @@ import { Form, Button } from 'react-bootstrap'
 
 import { ADD_SOCIAL } from '../utils/mutations';
 
-const Social = ({ timeEngaged }) => {
+
+
+const Social = ({ timeEngaged , style }) => {
 
     const [social, setSocial] = useState('');
 
@@ -38,7 +40,7 @@ const Social = ({ timeEngaged }) => {
                 <>
                     <h3>You've engaged with another human for {timeEngaged} minutes so far today</h3>
                     <p>Any more social time you want to add?</p>
-                    <Form.Select onChange={handleChange} aria-label="Default select example">
+                    <Form.Select onChange={handleChange} aria-label="Default select example" style={style.text}>
                         <option>Choose how long</option>
                         <option value="5">5 Mins</option>
                         <option value="10">10 Mins</option>
@@ -61,7 +63,7 @@ const Social = ({ timeEngaged }) => {
                         <option value="175">2 Hours 45 Mins</option>
                         <option value="190">3 Hours</option>
                     </Form.Select>
-                    <Button variant="light" type="submit" onClick={socialSubmit}>Engaged</Button>
+                    <Button variant="light" type="submit" onClick={socialSubmit} style={style.button}>Engaged</Button>
                 </>
             ) : (
                 <div>
@@ -90,7 +92,7 @@ const Social = ({ timeEngaged }) => {
                         <option value="175">2 Hours 45 Mins</option>
                         <option value="190">3 Hours</option>
                     </Form.Select>
-                    <Button variant="light" type="submit" onClick={socialSubmit}>Engaged</Button>
+                    <Button variant="light" type="submit" onClick={socialSubmit} style={style.button}>Engaged</Button>
                 </div>
             )}
         </div>

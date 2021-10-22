@@ -49,6 +49,7 @@ const client = new ApolloClient({
 });
 
 function App() {
+  
 
   // const [color, setColor] = useState('');
 
@@ -59,15 +60,18 @@ function App() {
   const styles = {
     morning: {
       backgroundColor: '#e6d192ff',
+      height: "100vh",
       color: '#ac3b12',
     },
     day: {
       backgroundColor: '#b3d993ff',
+      height: "100vh",
       color: '#579620ff',
     },
     evening: {
-      backgroundColor: '#94b8f2ff',
-      color: '#2455a2ff',
+      backgroundColor: 'lightblue',
+      height: "100vh",
+      color: '#2455a2',
     }
   };
 

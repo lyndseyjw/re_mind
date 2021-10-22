@@ -4,7 +4,7 @@ import { Form, Button } from 'react-bootstrap'
 
 import { ADD_WATER } from '../utils/mutations';
 
-const Water = ({ cupsDrinken }) => {
+const Water = ({ cupsDrinken , style }) => {
 
     // const current = new Date();
     // const createdAt = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()}`;
@@ -46,7 +46,7 @@ const Water = ({ cupsDrinken }) => {
                 <>
                     <h3>You've drinken {cupsDrinken} cups of water so far today</h3>
                     <p>Would you like to add more?</p>
-                    <Form.Select onChange={handleChange} aria-label="Default select example">
+                    <Form.Select onChange={handleChange} aria-label="Default select example" style={style.text}>
                         <option>Choose number of cups</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
@@ -73,7 +73,7 @@ const Water = ({ cupsDrinken }) => {
                         <option value="23">Twenty-Three</option>
                         <option value="24">Twenty-Four</option>
                     </Form.Select>
-                    <Button variant="light" type="submit" onClick={waterSubmit}>Hydrated</Button>
+                    <Button variant="light" type="submit" onClick={waterSubmit} style={style.button}>Hydrated</Button>
                 </>
             ) : (
                 <div>
@@ -105,7 +105,7 @@ const Water = ({ cupsDrinken }) => {
                         <option value="23">Twenty-Three</option>
                         <option value="24">Twenty-Four</option>
                     </Form.Select>
-                    <Button variant="light" type="submit" onClick={waterSubmit}>Hydrated</Button>
+                    <Button variant="light" type="submit" onClick={waterSubmit} style={style.button}>Hydrated</Button>
                 </div>
             )}
         </div>

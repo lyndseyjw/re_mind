@@ -1,10 +1,44 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import Sleep from './Sleep';
 import Intention from './Intention';
 
 import Auth from '../utils/auth';
+
+const styles = {
+  card: {
+    margin: 'auto',
+    border: "solid 2px white",
+    background: '#db8d17',
+    color: "white",
+    borderRadius: "9px",
+    alignItems: "center",
+    padding: '2%',
+    margin: '1%',
+  },
+  box: {
+    justifyContent: "space-around"
+  },
+  margin: {
+    marginTop: '2%'
+  },
+  buttons: {
+    button: {
+      color: "#ffb300ff",
+      textDecoration: "none",
+      fontWeight: "700",
+      background: 'white',
+      border: "#ffb300ff solid 2px",
+      marginTop: "2%",
+    },
+    text: {
+      color: "#ffb300ff",
+    }
+  }
+}
+
+
 
 const Morning = ({ user }) => {
 
@@ -18,10 +52,10 @@ const Morning = ({ user }) => {
   //   console.log (sleep)
   //   console.log(user)
   //   console.log(user.sleep)
-    // const hoursSlept = sleep.hoursSlept
+  // const hoursSlept = sleep.hoursSlept
   // })
 
-  useEffect (() => {
+  useEffect(() => {
     if (user.sleep) {
       let total = 0;
       const sleep = user.sleep.forEach(night => {
@@ -29,7 +63,7 @@ const Morning = ({ user }) => {
         console.log(night.hoursSlept)
       })
       console.log(user.sleep)
-      console.log (total)
+      console.log(total)
       setSleepTotal(total)
     }
 
@@ -40,7 +74,7 @@ const Morning = ({ user }) => {
         console.log(day.intentionText)
       })
       console.log(user.intention)
-      console.log (today)
+      console.log(today)
       setIntentionText(today)
     }
   })
@@ -49,10 +83,12 @@ const Morning = ({ user }) => {
     <div>
       {Auth.loggedIn() ? (
         <>
-            <h2>Good Morning, {user.name}</h2>
-            <Sleep hoursSlept={sleepTotal} />
-            <Intention intentionToday={intentionText} />
-            <p>Don't forget to take a picture of something that makes you smile today!</p>
+          <h2 style={styles.margin}>Good Morning, {user.name}</h2>
+          <div style={styles.card}>
+            <Sleep hoursSlept={sleepTotal} style={styles.buttons} />
+          </div>
+          <Intention intentionToday={intentionText}  />
+          <p>Don't forget to take a picture of something that makes you smile today!</p>
         </>
       ) : (
         <p>

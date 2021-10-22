@@ -64,6 +64,13 @@ type User {
     createdAt: String
   }
 
+  type Thought {
+    _id: ID
+    thoughtText: String
+    thoughtAuthor: String
+    createdAt: String
+  }
+
   type Auth {
     token: ID!
     user: User
@@ -73,6 +80,8 @@ type User {
     user: [User]
     userone(name: String!): User
     me: User
+    thoughts: [Thought]!
+    thought(thoughtId: ID!): Thought
   }
 
   type Mutation {
@@ -87,6 +96,8 @@ type User {
     addMood( moodRanking: Int!): Mood
     #updateMood( moodRanking: Int!): Mood
     addSocial( minutesEngaged: Int!): Social
+    addThought(thoughtText: String!, thoughtAuthor: String!): Thought
+    removeThought(thoughtId: ID!): Thought
   }
 `;
 

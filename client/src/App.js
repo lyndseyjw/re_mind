@@ -14,6 +14,9 @@ import Login from "./pages/Login";
 import Greeting from "./pages/Greeting";
 import Dashboard from "./pages/Dashboard";
 import NavTabs from "./components/NavTabs";
+import Mood from "./components/Mood"
+
+
 // import Chart from './components/Chart';
 // import Upload from "./components/Upload";
 // import Logout from "./components/Logout";
@@ -50,7 +53,7 @@ function App() {
     <ApolloProvider client={client} >
       <Router>
           <NavTabs />
-          <div>
+          <div className="container">
             <Route exact path="/">
               <Home />
             </Route>

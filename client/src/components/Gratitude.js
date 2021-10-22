@@ -1,28 +1,28 @@
 import React , {useState} from 'react';
 import { useMutation } from '@apollo/client';
 
-import { ADD_INTENTION } from '../utils/mutations';
+import { ADD_GRATITUDE } from '../utils/mutations';
 
-const Intention = ({ intentionToday }) => {
+const Gratitude = ({ gratitudeToday }) => {
 
-    const [intentionText, setIntentionText] = useState('');
+    const [gratitudeText, setGratitudeText] = useState('');
 
     const [characterCount, setCharacterCount] = useState(0);
 
     // not sure how to use cache in this instance because we would want to query the specific user .. may need to ask Bryan Monday
-    const [addIntention, { error }] = useMutation(ADD_INTENTION);
+    const [addGratitude, { error }] = useMutation(ADD_GRATITUDE);
 
-    const intentionSubmit = async (event) => {
+    const gratitudeSubmit = async (event) => {
         event.preventDefault();
 
         try {
-            const { data } = await addIntention({
+            const { data } = await addGratitude({
                 variables: {
-                    intentionText,
+                    gratitudeText,
                 },
             });
 
-            setIntentionText('');
+            setGratitudeText('');
             window.location.replace('/greeting')
         } catch (err) {
             console.error(err);
@@ -32,21 +32,21 @@ const Intention = ({ intentionToday }) => {
     const handleChange = (event) => {
         const { name, value } = event.target;
 
-        if (name === 'intentionText' && value.length <= 280) {
-            setIntentionText(value);
+        if (name === 'gratitudeText' && value.length <= 280) {
+            setGratitudeText(value);
             setCharacterCount(value.length);
         }
     };
 
     return (
         <div>
-            {intentionToday ? (
+            {gratitudeToday ? (
                 <>
-                    <h3>Your intention for the day : {intentionToday}</h3>
+                    <h3>You're grateful for : {gratitudeToday}</h3>
                 </>
             ) : (
                 <div>
-                    <h3>What is your intention for the day?</h3>
+                    <h3>What is something you're grateful for?</h3>
                     <p
                         className={`m-0 ${characterCount === 280 || error ? 'text-danger' : ''
                             }`}
@@ -55,13 +55,13 @@ const Intention = ({ intentionToday }) => {
                     </p>
                     <form
                         className="flex-row justify-center justify-space-between-md align-center"
-                        onSubmit={intentionSubmit}
+                        onSubmit={gratitudeSubmit}
                     >
                         <div className="col-12 col-lg-9">
                             <textarea
-                                name="intentionText"
-                                placeholder="I am capable of anything"
-                                value={intentionText}
+                                name="gratitudeText"
+                                placeholder="The sun, the air.. to name a few...."
+                                value={gratitudeText}
                                 className="form-input w-100"
                                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                                 onChange={handleChange}
@@ -70,7 +70,7 @@ const Intention = ({ intentionToday }) => {
 
                         <div className="col-12 col-lg-3">
                             <button className="btn btn-light btn-block py-3" type="submit">
-                                Set
+                                Gratitude is sexy
                             </button>
                         </div>
                         {error && (
@@ -85,4 +85,4 @@ const Intention = ({ intentionToday }) => {
     )
 }
 
-export default Intention;
+export default Gratitude;

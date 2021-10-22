@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
+import './Login.css';
 
 import Auth from '../utils/auth';
 
@@ -40,28 +41,17 @@ const Login = () => {
         });
     };
 
-    // im not sure if the conditional logic is correct with the 'checking for data' statement .. perhaps this can be accomplished in the aforementioned suggestion on Home page where we just check auth.logged in & this will bypass the user going to this page at all
-    // the <Link/> below to the greeting page has the user_.id as a parameter at the moment .. this was created before I fully understood context .. perhaps we can just use context instead to input user data into each page .. the idea below was that we pass in the user_.id as a parameter & then we useParams in the Greeting page to pull that out & QUERY_USER with it .. context might be the way to go however, need to play around with that
-    // if user does not have an account, there is a <Link/> below that will direct them to the Signup page
-    // lets go to the Signup page from here ...
-
     return (
-        <main className="flex-row justify-center mb-4">
-            <div className="col-12 col-lg-10">
-                <div className="card">
-                    <h4 className="card-header bg-dark text-light p-2">Login</h4>
+        <main>
+            <div className="login-main">
+                <div className="card login">
+                    <h4 className="card-header p-2 heading">Login</h4>
                     <div className="card-body">
-                        {/* {data ? (
-                            <p>
-                                Welcome back, {data.user.name}! You may now start{' '}
-                                <Link to={`/greeting/me`}>your day</Link>
-                            </p>
-                        ) : ( */}
                         <card>
 
                             <form onSubmit={handleFormSubmit}>
                                 <input
-                                    className="form-input"
+                                    className="form-input form-spacing"
                                     placeholder="email"
                                     name="email"
                                     type="email"
@@ -77,19 +67,18 @@ const Login = () => {
                                     onChange={handleChange}
                                 />
                                 <button
-                                    className="btn btn-block btn-primary"
+                                    className="btn btn-block button-spacing"
                                     style={{ cursor: 'pointer' }}
                                     type="submit"
                                 > Login
                                 </button>
-                                <p>
+                                <p className="top-spacing">
                                     Don't have an account yet? {' '}
                                     <Link to="/signup">Sign Up Instead</Link>
                                 </p>
                             </form>
 
                         </card>
-                        {/* )} */}
 
                         {error && (
                             <div className="my-3 p-3 bg-danger text-white">

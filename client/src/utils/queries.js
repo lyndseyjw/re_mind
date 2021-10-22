@@ -44,9 +44,21 @@ query me {
  }
 `;
 
+
+export const QUERY_SOCIAL = gql`
+query me {
+  me {
+    social {
+     createdAt
+     minutesEngaged
+    }
+  }
+ }
+`;
+
 export const QUERY_OUTSIDE = gql`
-query userone ($name:String!){
-  userone (name:$name){
+query me {
+  me {
     outside {
      createdAt
      minutesOutside
@@ -66,16 +78,7 @@ query userone ($name:String!){
  }
 `;
 
-export const QUERY_SOCIAL = gql`
-query userone ($name:String!){
-  userone (name:$name){
-    social {
-     createdAt
-     minutesEngaged
-    }
-  }
- }
-`;
+
 
 // query getWater($createdAt: Date!) {
 //   water(createdAt: $createdAt) {

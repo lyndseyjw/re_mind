@@ -44,20 +44,14 @@ export const ADD_SLEEP = gql`
 
 export const ADD_INTENTION = gql`
   mutation addIntention(
-    $userId: ID!
     $intentionText: String!
   ) {
     addIntention(
-      userId: $userId
       intentionText: $intentionText
     ) {
       _id
-      name
-      intention {
-        _id
-        intentionText
-        createdAt
-      }
+      intentionText
+      createdAt
     }
   }
 `;

@@ -3,6 +3,8 @@
 import React , {useEffect} from "react";
 import SleepChart from '../components/SleepChart';
 import WaterChart from '../components/WaterChart';
+import SocialChart from '../components/SocialChart';
+import OutsideChart from '../components/OutsideChart';
 import CalendarPage from '../components/Calendar';
 import Journal from '../components/Journal';
 
@@ -18,17 +20,20 @@ import { QUERY_THOUGHTS } from "../utils/queries";
 
 const styles = {
     card: {
-        background: '#97B8C2',
-        border: '#011E3D solid 2px',
         display: 'block',
-        margin: '20px auto',
+        margin: 'auto',
     },
     calendar: {
-        background: '#97B8C2',
-        border: '#011E3D solid 2px',
         padding: '2%',
         margin: '2%'
     },
+    body: {
+        color: "#ac3b12",
+        alignItems: "center"
+    },
+    coloring: {
+        color: "#ac3b12",
+    }
 }
 
 const Dashboard = () => {
@@ -44,22 +49,27 @@ const Dashboard = () => {
     // if user does not have an account, there is a <Link/> below that will direct them to the Signup page
     // lets go to the Signup page from here ...
     return (
-        <main className="container">
+        <main className="container-fluid" style={styles.body}>
             <div className="row">
                 <div className="col-lg-6 col-md-7 col-sm-12" style={styles.card}>
-                    <Tabs defaultActiveKey="water" id="uncontrolled-tab-example" className="mb-3">
+                    <Tabs defaultActiveKey="water" id="uncontrolled-tab-example" className="mb-3" >
                         <Tab eventKey="water" title="Water">
+                            <div> 
                             <WaterChart />
+                            </div>
                         </Tab>
-                        <Tab eventKey="journal" title="Journal">
-                            <Journal />
+                        <Tab eventKey="social" title="Social">
+                            <SocialChart />
                         </Tab>
                         <Tab eventKey="sleep" title="Sleep">
                             <SleepChart />
                         </Tab>
+                        <Tab eventKey="outside" title="Outside">
+                            <OutsideChart />
+                        </Tab>
                     </Tabs>
                 </div>
-                <div className="col-lg-4 col-md-3 col-sm-12" style={styles.calendar}>
+                <div className="col-lg-5 col-md-3 col-sm-12" style={styles.calendar}>
                     <CalendarPage />
                 </div>
             </div>

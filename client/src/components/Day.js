@@ -10,6 +10,7 @@ import Auth from '../utils/auth';
 const styles = {
   card: {
       margin: 'auto',
+      paddingBottom: '30px',
       border: "solid 2px white",
       background: '#579620',
       color: "white",
@@ -17,12 +18,18 @@ const styles = {
       alignItems: "center",
       padding: '2%',
       margin: '1%',
+      marginBottom: '40px',
+      boxShadow: '30px 20px 60px rgba(0,0,0,.8)'
   },
   box: {
     justifyContent: "space-around"
   },
   margin: {
-    marginTop: '2%'
+    marginTop: '60px',
+    marginBottom: '40px',
+    textAlign: 'center',
+    fontSize: '42px',
+    color: 'white'
   },
   buttons: {
     button: {
@@ -31,11 +38,19 @@ const styles = {
       fontWeight: "700",
       background: 'white',
       border: "#b3d993ff solid 2px",
-      marginTop: "2%",
+      marginTop: "4%",
     },
     text: {
       color: "#579620ff",
     }
+  },
+  intention: {
+    textAlign: 'center',
+    marginBottom: '40px'
+  },
+  pStyle: {
+    marginTop: '40px',
+    textAlign: 'center'
   }
 }
 
@@ -99,7 +114,7 @@ const Day = ({ user }) => {
       {Auth.loggedIn() ? (
         <>
             <h2 style={styles.margin}>Lovely day, {user.name}</h2>
-            <h3>{intentionText ? (`Your intention for the day : ${intentionText}`) : ('')}</h3>
+            <h4 style={styles.intention}>{intentionText ? (`Your intention for the day : ${intentionText}`) : ('')}</h4>
             <div style={styles.card} className='col-lg-5 col-md-11'>
             <Water cupsDrinken={waterTotal} style={styles.buttons}/>
             </div>
@@ -109,7 +124,7 @@ const Day = ({ user }) => {
             <div style={styles.card} className='col-11'>
             <Outside timeOutside={outsideTotal} style={styles.buttons} />
             </div>
-            <p>Have you taken your picture yet today?</p>
+            <h4 style={styles.pStyle}>Have you taken your picture yet today?</h4>
         </>
       ) : (
         <p>

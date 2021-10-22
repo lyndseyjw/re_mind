@@ -10,20 +10,26 @@ import Auth from '../utils/auth';
 
 const styles = {
   card: {
-    margin: 'auto',
+    paddingBottom: '30px',
     border: "solid 2px white",
     background: '#5e88ca',
     color: "white",
     borderRadius: "9px",
     alignItems: "center",
     padding: '2%',
-    margin: '1%',
+    margin: '40px auto',
+    width: '60%',
+    boxShadow: '30px 20px 60px rgba(0,0,0,.8)'
   },
   box: {
     justifyContent: "space-around"
   },
   margin: {
-    marginTop: '2%'
+    marginTop: '60px',
+    marginBottom: '40px',
+    textAlign: 'center',
+    fontSize: '42px',
+    color: 'white'
   },
   buttons: {
     button: {
@@ -32,12 +38,16 @@ const styles = {
       fontWeight: "700",
       background: 'white',
       border: "#2455a2 solid 2px",
-      marginTop: "2%",
+      marginTop: "4%",
     },
     text: {
       color: "#5e88ca",
     }
-  }
+  },
+  intention: {
+    textAlign: 'center',
+    marginBottom: '40px'
+  },
 }
 
 
@@ -90,13 +100,13 @@ const Evening = ({ user }) => {
         <>
             <h2 style={styles.margin}>Good Evening, {user.name}</h2>
             {/* wondering if in the evening we want to ask user if they 'met' their intention & then have this as a row (forget the mongoose term) within the intention document so the row would be "intentionMet" & would be a boolean */}
-            <h3>{intentionText ? (`Your intention for the day : ${intentionText}`) : ('')}</h3>
+            <h4 style={styles.intention}>{intentionText ? (`Your intention for the day : ${intentionText}`) : ('')}</h4>
             {/* asking water again .. perhaps we could ask outside & social again? so they can update their time if they want OR add if they haven't yet? not sure if that will make the page too crowded though ... */}
             <div style={styles.card}>
             <Water cupsDrinken={waterTotal} style={styles.buttons}/>
             </div>
             <div style={styles.card}>
-            <Gratitude gratitudeToday={gratitudeText} />
+            <Gratitude gratitudeToday={gratitudeText} style={styles.buttons}/>
             </div>
             {/* <Picture picture={user.picture} /> */}
             {/* <Mood mood={user.mood} /> */}

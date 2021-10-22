@@ -60,17 +60,17 @@ function App() {
   const styles = {
     morning: {
       backgroundColor: '#e6d192ff',
-      height: "100vh",
+      height: "150vh",
       color: '#ac3b12',
     },
     day: {
       backgroundColor: '#b3d993ff',
-      height: "100vh",
+      height: "150vh",
       color: '#579620ff',
     },
     evening: {
       backgroundColor: 'lightblue',
-      height: "100vh",
+      height: "150vh",
       color: '#2455a2',
     }
   };

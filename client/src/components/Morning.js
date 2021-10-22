@@ -9,19 +9,26 @@ import Auth from '../utils/auth';
 const styles = {
   card: {
     margin: 'auto',
+    paddingBottom: '30px',
     border: "solid 2px white",
     background: '#db8d17',
     color: "white",
     borderRadius: "9px",
     alignItems: "center",
     padding: '2%',
-    margin: '1%',
+    margin: '40px auto',
+    width: '60%',
+    boxShadow: '30px 20px 60px rgba(0,0,0,.8)'
   },
   box: {
     justifyContent: "space-around"
   },
   margin: {
-    marginTop: '2%'
+    marginTop: '60px',
+    marginBottom: '40px',
+    textAlign: 'center',
+    fontSize: '42px',
+    color: 'white'
   },
   buttons: {
     button: {
@@ -35,6 +42,10 @@ const styles = {
     text: {
       color: "#ffb300ff",
     }
+  },
+  pStyle: {
+    marginTop: '40px',
+    textAlign: 'center'
   }
 }
 
@@ -87,8 +98,10 @@ const Morning = ({ user }) => {
           <div style={styles.card}>
             <Sleep hoursSlept={sleepTotal} style={styles.buttons} />
           </div>
-          <Intention intentionToday={intentionText}  />
-          <p>Don't forget to take a picture of something that makes you smile today!</p>
+          <div style={styles.card}>
+            <Intention intentionToday={intentionText} style={styles.buttons} />
+          </div>
+          <h4 style={styles.pStyle}>Don't forget to take a picture of something that makes you smile today!</h4>
         </>
       ) : (
         <p>

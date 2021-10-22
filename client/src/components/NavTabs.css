@@ -1,0 +1,14 @@
+.color {
+    height: 100px;
+    border-bottom: 2px solid #ac3b12 ;
+}
+
+.link {
+    color: #ac3b12;
+    line-height: 80px;
+    font-size: 25px;
+}
+
+.link:hover {
+    color: white;
+}

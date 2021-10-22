@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {
   ApolloClient,
   InMemoryCache,
@@ -47,13 +47,62 @@ const client = new ApolloClient({
 });
 
 function App() {
+
+  // const [color, setColor] = useState('');
+
+  const [morning, setMorning] = useState(false);
+  const [day, setDay] = useState(false);
+  const [evening, setEvening] = useState(false);
+
+  const styles = {
+    morning: {
+      backgroundColor: '#e6d192ff',
+      color: '#ac3b12',
+    },
+    day: {
+      backgroundColor: '#b3d993ff',
+      color: '#579620ff',
+    },
+    evening: {
+      backgroundColor: 'lightblue',
+      color: 'darkblue',
+    }
+  };
+
+  console.log(day)
+  console.log(styles.day)
+
+  // const handleChangeColor = () => {
+  //   if (color === 'morning') {
+  //     setColor(styles.morning)
+  //   } else if (color === 'day') {
+  //     setColor(styles.day)
+  //   } else {
+  //     setColor(styles.evening)
+  //   }
+  // }
+
+  const handleSetMorning = () => {
+    setMorning(true)
+  }
+
+  const handleSetDay = () => {
+    console.log('hey')
+    setDay(true)
+  }
+
+  const handleSetEvening = () => {
+    setEvening(true)
+  }
   
   return (
     
     <ApolloProvider client={client} >
       <Router>
-          <NavTabs />
-          <div className="container">
+        <div className="flex-column justify-flex-start min-100-vh" style={morning ? styles.morning : day ? styles.day : styles.evening}>
+          <NavTabs/>
+          {/* <Picture />  */}
+          <div className="container-fluid">
             <Route exact path="/">
               <Home />
             </Route>
@@ -64,7 +113,7 @@ function App() {
               <Signup />
             </Route>
             <Route exact path="/greeting">
-              <Greeting />
+              <Greeting onSetMorning={handleSetMorning} onSetDay={handleSetDay} onSetEvening={handleSetEvening}/>
             </Route>
             <Route exact path="/dashboard">
               <Dashboard />

@@ -44,20 +44,14 @@ export const ADD_SLEEP = gql`
 
 export const ADD_INTENTION = gql`
   mutation addIntention(
-    $userId: ID!
     $intentionText: String!
   ) {
     addIntention(
-      userId: $userId
       intentionText: $intentionText
     ) {
       _id
-      name
-      intention {
-        _id
-        intentionText
-        createdAt
-      }
+      intentionText
+      createdAt
     }
   }
 `;
@@ -106,11 +100,9 @@ addOutside(
 
 export const ADD_GRATITUDE = gql`
 mutation addGratitude(
-  $userId: ID!,
   $gratitudeText: String!
 ) {
   addGratitude(
-    userId: $userId,
     gratitudeText: $gratitudeText
 ) {
       _id

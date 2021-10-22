@@ -1,0 +1,27 @@
+.home-main {
+    height: 100vh;
+    width: 100%;
+    background-image: url('../assets/trendy.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    padding-top:200px;
+    text-align: center;
+}
+
+.header {
+    color: #ac3b12;
+    text-decoration: none;
+    background-color: #e6d192ff;
+    padding: 120px;
+    border-radius: 50%;
+    filter: drop-shadow(30px 30px 60px rgba(0,0,0,.8));
+    -webkit-filter: drop-shadow(30px 30px 60px rgba(0,0,0,.8));
+}
+
+.header:hover {
+    color: white;
+}

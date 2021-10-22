@@ -9,31 +9,21 @@ import Evening from '../components/Evening';
 
 import { QUERY_ME } from '../utils/queries';
 
-const Greeting = ({ onSetMorning, onSetDay, onSetEvening, style }) => {
-
-    console.log(style)
+const Greeting = () => {
 
     const { data } = useQuery(QUERY_ME);
 
     const user = data?.me || {};
 
-    console.log(user)
-
     if (window.moment().format('H') < 9) {
-
-        onSetMorning()
 
         return <Morning user={user} />
 
-    } else if (window.moment().format('H') < 20) {
-
-        onSetDay()
+    } else if (window.moment().format('H') < 17) {
 
         return <Day user={user} />
 
     } else {
-
-        onSetEvening()
 
         return <Evening user={user} />
     }

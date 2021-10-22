@@ -63,11 +63,11 @@ function App() {
     },
     day: {
       backgroundColor: '#b3d993ff',
-      color: 'white',
+      color: '#579620ff',
     },
     evening: {
-      backgroundColor: 'lightblue',
-      color: 'darkblue',
+      backgroundColor: '#94b8f2ff',
+      color: '#2455a2ff',
     }
   };
 
@@ -76,7 +76,7 @@ function App() {
 
       handleSetMorning()
   
-    } else if (window.moment().format('H') < 20) {
+    } else if (window.moment().format('H') < 17) {
   
       handleSetDay()
   
@@ -117,7 +117,7 @@ function App() {
               <Signup />
             </Route>
             <Route exact path="/greeting">
-              <Greeting onSetMorning={handleSetMorning} onSetDay={handleSetDay} onSetEvening={handleSetEvening} />
+              <Greeting />
             </Route>
             <Route exact path="/dashboard">
               <Dashboard />

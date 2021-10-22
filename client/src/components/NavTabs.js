@@ -14,14 +14,15 @@ const styles = {
   },
   bar: {
     alignItems: "center",
-    paddingBottom: "2%"
+    borderBottom: "2px solid #ac3b12",
+    top: 0,
   }
 }
 
 function NavTabs() {
 
   return (
-    <div>
+    <div className="container-fluid">
       {Auth.loggedIn() ? (
         <>
           <Nav activeKey="1" style={styles.bar} >

@@ -4,7 +4,7 @@ import { Form, Button } from 'react-bootstrap'
 
 import { ADD_SLEEP } from '../utils/mutations';
 
-const Sleep = ({ hoursSlept }) => {
+const Sleep = ({ hoursSlept, style }) => {
 
     const [sleep, setSleep] = useState('');
 
@@ -38,7 +38,7 @@ const Sleep = ({ hoursSlept }) => {
                 <>
                     <h3>You slept {hoursSlept} hours last night</h3>
                     <p>Would you like to add more?</p>
-                    <Form.Select onChange={handleChange} aria-label="Default select example">
+                    <Form.Select onChange={handleChange} aria-label="Default select example" style={style.text}>
                         <option>Choose number of hours</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
@@ -55,7 +55,7 @@ const Sleep = ({ hoursSlept }) => {
                         <option value="13">Thirteen</option>
                         <option value="14">Fourteen</option>
                     </Form.Select>
-                    <Button variant="light" type="submit" onClick={sleepTotal}>Rest</Button>
+                    <Button variant="light" type="submit" onClick={sleepTotal} style={style.button}>Rest</Button>
                 </>
             ) : (
                 <div>
@@ -77,7 +77,7 @@ const Sleep = ({ hoursSlept }) => {
                         <option value="13">Thirteen</option>
                         <option value="14">Fourteen</option>
                     </Form.Select>
-                    <Button variant="light" type="submit" onClick={sleepTotal}>Rest</Button>
+                    <Button variant="light" type="submit" onClick={sleepTotal} style={style.button}>Rest</Button>
                 </div>
             )}
         </div>

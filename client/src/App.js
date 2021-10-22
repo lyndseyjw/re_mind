@@ -57,15 +57,18 @@ function App() {
   const styles = {
     morning: {
       backgroundColor: '#e6d192ff',
+      height: "100vh",
       color: '#ac3b12',
     },
     day: {
       backgroundColor: '#b3d993ff',
+      height: "100vh",
       color: '#579620ff',
     },
     evening: {
       backgroundColor: 'lightblue',
-      color: 'darkblue',
+      height: "100vh",
+      color: '#2455a2',
     }
   };
 
@@ -120,6 +123,7 @@ function App() {
             </Route>
           </div>
           {/* <Footer /> */}
+        </div>
       </Router>
     </ApolloProvider>
   );

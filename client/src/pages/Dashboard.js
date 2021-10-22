@@ -21,12 +21,11 @@ const styles = {
         margin: '2%'
     },
     body: {
-        background: '#e6d192ff',
         color: "#ac3b12",
-        alignItems: "center"
+        height: "100vh"
     },
-    coloring: {
-        color: "#ac3b12",
+    center: {
+        alignItems: "center"
     }
 }
 
@@ -39,7 +38,7 @@ const Dashboard = () => {
     // lets go to the Signup page from here ...
     return (
         <main className="container-fluid" style={styles.body}>
-            <div className="row">
+            <div className="row" style={styles.center}>
                 <div className="col-lg-6 col-md-7 col-sm-12" style={styles.card}>
                     <Tabs defaultActiveKey="water" id="uncontrolled-tab-example" className="mb-3" >
                         <Tab eventKey="water" title="Water">

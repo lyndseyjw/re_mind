@@ -9,7 +9,7 @@ const styles = {
       color: "#ac3b12",
       textDecoration: "none",
       fontWeight: "700",
-      background: '#e6d192ff',
+      background: 'transparent',
       border: "#ac3b12 solid 2px",
       height: "20%",
   }

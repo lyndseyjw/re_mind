@@ -42,18 +42,18 @@ const Dashboard = () => {
             <div className="row">
                 <div className="col-lg-6 col-md-7 col-sm-12" style={styles.card}>
                     <Tabs defaultActiveKey="water" id="uncontrolled-tab-example" className="mb-3" >
-                        <Tab eventKey="water" title="Water Intake">
+                        <Tab eventKey="water" title="Water">
                             <div> 
                             <WaterChart />
                             </div>
                         </Tab>
-                        <Tab eventKey="social" title="Social Time">
+                        <Tab eventKey="social" title="Social">
                             <SocialChart />
                         </Tab>
-                        <Tab eventKey="sleep" title="Hours of Sleep">
+                        <Tab eventKey="sleep" title="Sleep">
                             <SleepChart />
                         </Tab>
-                        <Tab eventKey="outside" title="Time Outside">
+                        <Tab eventKey="outside" title="Outside">
                             <OutsideChart />
                         </Tab>
                     </Tabs>

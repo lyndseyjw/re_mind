@@ -3,22 +3,22 @@ import Moment from 'react-moment';
 import moment from 'moment';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { useQuery } from '@apollo/react-hooks';
-import { QUERY_WATER } from '../utils/queries';
+import { QUERY_OUTSIDE } from '../utils/queries';
 
 
 
 //NOTE: how do we map through social, water, mood, sleep? may need to do if / switches, onclicks for tabs that'll trigger which data to render : https://medium.com/forepaas/react-making-recharts-easy-to-use-e3d99d0641ba
 
-export default function WaterChart() {
+export default function OutsideChart() {
 
   useEffect(() => {
     console.log(data)
   })
 
-  const { loading, data } = useQuery(QUERY_WATER);
+  const { loading, data } = useQuery(QUERY_OUTSIDE);
 
-  const waterData = data?.me.water || ['hello']
-  console.log(waterData[0].createdAt);
+  const outsideData = data?.me.outside || ['hello']
+
 
   // //moment code - need to check if it'll render once frontend displays
     // const day = waterData[0].createdAt.format('MMM Do YY');
@@ -32,7 +32,7 @@ export default function WaterChart() {
           <AreaChart
             width={500}
             height={400}
-            data={waterData}
+            data={outsideData}
             margin={{
               top: 10,
               right: 30,
@@ -43,7 +43,7 @@ export default function WaterChart() {
             <XAxis dataKey="createdAt" stroke="#ac3b12" />
             <YAxis stroke="#ac3b12" />
             <Tooltip stroke="#ac3b12" />
-            <Area type="monotone" dataKey="cups" stroke="#ac3b12" fill="#ac3b12" />
+            <Area type="monotone" dataKey="minutesOutside" stroke="#ac3b12" fill="#ac3b12" />
           </AreaChart>
         // </ResponsiveContainer>
       )}

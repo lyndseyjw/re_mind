@@ -12,12 +12,12 @@ import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Greeting from "./pages/Greeting";
-import Picture from "./components/Picture";
 import Dashboard from "./pages/Dashboard";
 import NavTabs from "./components/NavTabs";
+import Mood from "./components/Mood"
+
+
 // import Chart from './components/Chart';
-// import CalendarPage from './components/Calendar';
-// import Dashboard from "./components/Dashboard";
 // import Upload from "./components/Upload";
 // import Logout from "./components/Logout";
 // import Footer from "./components/Footer";
@@ -119,10 +119,7 @@ function App() {
               <Dashboard />
             </Route>
           </div>
-          {/* <Chart />
-          <CalendarPage /> */}
           {/* <Footer /> */}
-        </div>
       </Router>
     </ApolloProvider>
   );

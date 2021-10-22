@@ -29,7 +29,7 @@ export default function Chart() {
       ) : (
         // <ResponsiveContainer width="100%" height="100%">
           <AreaChart
-            width={400}
+            width={500}
             height={400}
             data={sleepData}
             margin={{
@@ -38,11 +38,11 @@ export default function Chart() {
               left: 0,
               bottom: 0
             }}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="createdAt" />
-            <YAxis />
-            <Tooltip />
-            <Area type="monotone" dataKey="hoursSlept" stroke="#8884d8" fill="#8884d8" />
+            <CartesianGrid strokeDasharray="3 3" stroke="#ac3b12"/>
+            <XAxis dataKey="createdAt" stroke="#ac3b12"/>
+            <YAxis stroke="#ac3b12"/>
+            <Tooltip stroke="#ac3b12"/>
+            <Area type="monotone" dataKey="hoursSlept" stroke="#ac3b12" fill="#ac3b12" />
           </AreaChart>
         // </ResponsiveContainer>
       )}

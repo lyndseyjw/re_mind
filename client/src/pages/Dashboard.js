@@ -24,7 +24,6 @@ const styles = {
         padding: '2%',
         border: '#ac3b12 2px solid',
     },
-
     calendar: {
         display: 'flex',
         background: '#e6d192ff',

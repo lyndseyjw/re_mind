@@ -9,7 +9,7 @@ import React, { useState } from 'react';
 function GratitudeList() {
   const [gratitude, setGratitude] = useState([]);
 
-  // Function to add a bucket list item
+  // Function to add a Gratitudelist item
   const addGratitudeItem = (item) => {
     console.log(
       '🚀 ~ file: GratitudeList.js ~ line 10 ~ addBucketItem ~ item',
@@ -20,15 +20,15 @@ function GratitudeList() {
       return;
     }
 
-    // Add the new bucket list item to the existing array of objects
+    // Add the new Gratitudelist item to the existing array of objects
     const newGratitude = [item, ...gratitude];
     console.log(newGratitude);
 
-    // Call setBucket to update state with our new set of bucket list items
+    // Call setGratitudeto update state with our new set of Gratitudelist items
     setGratitude(newGratitude);
   };
 
-  // Function to mark bucket list item as complete
+  // Function to mark Gratitudelist item as complete
   const completeGratitudeItem = (id) => {
     // If the ID passed to this function matches the ID of the item that was clicked, mark it as complete
     let updatedGratitude = gratitude.map((item) => {
@@ -42,14 +42,14 @@ function GratitudeList() {
     setGratitude(updatedGratitude);
   };
 
-  // Function to remove bucket list item and update state
+  // Function to remove Gratitudelist item and update state
   const removeGratitudeItem = (id) => {
     const updatedGratitude = [...gratitude].filter((item) => item.id !== id);
 
     setGratitude(updatedGratitude);
   };
 
-  // Function to edit the bucket list item
+  // Function to edit the Gratitudelist item
   const editGratitudeItem = (itemId, newValue) => {
     // Make sure that the value isn't empty
     if (!newValue.text) {

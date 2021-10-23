@@ -76,11 +76,11 @@ function App() {
   };
 
   useEffect (() => {
-    if (window.moment().format('H') < 9) {
+    if (window.moment().format('H') < 23) {
 
       handleSetMorning()
   
-    } else if (window.moment().format('H') < 17) {
+    } else if (window.moment().format('H') < 24) {
   
       handleSetDay()
   

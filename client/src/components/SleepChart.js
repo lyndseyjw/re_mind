@@ -17,10 +17,20 @@ export default function Chart() {
 
   const { loading, data } = useQuery(QUERY_SLEEP);
 
-  const sleepData = data?.me.sleep || ['hello']
+  const sleepData = data?.me.sleep || ['hello'];
+  console.log('sleep data : ',sleepData);
+
+  // const sleepCreatedAt = sleepData.filter(night => {
+  //   // console.log('moment unix :',moment.unix(night.createdAt / 1000).format('MM/DD/YYYY'))
+  //   return moment.unix(sleepData.createdAt / 1000).format('MM/DD/YYYY')
+  // })
+
+  const formatXAxis = (tickItem) => {
+    return moment.unix(tickItem/1000).format('MM/DD/YYYY')
+  }
 
   // //moment code - need to check if it'll render once frontend displays
-    // const day = waterData[0].createdAt.format('MMM Do YY');
+  // const day = waterData[0].createdAt.format('MMM Do YY');
 
   return (
     <div>
@@ -39,7 +49,7 @@ export default function Chart() {
               bottom: 0
             }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#ac3b12"/>
-            <XAxis dataKey="createdAt" stroke="#ac3b12"/>
+            <XAxis dataKey='createdAt' stroke="#ac3b12" tickFormatter={formatXAxis}/>
             <YAxis stroke="#ac3b12"/>
             <Tooltip stroke="#ac3b12"/>
             <Area type="monotone" dataKey="hoursSlept" stroke="#ac3b12" fill="#ac3b12" />

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 
 import Sleep from './Sleep';
 import Intention from './Intention';
 
 import Auth from '../utils/auth';
+import { totalmem } from 'os';
 
 const styles = {
   card: {
@@ -55,28 +57,44 @@ const Morning = ({ user }) => {
 
   const [sleepTotal, setSleepTotal] = useState(0)
   const [intentionText, setIntentionText] = useState('')
-  // useEffect (() => {
-  //   const sleep = user.sleep.filter(night => {
-  //     console.log(moment.unix(night.createdAt).toDate())
-  //     return moment.unix(night.createdAt).format('MM/DD/YYYY') === moment().format('MM/DD/YYYY')
-  //   })
-  //   console.log (sleep)
-  //   console.log(user)
-  //   console.log(user.sleep)
-  // const hoursSlept = sleep.hoursSlept
-  // })
 
-  useEffect(() => {
+  useEffect (() => {
     if (user.sleep) {
       let total = 0;
-      const sleep = user.sleep.forEach(night => {
+      const todaySleep = user.sleep.filter(night => {
+        console.log('moment unix :',moment.unix(night.createdAt / 1000).format('MM/DD/YYYY'))
+        return moment.unix(night.createdAt / 1000).format('MM/DD/YYYY') === moment().format('MM/DD/YYYY')
+      })
+      console.log ('all sleep from today :',todaySleep)
+      console.log(user)
+      console.log(user.sleep)
+      const sleep = todaySleep.forEach(night => {
         total += night.hoursSlept
         console.log(night.hoursSlept)
       })
-      console.log(user.sleep)
-      console.log(total)
+      console.log('today sleep totaled :',total)
       setSleepTotal(total)
+      // const hoursSlept = sleep.hoursSlept
     }
+  })
+
+  useEffect(() => {
+    // if (user.sleep) {
+    //   let total = 0;
+    //   const todaySleep = user.sleep.filter(night => {
+    //     console.log('created at moment',moment(night.createdAt).format('MM/DD/YYYY'))
+    //     return moment(night.createdAt).format('MM/DD/YYYY') === moment().format('MM/DD/YYYY')
+    //   })
+      
+    //   console.log('All sleep from today:',todaySleep)
+    //   const sleep = todaySleep.forEach(night => {
+    //     total += night.hoursSlept
+    //     console.log(night.hoursSlept)
+    //   })
+    //   console.log('user sleep data :',user.sleep)
+    //   console.log('sleep from today totaled :',total)
+    //   setSleepTotal(total)
+    // }
 
     if (user.intention) {
       let today = '';

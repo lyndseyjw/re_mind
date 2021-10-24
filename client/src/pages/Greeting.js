@@ -15,7 +15,7 @@ const Greeting = () => {
 
     const user = data?.me || {};
 
-    if (window.moment().format('H') < 9) {
+    if (window.moment().format('H') < 7) {
 
         return <Morning user={user} />
 

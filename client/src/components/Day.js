@@ -7,6 +7,8 @@ import Outside from './Outside';
 
 import Auth from '../utils/auth';
 
+import moment from 'moment';
+
 const styles = {
   card: {
       margin: 'auto',
@@ -66,12 +68,17 @@ const Day = ({ user }) => {
   useEffect (() => {
     if (user.water) {
       let total = 0;
-      const water = user.water.forEach(input => {
-        total += input.cups
-        console.log(input.cups)
+      console.log('all of users water',user.water)
+      const todayWater = user.water.filter(cup => {
+        if ((moment.unix(cup.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))) {
+          return (moment.unix(cup.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))
+        }
       })
-      console.log(user.water)
-      console.log (total)
+      console.log('water only for today',todayWater)
+      const water = todayWater.forEach(cup => {
+        total += cup.cups
+      })
+      console.log('totaled water from today',total)
       setWaterTotal(total)
     }
 

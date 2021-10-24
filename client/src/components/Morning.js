@@ -61,14 +61,17 @@ const Morning = ({ user }) => {
   useEffect (() => {
     if (user.sleep) {
       let total = 0;
+      console.log('all of users sleep',user.sleep)
       const todaySleep = user.sleep.filter(night => {
         if ((moment.unix(night.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))) {
           return (moment.unix(night.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))
         }
       })
+      console.log('sleep only for today',todaySleep)
       const sleep = todaySleep.forEach(night => {
         total += night.hoursSlept
       })
+      console.log('totaled sleep from today',total)
       setSleepTotal(total)
     }
 

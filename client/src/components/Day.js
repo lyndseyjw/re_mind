@@ -100,14 +100,20 @@ const Day = ({ user }) => {
 
     if (user.outside) {
       let total = 0;
-      const outside = user.outside.forEach(input => {
-        total += input.minutesOutside
-        console.log(input.minutesOutside)
+      console.log('all of users outside',user.outside)
+      const todayOutside = user.outside.filter(air => {
+        if ((moment.unix(air.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))) {
+          return (moment.unix(air.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))
+        }
       })
-      console.log(user.outside)
-      console.log (total)
+      console.log('outside only for today',todayOutside)
+      const outside = todayOutside.forEach(air => {
+        total += air.minutesOutside
+      })
+      console.log('totaled outside from today',total)
       setOutsideTotal(total)
     }
+
     if (user.intention) {
       let today = '';
       const intention = user.intention.forEach(day => {

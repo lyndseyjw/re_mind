@@ -5,8 +5,6 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_SLEEP } from '../utils/queries';
 
-
-
 //NOTE: how do we map through social, water, mood, sleep? may need to do if / switches, onclicks for tabs that'll trigger which data to render : https://medium.com/forepaas/react-making-recharts-easy-to-use-e3d99d0641ba
 
 export default function Chart() {
@@ -18,19 +16,10 @@ export default function Chart() {
   const { loading, data } = useQuery(QUERY_SLEEP);
 
   const sleepData = data?.me.sleep || ['hello'];
-  console.log('sleep data : ',sleepData);
-
-  // const sleepCreatedAt = sleepData.filter(night => {
-  //   // console.log('moment unix :',moment.unix(night.createdAt / 1000).format('MM/DD/YYYY'))
-  //   return moment.unix(sleepData.createdAt / 1000).format('MM/DD/YYYY')
-  // })
 
   const formatXAxis = (tickItem) => {
     return moment.unix(tickItem/1000).format('MM/DD/YYYY')
   }
-
-  // //moment code - need to check if it'll render once frontend displays
-  // const day = waterData[0].createdAt.format('MMM Do YY');
 
   return (
     <div>

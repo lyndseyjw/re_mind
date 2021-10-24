@@ -15,11 +15,11 @@ const Greeting = () => {
 
     const user = data?.me || {};
 
-    if (window.moment().format('H') < 23) {
+    if (window.moment().format('H') < 9) {
 
         return <Morning user={user} />
 
-    } else if (window.moment().format('H') < 24) {
+    } else if (window.moment().format('H') < 17) {
 
         return <Day user={user} />
 

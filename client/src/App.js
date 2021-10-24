@@ -22,7 +22,6 @@ import moment from 'moment';
 // import Chart from './components/Chart';
 // import Upload from "./components/Upload";
 // import Logout from "./components/Logout";
-// import Footer from "./components/Footer";
 
 
 const httpLink = createHttpLink({
@@ -49,9 +48,6 @@ const client = new ApolloClient({
 });
 
 function App() {
-  
-
-  // const [color, setColor] = useState('');
 
   const [morning, setMorning] = useState(false);
   const [day, setDay] = useState(false);
@@ -76,11 +72,11 @@ function App() {
   };
 
   useEffect (() => {
-    if (window.moment().format('H') < 23) {
+    if (window.moment().format('H') < 9) {
 
       handleSetMorning()
   
-    } else if (window.moment().format('H') < 24) {
+    } else if (window.moment().format('H') < 17) {
   
       handleSetDay()
   

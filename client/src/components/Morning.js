@@ -62,48 +62,29 @@ const Morning = ({ user }) => {
     if (user.sleep) {
       let total = 0;
       const todaySleep = user.sleep.filter(night => {
-        console.log('moment unix :',moment.unix(night.createdAt / 1000).format('MM/DD/YYYY'))
-        return moment.unix(night.createdAt / 1000).format('MM/DD/YYYY') === moment().format('MM/DD/YYYY')
+        if ((moment.unix(night.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))) {
+          return (moment.unix(night.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))
+        }
       })
-      console.log ('all sleep from today :',todaySleep)
-      console.log(user)
-      console.log(user.sleep)
       const sleep = todaySleep.forEach(night => {
         total += night.hoursSlept
-        console.log(night.hoursSlept)
       })
-      console.log('today sleep totaled :',total)
       setSleepTotal(total)
-      // const hoursSlept = sleep.hoursSlept
     }
-  })
-
-  useEffect(() => {
-    // if (user.sleep) {
-    //   let total = 0;
-    //   const todaySleep = user.sleep.filter(night => {
-    //     console.log('created at moment',moment(night.createdAt).format('MM/DD/YYYY'))
-    //     return moment(night.createdAt).format('MM/DD/YYYY') === moment().format('MM/DD/YYYY')
-    //   })
-      
-    //   console.log('All sleep from today:',todaySleep)
-    //   const sleep = todaySleep.forEach(night => {
-    //     total += night.hoursSlept
-    //     console.log(night.hoursSlept)
-    //   })
-    //   console.log('user sleep data :',user.sleep)
-    //   console.log('sleep from today totaled :',total)
-    //   setSleepTotal(total)
-    // }
 
     if (user.intention) {
       let today = '';
-      const intention = user.intention.forEach(day => {
-        today = day.intentionText
-        console.log(day.intentionText)
+      console.log('all of users intentions',user.intention)
+      const todayIntention = user.intention.filter(day => {
+        if ((moment.unix(day.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))) {
+          return (moment.unix(day.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))
+        }
       })
-      console.log(user.intention)
-      console.log(today)
+      console.log('intentions only for today',todayIntention)
+      const intention = todayIntention.forEach(day => {
+        today = day.intentionText
+      })
+      console.log('most recent intention from today',today)
       setIntentionText(today)
     }
   })

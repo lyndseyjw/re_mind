@@ -167,7 +167,9 @@ const resolvers = {
     },
 
     addPicture: async (parent, { pictureUploaded }, context) => {
+      console.log("adding pic")
       if (context.user) {
+        console.log("logged in pic")
         const picture = await Picture.create({
           pictureUploaded,
         });

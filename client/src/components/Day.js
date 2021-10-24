@@ -84,12 +84,17 @@ const Day = ({ user }) => {
 
     if (user.social) {
       let total = 0;
-      const social = user.social.forEach(input => {
-        total += input.minutesEngaged
-        console.log(input.minutesEngaged)
+      console.log('all of users social',user.social)
+      const todaySocial = user.social.filter(friend => {
+        if ((moment.unix(friend.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))) {
+          return (moment.unix(friend.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))
+        }
       })
-      console.log(user.social)
-      console.log (total)
+      console.log('social only for today',todaySocial)
+      const social = todaySocial.forEach(friend => {
+        total += friend.minutesEngaged
+      })
+      console.log('totaled social from today',total)
       setSocialTotal(total)
     }
 

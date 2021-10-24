@@ -76,7 +76,7 @@ function App() {
 
       handleSetMorning()
   
-    } else if (window.moment().format('H') < 17) {
+    } else if (window.moment().format('H') < 8) {
   
       handleSetDay()
   

@@ -68,60 +68,56 @@ const Day = ({ user }) => {
   useEffect (() => {
     if (user.water) {
       let total = 0;
-      console.log('all of users water',user.water)
       const todayWater = user.water.filter(cup => {
         if ((moment.unix(cup.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))) {
           return (moment.unix(cup.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))
         }
       })
-      console.log('water only for today',todayWater)
       const water = todayWater.forEach(cup => {
         total += cup.cups
       })
-      console.log('totaled water from today',total)
       setWaterTotal(total)
     }
 
     if (user.social) {
       let total = 0;
-      console.log('all of users social',user.social)
       const todaySocial = user.social.filter(friend => {
         if ((moment.unix(friend.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))) {
           return (moment.unix(friend.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))
         }
       })
-      console.log('social only for today',todaySocial)
       const social = todaySocial.forEach(friend => {
         total += friend.minutesEngaged
       })
-      console.log('totaled social from today',total)
       setSocialTotal(total)
     }
 
     if (user.outside) {
       let total = 0;
-      console.log('all of users outside',user.outside)
       const todayOutside = user.outside.filter(air => {
         if ((moment.unix(air.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))) {
           return (moment.unix(air.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))
         }
       })
-      console.log('outside only for today',todayOutside)
       const outside = todayOutside.forEach(air => {
         total += air.minutesOutside
       })
-      console.log('totaled outside from today',total)
       setOutsideTotal(total)
     }
 
     if (user.intention) {
       let today = '';
-      const intention = user.intention.forEach(day => {
-        today = day.intentionText
-        console.log(day.intentionText)
+      console.log('all of users intentions',user.intention)
+      const todayIntention = user.intention.filter(day => {
+        if ((moment.unix(day.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))) {
+          return (moment.unix(day.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))
+        }
       })
-      console.log(user.intention)
-      console.log (today)
+      console.log('intentions only for today',todayIntention)
+      const intention = todayIntention.forEach(day => {
+        today = day.intentionText
+      })
+      console.log('most recent intention from today',today)
       setIntentionText(today)
     }
   })

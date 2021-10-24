@@ -8,6 +8,8 @@ import Gratitude from './Gratitude';
 
 import Auth from '../utils/auth';
 
+import moment from 'moment';
+
 const styles = {
   card: {
     paddingBottom: '30px',
@@ -61,34 +63,43 @@ const Evening = ({ user }) => {
   useEffect (() => {
     if (user.water) {
       let total = 0;
-      const water = user.water.forEach(input => {
-        total += input.cups
-        console.log(input.cups)
+      const todayWater = user.water.filter(cup => {
+        if ((moment.unix(cup.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))) {
+          return (moment.unix(cup.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))
+        }
       })
-      console.log(user.water)
-      console.log (total)
+      const water = todayWater.forEach(cup => {
+        total += cup.cups
+      })
       setWaterTotal(total)
     }
 
     if (user.gratitude) {
       let grateful = '';
-      const gratitude = user.gratitude.forEach(great => {
-        grateful = great.gratitudeText
-        console.log(great.gratitudeText)
+      console.log('all of users gratitudes',user.gratitude)
+      const todayGratitude = user.gratitude.filter(day => {
+        if ((moment.unix(day.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))) {
+          return (moment.unix(day.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))
+        }
       })
-      console.log(user.gratitude)
-      console.log (grateful)
+      console.log('gratitudes only for today',todayGratitude)
+      const gratitude = todayGratitude.forEach(great => {
+        grateful = great.gratitudeText
+      })
+      console.log('most recent gratitude from today',grateful)
       setGratitudeText(grateful)
     }
 
     if (user.intention) {
       let today = '';
-      const intention = user.intention.forEach(day => {
-        today = day.intentionText
-        console.log(day.intentionText)
+      const todayIntention = user.intention.filter(day => {
+        if ((moment.unix(day.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))) {
+          return (moment.unix(day.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))
+        }
       })
-      console.log(user.intention)
-      console.log (today)
+      const intention = todayIntention.forEach(day => {
+        today = day.intentionText
+      })
       setIntentionText(today)
     }
   })

@@ -112,24 +112,28 @@ mutation addGratitude(
 }
 `;
 
+export const ADD_THOUGHT = gql`
+  mutation addThought($thoughtText: String!, $thoughtAuthor: String!) {
+    addThought(thoughtText: $thoughtText, thoughtAuthor: $thoughtAuthor) {
+      _id
+      thoughtText
+      thoughtAuthor
+      createdAt
+    }
+  }
+`;
+
 export const ADD_PICTURE = gql`
   mutation addPicture(
-    $userId: ID!
-    $pictureUploaded: Int!
+    $pictureUploaded: String!
   ) {
     addPicture(
-      userId: $userId
       pictureUploaded: $pictureUploaded
-    ) {
-      _id
-      name
-      picture {
-        _id
+    ) { _id
         pictureUploaded
         createdAt
       }
     }
-  }
 `;
 
 export const ADD_MOOD = gql`

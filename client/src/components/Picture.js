@@ -1,8 +1,8 @@
 import React from 'react';
 import '../App.css'
-// import { useMutation } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 
-// import { ADD_PICTURE } from '../utils/mutations';
+import { ADD_PICTURE } from '../utils/mutations';
 
 const styles = {
   button: {
@@ -15,13 +15,26 @@ const styles = {
   }
 }
 
+
 function Picture() {
+  const [addPicture, { error }] = useMutation(ADD_PICTURE);
     function handdleUpload() {
         var myWidget = window.cloudinary.createUploadWidget({
             cloudName: 'ucla-bootcamp-student', 
             uploadPreset: 'qeyacixq'}, (error, result) => { 
               if (!error && result && result.event === "success") { 
                 console.log('Done! Here is the image info: ', result.info); 
+                
+
+                try {
+                  const { data } = addPicture({
+                    variables: { pictureUploaded: result.info.url },
+                  });
+          
+                } catch (err) {
+                  console.error(err);
+                }
+
               }
             }
           )

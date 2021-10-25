@@ -67,6 +67,16 @@ query userone ($name:String!){
  }
 `;
 
+export const QUERY_THOUGHTS = gql`
+  query getThoughts {
+    thoughts {
+      _id
+      thoughtText
+      thoughtAuthor
+      createdAt
+    }
+  }
+`;
 
 
 // query getWater($createdAt: Date!) {

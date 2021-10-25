@@ -14,6 +14,7 @@ import Login from "./pages/Login";
 import Greeting from "./pages/Greeting";
 import Dashboard from "./pages/Dashboard";
 import NavTabs from "./components/NavTabs";
+import Journal from "./pages/Journal";
 // import Mood from "./components/Mood"
 
 import moment from 'moment';
@@ -121,6 +122,9 @@ function App() {
             </Route>
             <Route exact path="/dashboard">
               <Dashboard />
+            </Route>
+            <Route exact path="/journal">
+              <Journal />
             </Route>
           </div>
           {/* <Footer /> */}

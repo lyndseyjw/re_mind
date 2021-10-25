@@ -15,5 +15,5 @@
 }
 
 .left {
-    float: left;
+    display: block;
 }

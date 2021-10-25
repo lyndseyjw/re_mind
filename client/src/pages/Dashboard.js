@@ -10,11 +10,13 @@ import Journal from '../components/Journal';
 import ThoughtList from "../components/ThoughtList";
 import ThoughtForm from "../components/ThoughtForm.js";
 
+
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
 import { useQuery } from "@apollo/client";
 import { QUERY_THOUGHTS } from "../utils/queries";
+
 
 
 const styles = {
@@ -44,6 +46,7 @@ const styles = {
         // border: '2px #ac3b12 solid',
         // borderRadius: '9px',
     }
+
 }
 
 

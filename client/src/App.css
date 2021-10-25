@@ -1,3 +1,5 @@
+
+
 .App {
   text-align: center;
 }
@@ -52,9 +54,33 @@
   margin: 20px;
 }
 
-/* .card {
+li {
+   list-style-type: none;
+}
+
+ul {
+  padding: 0;
+}
+
+  /* #sad button {
+  border-radius: 1px;
+  margin: 50px;
 
 } */
+
+ /* #red:hover  {
+  background-color: rgba(196, 89, 89, 0.776);
+}
+
+#yellow:hover {
+  background-color: rgba(219, 221, 98, 0.81);
+}
+
+#green:hover {
+  background-color: rgba(187, 228, 120, 0.7);
+} */
+
+
 
 /* Cloudinary Styling */
 

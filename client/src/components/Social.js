@@ -38,7 +38,7 @@ const Social = ({ timeEngaged , style }) => {
         <div>
             {timeEngaged ? (
                 <>
-                    <h3>You've engaged with another human for {timeEngaged} minutes so far today</h3>
+                    <h3>You've engaged with another human for {timeEngaged} minutes so far today.</h3>
                     <p>Any more social time you want to add?</p>
                     <Form.Select onChange={handleChange} aria-label="Default select example" style={style.text}>
                         <option>Choose how long</option>

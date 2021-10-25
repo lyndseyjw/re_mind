@@ -18,10 +18,10 @@ export default function WaterChart() {
   const { loading, data } = useQuery(QUERY_WATER);
 
   const waterData = data?.me.water || ['hello']
-
-
-  // //moment code - need to check if it'll render once frontend displays
-    // const day = waterData[0].createdAt.format('MMM Do YY');
+  
+  const formatXAxis = (tickItem) => {
+    return moment.unix(tickItem/1000).format('MM/DD/YYYY')
+  }
 
   return (
     <div>
@@ -40,7 +40,7 @@ export default function WaterChart() {
               bottom: 0
             }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#ac3b12" />
-            <XAxis dataKey="createdAt" stroke="#ac3b12" />
+            <XAxis dataKey="createdAt" stroke="#ac3b12" tickFormatter={formatXAxis}/>
             <YAxis stroke="#ac3b12" />
             <Tooltip stroke="#ac3b12" />
             <Area type="monotone" dataKey="cups" stroke="#ac3b12" fill="#ac3b12" />

@@ -8,11 +8,13 @@ import OutsideChart from '../components/OutsideChart';
 import CalendarPage from '../components/Calendar';
 import { Link } from "react-router-dom";
 
+
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
 import { useQuery } from "@apollo/client";
 import { QUERY_THOUGHTS } from "../utils/queries";
+
 
 
 const styles = {
@@ -50,6 +52,7 @@ const styles = {
         textAlign: "center",
         fontWeight: '700'
     }
+
 }
 
 

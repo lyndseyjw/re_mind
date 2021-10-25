@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client';
 
 import { ADD_GRATITUDE } from '../utils/mutations';
 
-const Gratitude = ({ gratitudeToday }) => {
+const Gratitude = ({ gratitudeToday, style }) => {
 
     const [gratitudeText, setGratitudeText] = useState('');
 
@@ -69,7 +69,7 @@ const Gratitude = ({ gratitudeToday }) => {
                         </div>
 
                         <div className="col-12 col-lg-3">
-                            <button className="btn btn-light btn-block py-3" type="submit">
+                            <button className="btn btn-light btn-block py-3" type="submit" style={style.button}>
                                 Gratitude is sexy
                             </button>
                         </div>

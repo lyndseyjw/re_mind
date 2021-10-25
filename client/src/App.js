@@ -126,6 +126,7 @@ function App() {
             </Route>
             <Route exact path="/dashboard">
               <Dashboard />
+              {/* <Mood/> */}
             </Route>
             <Route exact path="/journal">
               <Journal />

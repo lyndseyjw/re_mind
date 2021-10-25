@@ -25,7 +25,6 @@ function Picture() {
               if (!error && result && result.event === "success") { 
                 console.log('Done! Here is the image info: ', result.info); 
                 
-
                 try {
                   const { data } = addPicture({
                     variables: { pictureUploaded: result.info.url },

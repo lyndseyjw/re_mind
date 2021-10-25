@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button"
 
-// import { useMutation } from "@apollo/client";
-// import { ADD_MOOD } from "../utils/mutations";
+import { useMutation } from "@apollo/client";
+import { ADD_MOOD } from "../utils/mutations";
 
 //Mood Modal Setup
-function Mood() {
-  const [show, setShow] = useState(true);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+function Mood({handleClose, show}) {
+  // const [show, setShow] = useState(false);
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
   
   const [mood, setMood] = useState(1);
   const [emoji, setEmoji] = useState([

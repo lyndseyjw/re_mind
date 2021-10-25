@@ -1,5 +1,7 @@
 # re_mind
 
+## A MERN Full Stack Wellness Application Where Users Can Track their Daily Habits & Assess Trends in Overall Well-Being
+
 ![license](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ## Description

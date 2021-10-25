@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client';
 
 import { ADD_INTENTION } from '../utils/mutations';
 
-const Intention = ({ userId, intention }) => {
+const Intention = ({ intentionToday }) => {
 
     const [intentionText, setIntentionText] = useState('');
 
@@ -18,12 +18,12 @@ const Intention = ({ userId, intention }) => {
         try {
             const { data } = await addIntention({
                 variables: {
-                    userId,
                     intentionText,
                 },
             });
 
             setIntentionText('');
+            window.location.replace('/greeting')
         } catch (err) {
             console.error(err);
         }
@@ -40,9 +40,9 @@ const Intention = ({ userId, intention }) => {
 
     return (
         <div>
-            {intention ? (
+            {intentionToday ? (
                 <>
-                    <h3>Your intention for the day : {intention}</h3>
+                    <h3>Your intention for the day : {intentionToday}</h3>
                 </>
             ) : (
                 <div>

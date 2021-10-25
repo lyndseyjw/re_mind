@@ -30,68 +30,51 @@ export const ADD_USER = gql`
 
 export const ADD_SLEEP = gql`
   mutation addSleep(
-    $userId: ID!
     $hoursSlept: Int!
   ) {
     addSleep(
-      userId: $userId
       hoursSlept: $hoursSlept
     ) {
       _id
-      name
-      sleep {
-        _id
-        hoursSlept
-        createdAt
-      }
+      hoursSlept
+      createdAt
     }
   }
 `;
 
 export const ADD_INTENTION = gql`
   mutation addIntention(
-    $userId: ID!
     $intentionText: String!
   ) {
     addIntention(
-      userId: $userId
       intentionText: $intentionText
     ) {
       _id
-      name
-      intention {
-        _id
-        intentionText
-        createdAt
-      }
+      intentionText
+      createdAt
     }
   }
 `;
 
 export const ADD_WATER = gql`
 mutation addWater(
-  $userId: ID!
   $cups: Int!
 ) {
 addWater(
-    userId: $userId
     cups: $cups
   ) {
       _id
       cups
       createdAt
+    }
   }
-}
-
 `;
 
 export const ADD_SOCIAL = gql`
 mutation addSocial(
-  $userId: ID!
   $minutesEngaged: Int!
 ) {
   addSocial(
-    userId: $userId
     minutesEngaged: $minutesEngaged
   ) {
       _id
@@ -103,11 +86,9 @@ mutation addSocial(
 
 export const ADD_OUTSIDE = gql`
 mutation addOutside(
-  $userId: ID!
   $minutesOutside: Int!
 ) {
 addOutside(
-    userId: $userId
     minutesOutside: $minutesOutside
   ) {
       _id
@@ -119,11 +100,9 @@ addOutside(
 
 export const ADD_GRATITUDE = gql`
 mutation addGratitude(
-  $userId: ID!,
   $gratitudeText: String!
 ) {
   addGratitude(
-    userId: $userId,
     gratitudeText: $gratitudeText
 ) {
       _id
@@ -133,24 +112,28 @@ mutation addGratitude(
 }
 `;
 
+export const ADD_THOUGHT = gql`
+  mutation addThought($thoughtText: String!, $thoughtAuthor: String!) {
+    addThought(thoughtText: $thoughtText, thoughtAuthor: $thoughtAuthor) {
+      _id
+      thoughtText
+      thoughtAuthor
+      createdAt
+    }
+  }
+`;
+
 export const ADD_PICTURE = gql`
   mutation addPicture(
-    $userId: ID!
-    $pictureUploaded: Int!
+    $pictureUploaded: String!
   ) {
     addPicture(
-      userId: $userId
       pictureUploaded: $pictureUploaded
-    ) {
-      _id
-      name
-      picture {
-        _id
+    ) { _id
         pictureUploaded
         createdAt
       }
     }
-  }
 `;
 
 export const ADD_MOOD = gql`

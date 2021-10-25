@@ -5,12 +5,12 @@ import { Form, Button } from 'react-bootstrap'
 import { ADD_OUTSIDE } from '../utils/mutations';
 
 
-const Outside = (props) => {
+const Outside = ({ timeOutside , style }) => {
 
     const [outside, setOutside] = useState('');
 
     const handleChange = (event) => {
-        const { name, value } = event.target;
+        const { value } = event.target;
         setOutside(value);
     };
 
@@ -19,28 +19,27 @@ const Outside = (props) => {
 
     const outsideSubmit = async (event) => {
         event.preventDefault();
+        const outsideInt = parseInt(outside)
 
         try {
             const { data } = await addOutside({
                 variables: {
-                    // minutesOutside,
+                    minutesOutside: outsideInt,
                 },
             });
+            window.location.replace('/greeting')
         } catch (err) {
             console.error(err);
         }
     };
 
-    // exact same logic as in Water & Social 
-    // Kimberly wants to do Evening but lets go here now so we can see where Dashboard / Journal could possibly come into play...
-
     return (
         <div>
-            {outside ? (
+            {timeOutside ? (
                 <>
-                    <h3>You've been outside for {outside} minutes so far today</h3>
+                    <h3>You've been outside for {timeOutside} minutes so far today</h3>
                     <p>Any more outside time you want to add?</p>
-                    <Form.Select onChange={handleChange} aria-label="Default select example">
+                    <Form.Select onChange={handleChange} aria-label="Default select example" style={style.text}>
                         <option>Choose how long</option>
                         <option value="5">5 Mins</option>
                         <option value="10">10 Mins</option>
@@ -63,7 +62,7 @@ const Outside = (props) => {
                         <option value="175">2 Hours 45 Mins</option>
                         <option value="190">3 Hours</option>
                     </Form.Select>
-                    <Button variant="light" type="submit" onSubmit={outsideSubmit}>Into the Wild</Button>
+                    <Button variant="light" type="submit" onClick={outsideSubmit} style={style.button} >Into the Wild</Button>
                 </>
             ) : (
                 <div>
@@ -92,7 +91,7 @@ const Outside = (props) => {
                         <option value="175">2 Hours 45 Mins</option>
                         <option value="190">3 Hours</option>
                     </Form.Select>
-                    <Button variant="light" type="submit" onSubmit={outsideSubmit}>Into the Wild</Button>
+                    <Button variant="light" type="submit" onClick={outsideSubmit} style={style.button}>Into the Wild</Button>
                 </div>
             )}
         </div>

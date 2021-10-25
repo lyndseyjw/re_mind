@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_WATER = gql`
-query userone ($name:String!){
-  userone (name:$name){
+query me {
+  me {
     water {
      createdAt
      cups
@@ -12,8 +12,8 @@ query userone ($name:String!){
 `;
 
 export const QUERY_SLEEP = gql`
-query userone ($name:String!){
-  userone (name:$name){
+query me {
+  me {
     sleep {
      createdAt
      hoursSlept
@@ -22,9 +22,32 @@ query userone ($name:String!){
  }
 `;
 
+export const QUERY_INTENTION = gql`
+query me {
+  me {
+    sleep {
+     createdAt
+     intentionText
+    }
+  }
+ }
+`;
+
+
+export const QUERY_SOCIAL = gql`
+query me {
+  me {
+    social {
+     createdAt
+     minutesEngaged
+    }
+  }
+ }
+`;
+
 export const QUERY_OUTSIDE = gql`
-query userone ($name:String!){
-  userone (name:$name){
+query me {
+  me {
     outside {
      createdAt
      minutesOutside
@@ -44,16 +67,17 @@ query userone ($name:String!){
  }
 `;
 
-export const QUERY_SOCIAL = gql`
-query userone ($name:String!){
-  userone (name:$name){
-    social {
-     createdAt
-     minutesEngaged
+export const QUERY_THOUGHTS = gql`
+  query getThoughts {
+    thoughts {
+      _id
+      thoughtText
+      thoughtAuthor
+      createdAt
     }
   }
- }
 `;
+
 
 // query getWater($createdAt: Date!) {
 //   water(createdAt: $createdAt) {
@@ -87,10 +111,6 @@ export const QUERY_ME = gql`
       }
       gratitude {
         gratitudeText
-        createdAt
-      }
-      picture {
-        picture
         createdAt
       }
       mood {

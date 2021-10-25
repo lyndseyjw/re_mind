@@ -1,23 +1,34 @@
 // perhaps on page load (which is called when the user submits their mood ranking, the last prompt on the evening page), this journal page can show the user their daily rankings?)
 // & then within the page, there are links that will take them to their weekly rankings & monthly rankings if they so choose to check these out / compare?
 import React, { useEffect } from 'react';
-
+import SleepChart from '../components/SleepChart';
+import WaterChart from '../components/WaterChart';
+import SocialChart from '../components/SocialChart';
+import OutsideChart from '../components/OutsideChart';
+import CalendarPage from '../components/Calendar';
 import Journal from '../components/Journal';
 import ThoughtList from "../components/ThoughtList";
 import ThoughtForm from "../components/ThoughtForm.js";
 
-
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
 
 import { useQuery } from "@apollo/client";
 import { QUERY_THOUGHTS } from "../utils/queries";
 
 
 const styles = {
-
+    card: {
+        display: 'block',
+        margin: '2%',
+    },
     notecard: {
         marginLeft: '5%',
     },
-
+    calendar: {
+        padding: '2%',
+        margin: '2%'
+    },
     body: {
         color: "#ac3b12",
         height: "100vh"
@@ -50,15 +61,27 @@ const Dashboard = () => {
     return (
         <main className="container-fluid" style={styles.body}>
             <div className="row" style={styles.center}>
-
-                    <div className="col-lg-6 col-md-12" style={styles.notecard}>
-                        <ThoughtForm />
-                    </div>
-                    <div className="col-lg-4 col-md-12" style={styles.card}>
-                        <ThoughtList
-                            thoughts={thoughts}
-                            title="Gratitude Thought(s)..." />
-                    </div>
+                <div className="col-lg-6 col-md-7 col-sm-12" style={styles.card}>
+                    <Tabs defaultActiveKey="water" id="uncontrolled-tab-example" className="mb-3" >
+                        <Tab eventKey="water" title="Water">
+                            <div>
+                                <WaterChart />
+                            </div>
+                        </Tab>
+                        <Tab eventKey="social" title="Social">
+                            <SocialChart />
+                        </Tab>
+                        <Tab eventKey="sleep" title="Sleep">
+                            <SleepChart />
+                        </Tab>
+                        <Tab eventKey="outside" title="Outside">
+                            <OutsideChart />
+                        </Tab>
+                    </Tabs>
+                </div>
+                <div className="col-lg-5 col-sm-12" style={styles.calendar}>
+                    <CalendarPage />
+                </div>
             </div>
 
         </main>

@@ -1,0 +1,38 @@
+.login-main {
+    height: 100vh;
+    width: 100%;
+    background-image: url('../assets/tea.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.login {
+    width: 40%;
+    position: absolute;
+    top: 100px;
+    left: 50px;
+}
+
+.form-spacing {
+    margin-right: 25px;
+}
+
+.button-spacing {
+    margin-top: 25px;
+    margin-left: 70px;
+}
+
+/* button {
+    background-color: #ac3b12;
+    color: #e6d192ff;
+} */
+
+.top-spacing {
+    margin-top: 30px;
+}
+
+.card {
+    background-color: #e6d192ff;
+    color: #ac3b12;
+}

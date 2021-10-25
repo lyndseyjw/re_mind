@@ -1,14 +1,17 @@
 [
     {
-        "intentionText": "I want to have a good dayd"
+        "intentionText": "I will do an evening meditation."
     },
     {
-        "intentionText": "blah blah h"
+        "intentionText": "Planning on stretching this morning."
     },
     {
-        "intentionText": "heres another"
+        "intentionText": "I want to catch up with a friend today."
     },
     {
-        "intentionText": "i want to workout today"
+        "intentionText": "I will practice my presentation today."
+    },
+    {
+        "intentionText": "I want to workout today."
     }
 ]

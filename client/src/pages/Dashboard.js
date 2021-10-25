@@ -46,6 +46,7 @@ const styles = {
         // border: '2px #ac3b12 solid',
         // borderRadius: '9px',
     }
+
 }
 
 

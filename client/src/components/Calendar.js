@@ -10,6 +10,9 @@ import 'react-calendar/dist/Calendar.css';
  // css --- .red .yellow .green 
  // className = {value === 1 ? red : value === 2 ? yellow : green}
  // apply to calendar to have that class 
+
+
+
 export default function CalendarPage() {
   const [value, onChange] = useState(new Date());
   const [show, setShow] = useState(false);

@@ -5,6 +5,14 @@ import Button from "react-bootstrap/Button"
 import { useMutation } from "@apollo/client";
 import { ADD_MOOD } from "../utils/mutations";
 
+
+// const styles = {
+//   li: {
+//     listStyleType: 'none'
+//   }
+   
+// }
+
 //Mood Modal Setup
 function Mood({handleClose, show}) {
   // const [show, setShow] = useState(false);
@@ -29,7 +37,7 @@ function Mood({handleClose, show}) {
     <Modal show={show} onHide={handleClose}>
       <Modal.Dialog>
         <Modal.Header closeButton>
-          <Modal.Title>Mood</Modal.Title>
+          <Modal.Title></Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
@@ -37,17 +45,19 @@ function Mood({handleClose, show}) {
             <div className="card-header bg-primary text-white">
               What is your mood today?
             </div>
-            <div className="card-body">
+            <div className="card-body" >
               <p className="card-text">{mood}</p>
               <ul>
                 <li>
-                  <button onClick={() => setMood(3)}>Happy{emoji[0]}</button>
+                  <Button variant="outline-success" size="lg" onClick={() => setMood(3)}>Happy{emoji[0]}</Button>{' '}
                 </li>
+                <br/>
                 <li>
-                  <button onClick={() => setMood(2)}>Neutral{emoji[1]}</button>
+                  <Button variant="outline-warning" size="lg" onClick={() => setMood(2)}>Neutral{emoji[1]}</Button>{' '}
                 </li>
+                <br/>
                 <li>
-                  <button onClick={() => setMood(1)}>Sad{emoji[2]}</button>
+                  <Button id="sad" variant="primary" variant="outline-danger" size="lg" onClick={() => setMood(1)}> Sad{emoji[2]} </Button>{' '}
                 </li>
               </ul>
             </div>

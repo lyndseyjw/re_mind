@@ -67,7 +67,7 @@ const Outside = ({ timeOutside , style }) => {
             ) : (
                 <div>
                     <h3>Have you been outside today?</h3>
-                    <p>If so, for how long? If not, choose:</p>
+                    <p>If so, for how long?</p>
                     <Form.Select onChange={handleChange} aria-label="Default select example">
                         <option>Choose how long</option>
                         <option value="5">5 Mins</option>

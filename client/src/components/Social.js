@@ -68,7 +68,7 @@ const Social = ({ timeEngaged , style }) => {
             ) : (
                 <div>
                     <h3>Have you spoken to another human today?</h3>
-                    <p>If so, for how long? If not, choose 0</p>
+                    <p>If so, for how long?</p>
                     <Form.Select onChange={handleChange} aria-label="Default select example">
                         <option>Choose how long</option>
                         <option value="5">5 Mins</option>

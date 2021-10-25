@@ -44,7 +44,7 @@ const Sleep = ({ hoursSlept, style }) => {
                         <option value="2">Two</option>
                         <option value="3">Three</option>
                         <option value="4">Four</option>
-                        <option value="5">Fiv</option>
+                        <option value="5">Five</option>
                         <option value="6">Six</option>
                         <option value="7">Seven</option>
                         <option value="8">Eight</option>

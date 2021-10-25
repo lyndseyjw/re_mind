@@ -1,27 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 
 import Sleep from './Sleep';
 import Intention from './Intention';
 
 import Auth from '../utils/auth';
+import { totalmem } from 'os';
 
 const styles = {
   card: {
     margin: 'auto',
+    paddingBottom: '30px',
     border: "solid 2px white",
     background: '#db8d17',
     color: "white",
     borderRadius: "9px",
     alignItems: "center",
     padding: '2%',
-    margin: '1%',
+    margin: '40px auto',
+    width: '60%',
+    boxShadow: '30px 20px 60px rgba(0,0,0,.8)'
   },
   box: {
     justifyContent: "space-around"
   },
   margin: {
-    marginTop: '2%'
+    marginTop: '60px',
+    marginBottom: '40px',
+    textAlign: 'center',
+    fontSize: '42px',
+    color: 'white'
   },
   buttons: {
     button: {
@@ -35,6 +44,10 @@ const styles = {
     text: {
       color: "#ffb300ff",
     }
+  },
+  pStyle: {
+    marginTop: '40px',
+    textAlign: 'center'
   }
 }
 
@@ -44,37 +57,31 @@ const Morning = ({ user }) => {
 
   const [sleepTotal, setSleepTotal] = useState(0)
   const [intentionText, setIntentionText] = useState('')
-  // useEffect (() => {
-  //   const sleep = user.sleep.filter(night => {
-  //     console.log(moment.unix(night.createdAt).toDate())
-  //     return moment.unix(night.createdAt).format('MM/DD/YYYY') === moment().format('MM/DD/YYYY')
-  //   })
-  //   console.log (sleep)
-  //   console.log(user)
-  //   console.log(user.sleep)
-  // const hoursSlept = sleep.hoursSlept
-  // })
 
-  useEffect(() => {
+  useEffect (() => {
     if (user.sleep) {
       let total = 0;
-      const sleep = user.sleep.forEach(night => {
-        total += night.hoursSlept
-        console.log(night.hoursSlept)
+      const todaySleep = user.sleep.filter(night => {
+        if ((moment.unix(night.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))) {
+          return (moment.unix(night.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))
+        }
       })
-      console.log(user.sleep)
-      console.log(total)
+      const sleep = todaySleep.forEach(night => {
+        total += night.hoursSlept
+      })
       setSleepTotal(total)
     }
 
     if (user.intention) {
       let today = '';
-      const intention = user.intention.forEach(day => {
-        today = day.intentionText
-        console.log(day.intentionText)
+      const todayIntention = user.intention.filter(day => {
+        if ((moment.unix(day.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))) {
+          return (moment.unix(day.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))
+        }
       })
-      console.log(user.intention)
-      console.log(today)
+      const intention = todayIntention.forEach(day => {
+        today = day.intentionText
+      })
       setIntentionText(today)
     }
   })
@@ -87,8 +94,10 @@ const Morning = ({ user }) => {
           <div style={styles.card}>
             <Sleep hoursSlept={sleepTotal} style={styles.buttons} />
           </div>
-          <Intention intentionToday={intentionText}  />
-          <p>Don't forget to take a picture of something that makes you smile today!</p>
+          <div style={styles.card}>
+            <Intention intentionToday={intentionText} style={styles.buttons} />
+          </div>
+          <h4 style={styles.pStyle}>Don't forget to take a picture of something that makes you smile today!</h4>
         </>
       ) : (
         <p>

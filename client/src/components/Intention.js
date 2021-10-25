@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client';
 
 import { ADD_INTENTION } from '../utils/mutations';
 
-const Intention = ({ intentionToday }) => {
+const Intention = ({ intentionToday, style }) => {
 
     const [intentionText, setIntentionText] = useState('');
 
@@ -69,7 +69,7 @@ const Intention = ({ intentionToday }) => {
                         </div>
 
                         <div className="col-12 col-lg-3">
-                            <button className="btn btn-light btn-block py-3" type="submit">
+                            <button className="btn btn-light btn-block py-3" type="submit" style={style.button}>
                                 Set
                             </button>
                         </div>

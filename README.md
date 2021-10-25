@@ -48,3 +48,36 @@ NA.
 (c) Charlotte Clark, Kimberly Rodriguez, Lyndsey Watson and Candice Wu 
 
 Licensed under the MIT License: [click here](license).
+
+## Appliation Screenshots
+
+re:mind Homepage :
+![Homepage](./assets/homepage.png)
+
+
+Login Page :
+![Login](./assets/login.png)
+
+
+Signup :
+![Signup](./assets/signup.png)
+
+
+Morning Display :
+![Morning](./assets/morning.png)
+
+
+Day Display :
+![Day](./assets/day.png)
+
+
+Evening :
+![Evening](./assets/evening.png)
+
+
+Mood Modal Prompt :
+![Mood](./assets/mood.png)
+
+
+Dashboard :
+![Dashboard](./assets/dashboard.png)

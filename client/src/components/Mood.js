@@ -6,20 +6,13 @@ import { useMutation } from "@apollo/client";
 import { ADD_MOOD } from "../utils/mutations";
 
 
-// const styles = {
-//   li: {
-//     listStyleType: 'none'
-//   }
-   
-// }
-
 //Mood Modal Setup
-function Mood({handleClose, show}) {
+function Mood({handleClose, show, mood, newMood}) {
   // const [show, setShow] = useState(false);
   // const handleClose = () => setShow(false);
   // const handleShow = () => setShow(true);
   
-  const [mood, setMood] = useState(1);
+  // const [mood, setMood] = useState(1);
   const [emoji, setEmoji] = useState([
     <span role="img" aria-label="happy-face" id="happy">
       😃
@@ -32,7 +25,7 @@ function Mood({handleClose, show}) {
     </span>,
   ]);
 
-  //Modal + Racking Display
+  //Modal + Ranking Display
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Dialog>
@@ -49,15 +42,15 @@ function Mood({handleClose, show}) {
               <p className="card-text">{mood}</p>
               <ul>
                 <li>
-                  <Button variant="outline-success" size="lg" onClick={() => setMood(3)}>Happy{emoji[0]}</Button>{' '}
+                  <Button id="h" variant="outline-success" size="lg" onClick={() => newMood(3)}>Happy{emoji[0]}</Button>{' '}
                 </li>
                 <br/>
                 <li>
-                  <Button variant="outline-warning" size="lg" onClick={() => setMood(2)}>Neutral{emoji[1]}</Button>{' '}
+                  <Button id="n" variant="outline-warning" size="lg" onClick={() => newMood(2)}>Neutral{emoji[1]}</Button>{' '}
                 </li>
                 <br/>
                 <li>
-                  <Button id="sad" variant="primary" variant="outline-danger" size="lg" onClick={() => setMood(1)}> Sad{emoji[2]} </Button>{' '}
+                  <Button id="s" variant="primary" variant="outline-danger" size="lg" onClick={() => newMood(1)}> Sad{emoji[2]} </Button>{' '}
                 </li>
               </ul>
             </div>
@@ -66,7 +59,7 @@ function Mood({handleClose, show}) {
 
         <Modal.Footer>
           <Button onClick={handleClose}>Close</Button>
-          <Button>Save</Button>
+          {/* <Button onSubmit={haddleSave}>Save</Button> */}
         </Modal.Footer>
       </Modal.Dialog>
     </Modal>

@@ -7,9 +7,12 @@ import Outside from './Outside';
 
 import Auth from '../utils/auth';
 
+import moment from 'moment';
+
 const styles = {
   card: {
       margin: 'auto',
+      paddingBottom: '30px',
       border: "solid 2px white",
       background: '#579620',
       color: "white",
@@ -17,12 +20,18 @@ const styles = {
       alignItems: "center",
       padding: '2%',
       margin: '1%',
+      marginBottom: '40px',
+      boxShadow: '30px 20px 60px rgba(0,0,0,.8)'
   },
   box: {
     justifyContent: "space-around"
   },
   margin: {
-    marginTop: '2%'
+    marginTop: '60px',
+    marginBottom: '40px',
+    textAlign: 'center',
+    fontSize: '42px',
+    color: 'white'
   },
   buttons: {
     button: {
@@ -31,11 +40,19 @@ const styles = {
       fontWeight: "700",
       background: 'white',
       border: "#b3d993ff solid 2px",
-      marginTop: "2%",
+      marginTop: "4%",
     },
     text: {
       color: "#579620ff",
     }
+  },
+  intention: {
+    textAlign: 'center',
+    marginBottom: '40px'
+  },
+  pStyle: {
+    marginTop: '40px',
+    textAlign: 'center'
   }
 }
 
@@ -51,44 +68,56 @@ const Day = ({ user }) => {
   useEffect (() => {
     if (user.water) {
       let total = 0;
-      const water = user.water.forEach(input => {
-        total += input.cups
-        console.log(input.cups)
+      const todayWater = user.water.filter(cup => {
+        if ((moment.unix(cup.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))) {
+          return (moment.unix(cup.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))
+        }
       })
-      console.log(user.water)
-      console.log (total)
+      const water = todayWater.forEach(cup => {
+        total += cup.cups
+      })
       setWaterTotal(total)
     }
 
     if (user.social) {
       let total = 0;
-      const social = user.social.forEach(input => {
-        total += input.minutesEngaged
-        console.log(input.minutesEngaged)
+      const todaySocial = user.social.filter(friend => {
+        if ((moment.unix(friend.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))) {
+          return (moment.unix(friend.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))
+        }
       })
-      console.log(user.social)
-      console.log (total)
+      const social = todaySocial.forEach(friend => {
+        total += friend.minutesEngaged
+      })
       setSocialTotal(total)
     }
 
     if (user.outside) {
       let total = 0;
-      const outside = user.outside.forEach(input => {
-        total += input.minutesOutside
-        console.log(input.minutesOutside)
+      const todayOutside = user.outside.filter(air => {
+        if ((moment.unix(air.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))) {
+          return (moment.unix(air.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))
+        }
       })
-      console.log(user.outside)
-      console.log (total)
+      const outside = todayOutside.forEach(air => {
+        total += air.minutesOutside
+      })
       setOutsideTotal(total)
     }
+
     if (user.intention) {
       let today = '';
-      const intention = user.intention.forEach(day => {
-        today = day.intentionText
-        console.log(day.intentionText)
+      console.log('all of users intentions',user.intention)
+      const todayIntention = user.intention.filter(day => {
+        if ((moment.unix(day.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))) {
+          return (moment.unix(day.createdAt / 1000).format('MM/DD/YYYY')) === (moment().format('MM/DD/YYYY'))
+        }
       })
-      console.log(user.intention)
-      console.log (today)
+      console.log('intentions only for today',todayIntention)
+      const intention = todayIntention.forEach(day => {
+        today = day.intentionText
+      })
+      console.log('most recent intention from today',today)
       setIntentionText(today)
     }
   })
@@ -99,7 +128,7 @@ const Day = ({ user }) => {
       {Auth.loggedIn() ? (
         <>
             <h2 style={styles.margin}>Lovely day, {user.name}</h2>
-            <h3>{intentionText ? (`Your intention for the day : ${intentionText}`) : ('')}</h3>
+            <h4 style={styles.intention}>{intentionText ? (`Your intention for the day : ${intentionText}`) : ('')}</h4>
             <div style={styles.card} className='col-lg-5 col-md-11'>
             <Water cupsDrinken={waterTotal} style={styles.buttons}/>
             </div>
@@ -109,7 +138,7 @@ const Day = ({ user }) => {
             <div style={styles.card} className='col-11'>
             <Outside timeOutside={outsideTotal} style={styles.buttons} />
             </div>
-            <p>Have you taken your picture yet today?</p>
+            <h4 style={styles.pStyle}>Have you taken your picture yet today?</h4>
         </>
       ) : (
         <p>

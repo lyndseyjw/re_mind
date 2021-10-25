@@ -5,7 +5,8 @@ const sleepSchema = new Schema({
         type: Number,
     },
     createdAt: {
-        type: String,
+        type: Date,
+        default: Date.now
     }
 })
 

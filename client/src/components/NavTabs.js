@@ -40,8 +40,8 @@ function NavTabs() {
         <>
           <Nav activeKey="1" style={styles.bar} className='color'>
             <Nav.Item>
-              <Nav.Link eventKey="1" className="nav-link link">
-                <Link to={"/"} style={styles.links} className='left'>
+              <Nav.Link eventKey="1" className="nav-link link left">
+                <Link to={"/"} style={styles.links}>
                   re:mind
                 </Link>
               </Nav.Link>
@@ -80,16 +80,16 @@ function NavTabs() {
           </Nav>
         </>
       ) : (
-        <Nav activeKey="1" className="customNav">
+        <Nav activeKey="1" style={styles.bar} className="customNav color">
           <Nav.Item>
-            <Nav.Link eventKey="3" title="Item" className="nav-link">
+            <Nav.Link eventKey="3" title="Item" className="nav-link link">
               <Link to={"/login"} style={styles.links} >
                 login
               </Link>
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="1" className="nav-link">
+            <Nav.Link eventKey="1" className="nav-link link">
               <Link to={"/"} style={styles.links}>
                 re:mind
               </Link>

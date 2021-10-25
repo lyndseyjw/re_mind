@@ -2,7 +2,6 @@
 // & then within the page, there are links that will take them to their weekly rankings & monthly rankings if they so choose to check these out / compare?
 import React, { useEffect } from 'react';
 
-import Journal from '../components/Journal';
 import ThoughtList from "../components/ThoughtList";
 import ThoughtForm from "../components/ThoughtForm.js";
 
@@ -26,13 +25,6 @@ const styles = {
         alignItems: "center",
         textAlign: "center"
     },
-    list: {
-        padding: '2%',
-        margin: '2%',
-        textAlign: "center"
-        // border: '2px #ac3b12 solid',
-        // borderRadius: '9px',
-    }
 }
 
 
@@ -51,10 +43,10 @@ const Dashboard = () => {
         <main className="container-fluid" style={styles.body}>
             <div className="row" style={styles.center}>
 
-                    <div className="col-lg-6 col-md-12" style={styles.notecard}>
+                    <div className="col-11" style={styles.notecard}>
                         <ThoughtForm />
                     </div>
-                    <div className="col-lg-4 col-md-12" style={styles.card}>
+                    <div className="col-11" style={styles.card}>
                         <ThoughtList
                             thoughts={thoughts}
                             title="Gratitude Thought(s)..." />

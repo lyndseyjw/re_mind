@@ -6,9 +6,7 @@ import WaterChart from '../components/WaterChart';
 import SocialChart from '../components/SocialChart';
 import OutsideChart from '../components/OutsideChart';
 import CalendarPage from '../components/Calendar';
-import Journal from '../components/Journal';
-import ThoughtList from "../components/ThoughtList";
-import ThoughtForm from "../components/ThoughtForm.js";
+import { Link } from "react-router-dom";
 
 
 import Tab from 'react-bootstrap/Tab';
@@ -23,13 +21,21 @@ const styles = {
     card: {
         display: 'block',
         margin: '2%',
-    },
-    notecard: {
-        marginLeft: '5%',
+        background: '#e6d192ff',
+        borderRadius: '4px',
+        padding: '2%',
+        border: '#ac3b12 2px solid',
     },
     calendar: {
+        display: 'flex',
+        background: '#e6d192ff',
+        border: '#ac3b12 2px solid',
+        alignItems: 'center',
+        borderRadius: '4px',
         padding: '2%',
-        margin: '2%'
+        margin: '2%',
+        alignItems: 'center',
+        justifyContent: 'space-around'
     },
     body: {
         color: "#ac3b12",
@@ -39,12 +45,12 @@ const styles = {
         alignItems: "center",
         textAlign: "center"
     },
-    list: {
-        padding: '2%',
-        margin: '2%',
-        textAlign: "center"
-        // border: '2px #ac3b12 solid',
-        // borderRadius: '9px',
+    text: {
+        textDecoration: 'none',
+        fontWeight: '2%',
+        color: "#ac3b12",
+        textAlign: "center",
+        fontWeight: '700'
     }
 
 }
@@ -64,20 +70,20 @@ const Dashboard = () => {
     return (
         <main className="container-fluid" style={styles.body}>
             <div className="row" style={styles.center}>
-                <div className="col-lg-6 col-md-7 col-sm-12" style={styles.card}>
+                <div className="col-lg-6 col-sm-12" style={styles.card}>
                     <Tabs defaultActiveKey="water" id="uncontrolled-tab-example" className="mb-3" >
-                        <Tab eventKey="water" title="Water">
+                        <Tab eventKey="water" title="water">
                             <div>
                                 <WaterChart />
                             </div>
                         </Tab>
-                        <Tab eventKey="social" title="Social">
+                        <Tab eventKey="social" title="social">
                             <SocialChart />
                         </Tab>
-                        <Tab eventKey="sleep" title="Sleep">
+                        <Tab eventKey="sleep" title="sleep">
                             <SleepChart />
                         </Tab>
-                        <Tab eventKey="outside" title="Outside">
+                        <Tab eventKey="outside" title="outside">
                             <OutsideChart />
                         </Tab>
                     </Tabs>
@@ -85,6 +91,9 @@ const Dashboard = () => {
                 <div className="col-lg-5 col-sm-12" style={styles.calendar}>
                     <CalendarPage />
                 </div>
+                <Link to={"/journal"} className='center' style={styles.text}>
+                  journal
+                </Link>
             </div>
 
         </main>

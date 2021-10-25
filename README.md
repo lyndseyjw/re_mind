@@ -28,7 +28,7 @@ This application utilized HTML, CSS, Javascript, Node.js, Express.js, MongoDB, M
 
 
 ## Contributing
-- Charlotte Clark: < add email >
+- Charlotte Clark: < charlotte.clark@alumni.usc.edu >
 - Kimberly Rodriguez: <krodriguez.ucla@gmail.com>
 - Lyndsey Watson: < lyndseyjwatson@gmail.com >
 - Candice Wu: <candice.ying.wu@gmail.com>

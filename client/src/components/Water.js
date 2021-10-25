@@ -44,66 +44,58 @@ const Water = ({ cupsDrinken , style }) => {
         <div>
             {cupsDrinken ? (
                 <>
-                    <h3>You've drinken {cupsDrinken} cups of water so far today</h3>
+                    <h3>You've drank {cupsDrinken} cups of water so far today.</h3>
                     <p>Would you like to add more?</p>
                     <Form.Select onChange={handleChange} aria-label="Default select example" style={style.text}>
                         <option>Choose number of cups</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                        <option value="4">Four</option>
-                        <option value="5">Five</option>
-                        <option value="6">Six</option>
-                        <option value="7">Seven</option>
-                        <option value="8">Eight</option>
-                        <option value="9">Nine</option>
-                        <option value="10">Ten</option>
-                        <option value="11">Eleven</option>
-                        <option value="12">Twelve</option>
-                        <option value="13">Thirteen</option>
-                        <option value="14">Fourteen</option>
-                        <option value="15">Fifteen</option>
-                        <option value="16">Sixteen</option>
-                        <option value="17">Seventeen</option>
-                        <option value="18">Eighteen</option>
-                        <option value="19">Nineteen</option>
-                        <option value="20">Twenty</option>
-                        <option value="21">Twenty-One</option>
-                        <option value="22">Twenty-Two</option>
-                        <option value="23">Twenty-Three</option>
-                        <option value="24">Twenty-Four</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
                     </Form.Select>
                     <Button variant="light" type="submit" onClick={waterSubmit} style={style.button}>Hydrated</Button>
                 </>
             ) : (
                 <div>
-                    <h3>How much water have you drinken so far today?</h3>
+                    <h3>How much water have you drank so far today?</h3>
                     <Form.Select onChange={handleChange} aria-label="Default select example">
                         <option>Choose number of cups</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                        <option value="4">Four</option>
-                        <option value="5">Five</option>
-                        <option value="6">Six</option>
-                        <option value="7">Seven</option>
-                        <option value="8">Eight</option>
-                        <option value="9">Nine</option>
-                        <option value="10">Ten</option>
-                        <option value="11">Eleven</option>
-                        <option value="12">Twelve</option>
-                        <option value="13">Thirteen</option>
-                        <option value="14">Fourteen</option>
-                        <option value="15">Fifteen</option>
-                        <option value="16">Sixteen</option>
-                        <option value="17">Seventeen</option>
-                        <option value="18">Eighteen</option>
-                        <option value="19">Nineteen</option>
-                        <option value="20">Twenty</option>
-                        <option value="21">Twenty-One</option>
-                        <option value="22">Twenty-Two</option>
-                        <option value="23">Twenty-Three</option>
-                        <option value="24">Twenty-Four</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
                     </Form.Select>
                     <Button variant="light" type="submit" onClick={waterSubmit} style={style.button}>Hydrated</Button>
                 </div>

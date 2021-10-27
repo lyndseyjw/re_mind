@@ -7,6 +7,7 @@ import SocialChart from '../components/SocialChart';
 import OutsideChart from '../components/OutsideChart';
 import CalendarPage from '../components/Calendar';
 import { Link } from "react-router-dom";
+import icon from '../assets/icon.png';
 
 
 import Tab from 'react-bootstrap/Tab';
@@ -51,6 +52,9 @@ const styles = {
         color: "#ac3b12",
         textAlign: "center",
         fontWeight: '700'
+    },
+    img: {
+        height: '200px'
     }
 
 }
@@ -92,7 +96,7 @@ const Dashboard = () => {
                     <CalendarPage />
                 </div>
                 <Link to={"/journal"} className='center' style={styles.text}>
-                  journal
+                    journal
                 </Link>
             </div>
 

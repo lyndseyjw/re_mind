@@ -1,4 +1,10 @@
-
+@media screen and (max-width: 375px) {
+  .mobile {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+}
 
 .App {
   text-align: center;

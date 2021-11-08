@@ -73,11 +73,11 @@ function App() {
   };
 
   useEffect (() => {
-    if (window.moment().format('H') < 9) {
+    if (window.moment().format('H') < 7) {
 
       handleSetMorning()
   
-    } else if (window.moment().format('H') < 17) {
+    } else if (window.moment().format('H') < 9) {
   
       handleSetDay()
   
@@ -104,7 +104,7 @@ function App() {
 
     <ApolloProvider client={client} >
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh" style={morning ? styles.morning : day ? styles.day : styles.evening}>
+        <div className="flex-column justify-flex-start min-100-vh mobile" style={morning ? styles.morning : day ? styles.day : styles.evening}>
           <NavTabs />
           {/* <Picture />  */}
           <div className="container-fluid">

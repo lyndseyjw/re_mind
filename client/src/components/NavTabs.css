@@ -17,3 +17,36 @@
 .left {
     display: block;
 }
+
+div.dropdown {
+    display: flex;
+    justify-content: center;
+}
+
+#dropdown {
+    visibility: hidden;
+    margin: 40px auto;
+}
+
+@media screen and (max-width: 375px) {
+    .nav {
+        margin-top: 0px;
+    }
+
+    .color { 
+        visibility: hidden; 
+        position: absolute;
+    }
+
+    div.dropdown {
+        border-bottom: 2px solid #ac3b12 ;
+    }
+
+    #dropdown { 
+        visibility: visible;
+        display: inline-block; 
+        margin-top: 40px;
+        padding: 15px;
+        border-radius: 5px;
+    }
+}

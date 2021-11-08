@@ -26,6 +26,7 @@ export default function CalendarPage() {
         onClickDay = {() => setShow(true)}
         onChange={onChange}
         value={value}
+        className='calendar'
       />
     </section>
   );

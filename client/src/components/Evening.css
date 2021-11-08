@@ -1,0 +1,21 @@
+div.card {
+    background-color: #5e88ca;
+}
+
+.card {
+    padding-bottom: 30px;
+    border: solid 2px white;
+    color: white;
+    border-radius: 9px;
+    align-items: center;
+    padding: 2%;
+    margin: 40px auto;
+    width: 60%;
+    box-shadow: 30px 20px 60px rgba(0,0,0,.8);
+}
+
+@media screen and (max-width: 375px) {
+    .card {
+        width: 90%;
+    }
+}

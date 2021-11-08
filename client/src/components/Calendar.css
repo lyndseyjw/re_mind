@@ -9,3 +9,9 @@
 .yellow {
   background:rgba(255, 230, 0, 0.797)!important;
 }
+
+@media screen and (max-width: 375px) {
+  .calendar {
+    width: 100%;
+  }
+}

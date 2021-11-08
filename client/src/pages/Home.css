@@ -25,3 +25,19 @@ h1 {
 .header:hover {
     color: white;
 }
+
+@media screen and (max-width: 375px) {
+
+    .home-main {
+        width: 100%;
+        height: auto;
+    }
+
+    .header {
+        padding: 50px;
+    }
+
+    html {
+        width: 100%;
+    }
+}

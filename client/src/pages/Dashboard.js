@@ -77,9 +77,7 @@ const Dashboard = () => {
                 <div className="col-lg-6 col-sm-12" style={styles.card}>
                     <Tabs defaultActiveKey="water" id="uncontrolled-tab-example" className="mb-3" >
                         <Tab eventKey="water" title="water">
-                            <div>
-                                <WaterChart />
-                            </div>
+                            <WaterChart />
                         </Tab>
                         <Tab eventKey="social" title="social">
                             <SocialChart />

@@ -28,7 +28,7 @@ export default function SocialChart() {
       {loading ? (
         <div>Loading...</div>
       ) : (
-        // <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width={'99%'} height={300}>
           <AreaChart
             width={500}
             height={400}
@@ -45,7 +45,7 @@ export default function SocialChart() {
             <Tooltip stroke="#ac3b12" />
             <Area type="monotone" dataKey="minutesEngaged" stroke="#ac3b12" fill="#ac3b12" />
           </AreaChart>
-        // </ResponsiveContainer>
+        </ResponsiveContainer>
       )}
     </div>
   );

@@ -6,6 +6,8 @@ import Gratitude from './Gratitude';
 // import Picture from './Picture';
 // import Mood from './Mood';
 
+import './Evening.css';
+
 import Auth from '../utils/auth';
 
 import moment from 'moment';
@@ -20,7 +22,7 @@ const styles = {
     alignItems: "center",
     padding: '2%',
     margin: '40px auto',
-    width: '60%',
+    width: '70%',
     boxShadow: '30px 20px 60px rgba(0,0,0,.8)'
   },
   box: {
@@ -113,10 +115,10 @@ const Evening = ({ user }) => {
             {/* wondering if in the evening we want to ask user if they 'met' their intention & then have this as a row (forget the mongoose term) within the intention document so the row would be "intentionMet" & would be a boolean */}
             <h4 style={styles.intention}>{intentionText ? (`Your intention for the day : ${intentionText}`) : ('')}</h4>
             {/* asking water again .. perhaps we could ask outside & social again? so they can update their time if they want OR add if they haven't yet? not sure if that will make the page too crowded though ... */}
-            <div style={styles.card}>
+            <div className="card">
             <Water cupsDrinken={waterTotal} style={styles.buttons}/>
             </div>
-            <div style={styles.card}>
+            <div className="card">
             <Gratitude gratitudeToday={gratitudeText} style={styles.buttons}/>
             </div>
             {/* <Picture picture={user.picture} /> */}

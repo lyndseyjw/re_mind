@@ -21,6 +21,7 @@
 div.dropdown {
     display: flex;
     justify-content: center;
+    position: absolute;
 }
 
 #dropdown {
@@ -40,6 +41,7 @@ div.dropdown {
 
     div.dropdown {
         border-bottom: 2px solid #ac3b12 ;
+        position: relative;
     }
 
     #dropdown { 

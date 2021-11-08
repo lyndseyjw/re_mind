@@ -28,17 +28,6 @@ h1 {
 
 @media screen and (max-width: 375px) {
 
-    .container-fluid {
-        width: 100%;
-        height: auto;
-        margin: 0;
-        max-width: none;
-    }
-
-    .row {
-        --bs-gutter-x: 0;
-    }
-
     .home-main {
         width: 100%;
         height: auto;
@@ -46,10 +35,6 @@ h1 {
 
     .header {
         padding: 50px;
-    }
-
-    body {
-        width: 90%;
     }
 
     html {

@@ -1,6 +1,6 @@
 // perhaps on page load (which is called when the user submits their mood ranking, the last prompt on the evening page), this journal page can show the user their daily rankings?)
 // & then within the page, there are links that will take them to their weekly rankings & monthly rankings if they so choose to check these out / compare?
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import SleepChart from '../components/SleepChart';
 import WaterChart from '../components/WaterChart';
 import SocialChart from '../components/SocialChart';
@@ -8,7 +8,7 @@ import OutsideChart from '../components/OutsideChart';
 import CalendarPage from '../components/Calendar';
 import { Link } from "react-router-dom";
 import icon from '../assets/icon.png';
-
+import './Dashboard.css';
 
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
@@ -40,9 +40,11 @@ const styles = {
     },
     body: {
         color: "#ac3b12",
-        height: "100vh"
+        height: "100vh",
+        width: "100%"
     },
     center: {
+        display: 'flex',
         alignItems: "center",
         textAlign: "center"
     },
@@ -52,15 +54,15 @@ const styles = {
         color: "#ac3b12",
         textAlign: "center",
         fontWeight: '700'
-    },
-    img: {
-        height: '200px'
     }
 
 }
 
 
 const Dashboard = () => {
+
+    const [tab, setTab] = useState('re:mind');
+
     useEffect(() => {
         console.log(data)
     })
@@ -72,10 +74,10 @@ const Dashboard = () => {
     // if user does not have an account, there is a <Link/> below that will direct them to the Signup page
     // lets go to the Signup page from here ...
     return (
-        <main className="container-fluid" style={styles.body}>
-            <div className="row" style={styles.center}>
-                <div className="col-lg-6 col-sm-12" style={styles.card}>
-                    <Tabs defaultActiveKey="water" id="uncontrolled-tab-example" className="mb-3" >
+        <main className="container body" style={styles.body}>
+            <div className="row center" style={styles.center}>
+                <div className="col-lg-6 col-sm-12 card" style={styles.card}>
+                    <Tabs defaultActiveKey="water" id="tabs" className="mb-3" >
                         <Tab eventKey="water" title="water">
                             <WaterChart />
                         </Tab>
@@ -90,10 +92,10 @@ const Dashboard = () => {
                         </Tab>
                     </Tabs>
                 </div>
-                <div className="col-lg-5 col-sm-12" style={styles.calendar}>
+                <div className="col-lg-5 col-sm-12 calendar" style={styles.calendar}>
                     <CalendarPage />
                 </div>
-                <Link to={"/journal"} className='center' style={styles.text}>
+                <Link to={"/journal"} className='journal' style={styles.text}>
                     journal
                 </Link>
             </div>

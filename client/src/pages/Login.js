@@ -46,7 +46,7 @@ const Login = () => {
         <main>
             <div className="login-main">
                 <div className="card login">
-                    {/* <h4 className="card-header p-2 heading">Login</h4> */}
+                    <h4 className="card-header p-2 heading">Login</h4>
                     <div className="card-body">
                         <card>
 

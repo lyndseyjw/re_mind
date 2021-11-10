@@ -6,6 +6,7 @@ import './Login.css';
 
 import Auth from '../utils/auth';
 
+
 const Login = () => {
     const [formState, setFormState] = useState({ email: '', password: '' });
     const [login, { error, data }] = useMutation(LOGIN_USER);
@@ -45,7 +46,7 @@ const Login = () => {
         <main>
             <div className="login-main">
                 <div className="card login">
-                    <h4 className="card-header p-2 heading">Login</h4>
+                    {/* <h4 className="card-header p-2 heading">Login</h4> */}
                     <div className="card-body">
                         <card>
 
@@ -70,7 +71,7 @@ const Login = () => {
                                     className="btn btn-block button-spacing"
                                     style={{ cursor: 'pointer' }}
                                     type="submit"
-                                > Login
+                                > LOGIN
                                 </button>
                                 <p className="top-spacing">
                                     Don't have an account yet? {' '}
